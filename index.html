@@ -8,12 +8,12 @@
         :root {
             --bg: #0a0a0a; --bg-card: #141414; --bg-light: #1a1a1a;
             --text: #fff; --text-secondary: #888; --text-muted: #aaa;
-            --border: #1f1f1f; --border-focus: #333; --red: #CC0000; --red-dark: #990000; --radius: 16px;
+            --border: #1f1f1f; --red: #CC0000; --red-dark: #990000; --radius: 16px;
         }
         .light-theme {
             --bg: #f5f5f5; --bg-card: #ffffff; --bg-light: #e8e8e8;
             --text: #1a1a1a; --text-secondary: #666; --text-muted: #777;
-            --border: #ddd; --border-focus: #ccc;
+            --border: #ddd;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -39,14 +39,14 @@
         .btn-icon { background: transparent; border: 1px solid var(--border); color: var(--text); cursor: pointer; padding: 8px 12px; border-radius: 8px; font-size: 18px; transition: 0.3s; }
         .btn-icon:hover { border-color: var(--red); }
 
-        header { background: var(--bg); padding: 12px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); transition: background 0.3s; }
+        header { background: var(--bg); padding: 12px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
         .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
         .logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
         .logo-img { height: 40px; width: auto; border-radius: 6px; flex-shrink: 0; }
         .logo-text { font-size: 26px; font-weight: 900; color: var(--red); letter-spacing: 2px; }
         .logo-sub { font-size: 10px; color: var(--text-secondary); letter-spacing: 2px; display: block; }
-        .desktop-nav { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
-        nav { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+        .desktop-nav { display: flex; gap: 4px; align-items: center; }
+        nav { display: flex; gap: 4px; align-items: center; }
         nav a { color: var(--text-muted); text-decoration: none; padding: 8px 14px; font-weight: 500; font-size: 14px; border-radius: 50px; }
         nav a:hover { color: var(--text); background: rgba(204,0,0,0.15); }
         .burger-btn { display: none; background: transparent; border: 1px solid var(--border); color: var(--text); cursor: pointer; padding: 10px 14px; border-radius: 8px; font-size: 22px; }
@@ -73,13 +73,13 @@
         .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 
         .service-card { background: var(--bg-card); padding: 28px 22px; border-radius: var(--radius); border: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
-        .service-card:hover { border-color: var(--border-focus); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .service-card:hover { border-color: #333; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
         .s-icon { font-size: 32px; margin-bottom: 12px; display: block; }
         .service-card h3 { font-size: 17px; margin-bottom: 5px; }
         .service-card p { color: var(--text-secondary); font-size: 12px; }
         .price-tag { display: inline-block; background: rgba(204,0,0,0.15); color: var(--red); font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 20px; margin-top: 10px; }
 
-        .section-alt { background: var(--bg-light); transition: background 0.3s; }
+        .section-alt { background: var(--bg-light); }
 
         .advantage-card { background: var(--bg-card); padding: 30px 22px; border-radius: var(--radius); border: 1px solid var(--border); transition: 0.3s; text-align: center; }
         .advantage-card:hover { border-color: var(--red); transform: translateY(-5px); }
@@ -92,7 +92,7 @@
         .about-highlights { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 25px; }
         .about-highlight { text-align: center; }
         .about-highlight span { font-size: 28px; font-weight: 900; color: var(--red); display: block; }
-        .about-highlight small { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; }
+        .about-highlight small { font-size: 11px; color: var(--text-secondary); }
 
         .calc-box { background: var(--bg-card); border-radius: 20px; padding: 35px; border: 1px solid var(--border); max-width: 750px; margin: 0 auto; }
         .calc-box h3 { text-align: center; font-size: 24px; margin-bottom: 22px; }
@@ -118,7 +118,7 @@
         .contact-card strong { color: var(--red); display: block; font-size: 10px; letter-spacing: 2px; margin-bottom: 5px; text-transform: uppercase; }
         .contact-card a, .contact-card span { color: var(--text-muted); font-size: 14px; text-decoration: none; }
 
-        footer { background: var(--bg); border-top: 1px solid var(--border); padding: 45px 20px 20px; transition: background 0.3s; }
+        footer { background: var(--bg); border-top: 1px solid var(--border); padding: 45px 20px 20px; }
         .footer-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 35px; max-width: 1240px; margin: 0 auto 25px; }
         .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
         .footer-logo-img { height: 35px; width: auto; border-radius: 6px; flex-shrink: 0; }
@@ -142,9 +142,6 @@
         .scroll-top-btn { position: fixed; bottom: 90px; right: 25px; z-index: 999; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); font-size: 20px; cursor: pointer; transition: 0.3s; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; }
         .scroll-top-btn.show { opacity: 1; pointer-events: auto; }
         .scroll-top-btn:hover { border-color: var(--red); color: var(--red); }
-
-        .toast { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: var(--red); color: #fff; padding: 12px 24px; border-radius: 50px; font-weight: 700; z-index: 9999; display: none; }
-        .toast.show { display: block; }
 
         @media (max-width: 768px) {
             .desktop-nav { display: none; }
@@ -258,26 +255,14 @@
             <h2 class="sec-title">Соберите <span class="highlight">заказ</span> под себя</h2>
             <div class="calc-box">
                 <h3>Сборка заказа</h3>
-                <div class="calc-row">
-                    <div class="calc-field"><label>Ваше ФИО <span class="required-star">*</span></label><input type="text" id="calcName" placeholder="Иванов Иван Иванович"></div>
-                    <div class="calc-field"><label>Номер телефона <span class="required-star">*</span></label><input type="tel" id="calcPhone" placeholder="+7 999 123-45-67"></div>
-                </div>
-                <div class="calc-row">
-                    <div class="calc-field"><label>Организация</label><input type="text" id="calcOrg" placeholder="ООО «Компания»"></div>
-                    <div class="calc-field"><label>Email</label><input type="email" id="calcEmail" placeholder="mail@example.com"></div>
-                </div>
-                <div class="calc-row">
-                    <div class="calc-field"><label>Тип продукции</label><select id="calcProduct" onchange="changeProduct()"><optgroup label="Одежда"><option value="futbolka-dtf">Футболка ДТФ-принт</option><option value="futbolka-nashi">Футболка (наши) ДТФ</option><option value="kepka">Кепка ДТФ</option></optgroup><optgroup label="Сувенирка"><option value="ruchka">Ручка с принтом</option><option value="ruchka-gold">Ручка TOR GOLD</option><option value="kruzhka">Кружка с принтом</option></optgroup><optgroup label="Полиграфия"><option value="vizitki">Визитки</option><option value="nakleyki-krug">Наклейки круглые 5см</option><option value="birki-satin">Бирки сатиновые</option><option value="beydzh">Бейдж с ламинацией</option><option value="flaery-a6">Флаеры А6</option><option value="bloknot-a5">Блокнот А5</option></optgroup><optgroup label="Широкоформат"><option value="interier-samokleyka">Интерьерная самоклейка</option><option value="interier-banner">Интерьерный баннер</option><option value="exterier-banner">Экстерьерный баннер</option></optgroup></select></div>
-                    <div class="calc-field"><label id="calcQtyLabel">Количество</label><input type="number" id="calcQty" value="10" min="1" onchange="recalc()"></div>
-                </div>
-                <div class="calc-row">
-                    <div class="calc-field"><label>Размер / Вариант</label><select id="calcSize" onchange="recalc()"></select></div>
-                    <div class="calc-field"><label>Срочность</label><select id="calcUrgent" onchange="recalc()"><option value="1">Обычная</option><option value="1.5">Срочно (+50%)</option><option value="2">Суперсрочно (+100%)</option></select></div>
-                </div>
-                <div class="calc-row"><div class="calc-field" style="grid-column:1/-1;"><label>Загрузить макет</label><input type="file" id="calcFile" accept=".jpg,.jpeg,.png,.pdf,.cdr,.ai,.eps,.svg" style="padding:10px;"></div></div>
+                <div class="calc-row"><div class="calc-field"><label>ФИО <span class="required-star">*</span></label><input type="text" id="calcName" placeholder="Иванов Иван"></div><div class="calc-field"><label>Телефон <span class="required-star">*</span></label><input type="tel" id="calcPhone" placeholder="+7 999 123-45-67"></div></div>
+                <div class="calc-row"><div class="calc-field"><label>Организация</label><input type="text" id="calcOrg" placeholder="ООО «Компания»"></div><div class="calc-field"><label>Email</label><input type="email" id="calcEmail" placeholder="mail@example.com"></div></div>
+                <div class="calc-row"><div class="calc-field"><label>Продукт</label><select id="calcProduct" onchange="changeProduct()"><optgroup label="Одежда"><option value="futbolka-dtf">Футболка ДТФ</option><option value="futbolka-nashi">Футболка наша ДТФ</option><option value="kepka">Кепка ДТФ</option></optgroup><optgroup label="Сувенирка"><option value="ruchka">Ручка с принтом</option><option value="ruchka-gold">Ручка TOR GOLD</option><option value="kruzhka">Кружка</option></optgroup><optgroup label="Полиграфия"><option value="vizitki">Визитки</option><option value="nakleyki-krug">Наклейки 5см</option><option value="birki-satin">Бирки сатин</option><option value="beydzh">Бейдж</option><option value="flaery-a6">Флаеры А6</option><option value="bloknot-a5">Блокнот А5</option></optgroup><optgroup label="Широкоформат"><option value="interier-samokleyka">Интерьерная самоклейка</option><option value="interier-banner">Интерьерный баннер</option><option value="exterier-banner">Экстерьерный баннер</option></optgroup></select></div><div class="calc-field"><label id="calcQtyLabel">Количество</label><input type="number" id="calcQty" value="10" min="1" onchange="recalc()"></div></div>
+                <div class="calc-row"><div class="calc-field"><label>Размер</label><select id="calcSize" onchange="recalc()"></select></div><div class="calc-field"><label>Срочность</label><select id="calcUrgent" onchange="recalc()"><option value="1">Обычная</option><option value="1.5">Срочно (+50%)</option><option value="2">Суперсрочно (+100%)</option></select></div></div>
+                <div class="calc-row"><div class="calc-field" style="grid-column:1/-1;"><label>Макет</label><input type="file" id="calcFile" accept=".jpg,.jpeg,.png,.pdf,.cdr,.ai,.eps,.svg" style="padding:10px;"></div></div>
                 <div class="calc-price">Стоимость: <span id="calcPrice">0 руб</span></div>
                 <div class="calc-btns">
-                    <button class="btn" onclick="sendOrder()" style="padding:14px 36px;">Отправить заявку в WhatsApp</button>
+                    <button class="btn" onclick="sendOrder()" style="padding:14px 36px;">Отправить в WhatsApp</button>
                     <a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg">Telegram</a>
                 </div>
             </div>
@@ -286,16 +271,15 @@
 
     <section id="individual" class="section-alt">
         <div class="container">
-            <p class="sec-label">// Индивидуальные заказы</p>
+            <p class="sec-label">// Индивидуально</p>
             <h2 class="sec-title">Всё <span class="highlight">остальное</span></h2>
-            <p style="color:var(--text-secondary);margin:-25px 0 40px;">Для этих заказов нужен индивидуальный расчёт — напишите менеджеру.</p>
             <div class="grid-4" id="indivGrid"></div>
         </div>
     </section>
 
     <section id="location">
         <div class="container">
-            <p class="sec-label">// Где мы находимся</p>
+            <p class="sec-label">// Где мы</p>
             <h2 class="sec-title">Приезжайте <span class="highlight">в офис</span></h2>
             <div class="map-container">
                 <iframe src="https://yandex.ru/map-widget/v1/?ll=43.575255%2C43.474928&z=18&pt=43.575255,43.474928,pm2rdm" width="100%" height="400" frameborder="0" allowfullscreen="true"></iframe>
@@ -326,9 +310,9 @@
                         <span style="display:block;font-size:10px;color:var(--text-secondary);">рекламное агентство</span>
                     </div>
                 </div>
-                <p style="color:var(--text-secondary);font-size:12px;margin-top:8px;">Печать, сувенирка, полиграфия в Нальчике с 2014 года. 10 000+ заказов.</p>
+                <p style="color:var(--text-secondary);font-size:12px;margin-top:8px;">Печать, сувенирка, полиграфия в Нальчике с 2014 года.</p>
             </div>
-            <div><h4>Навигация</h4><a href="#services">Каталог</a><a href="#calc">Рассчитать заказ</a><a href="#individual">Индивидуально</a><a href="#location">Где мы находимся</a><a href="#contacts">Контакты</a></div>
+            <div><h4>Навигация</h4><a href="#services">Каталог</a><a href="#calc">Рассчитать заказ</a><a href="#individual">Индивидуально</a><a href="#location">Где мы</a><a href="#contacts">Контакты</a></div>
             <div><h4>Связаться</h4><a href="tel:+79674257979">+7 (967) 425-79-79</a><a href="mailto:alfaprint07@emeil.ru">alfaprint07@emeil.ru</a></div>
         </div>
         <div class="footer-end">© 2026 Альфа — рекламное агентство. Нальчик, Тарчокова 29.</div>
@@ -338,16 +322,12 @@
         <a href="https://wa.me/79674257979" target="_blank" class="float-btn wa" title="WhatsApp">💬</a>
         <a href="https://t.me/+79674257979" target="_blank" class="float-btn tg" title="Telegram">✈️</a>
     </div>
-
     <a href="tel:+79674257979" class="call-btn" title="Позвонить">📞</a>
     <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">↑</button>
-
-    <div class="toast" id="toast"></div>
 
     <script>
         var theme = localStorage.getItem('theme') || 'dark';
         if (theme === 'light') document.body.classList.add('light-theme');
-
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
             var isLight = document.body.classList.contains('light-theme');
@@ -356,16 +336,13 @@
             document.getElementById('themeBtn').textContent = icon;
             if (document.getElementById('themeBtnMobile')) document.getElementById('themeBtnMobile').textContent = icon + ' Сменить тему';
         }
-
         var currentIcon = theme === 'light' ? '☀️' : '🌙';
         document.getElementById('themeBtn').textContent = currentIcon;
 
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
         function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('show'); }
 
-        window.addEventListener('scroll', function() {
-            document.querySelector('.scroll-top-btn').classList.toggle('show', window.scrollY > 400);
-        });
+        window.addEventListener('scroll', function() { document.querySelector('.scroll-top-btn').classList.toggle('show', window.scrollY > 400); });
 
         var data = {
             'futbolka-dtf':{sizes:{'A4':[540,480,460,420,410,400],'A6':[300,240,240,230,220,190]},tiers:[1,5,10,20,50,100],unit:'шт'},
@@ -411,27 +388,27 @@
 
         function buildServices(){
             var g=document.getElementById('servicesGrid');g.innerHTML='';
-            for(var i=0;i<services.length;i++){
-                var s=services[i];var c=document.createElement('div');c.className='service-card reveal reveal-up';
-                c.onclick=(function(k){return function(){openCalc(k);};})(s.key);
+            services.forEach(function(s){
+                var c=document.createElement('div');c.className='service-card reveal reveal-up';
+                c.onclick=function(){openCalc(s.key);};
                 c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><span class="price-tag">'+s.price+'</span>';
                 g.appendChild(c);
-            }
+            });
         }
 
         function buildIndiv(){
             var g=document.getElementById('indivGrid');g.innerHTML='';
-            for(var i=0;i<indivServices.length;i++){
-                var s=indivServices[i];var c=document.createElement('div');c.className='indiv-card reveal reveal-up';
+            indivServices.forEach(function(s){
+                var c=document.createElement('div');c.className='indiv-card reveal reveal-up';
                 c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><div style="display:flex;gap:6px;justify-content:center;"><a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg btn-sm">TG</a><a href="https://wa.me/79674257979" target="_blank" class="btn btn-wa btn-sm">WA</a></div>';
                 g.appendChild(c);
-            }
+            });
         }
 
         function changeProduct(){
             var p=document.getElementById('calcProduct').value,d=data[p],sel=document.getElementById('calcSize');
             sel.innerHTML='';
-            if(d&&d.sizes){var k=Object.keys(d.sizes);for(var i=0;i<k.length;i++){var o=document.createElement('option');o.value=k[i];o.textContent=k[i];sel.appendChild(o);}}
+            if(d&&d.sizes){Object.keys(d.sizes).forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=k;sel.appendChild(o);});}
             if(d&&d.unit)document.getElementById('calcQtyLabel').textContent='Количество ('+d.unit+')';
             recalc();
         }
