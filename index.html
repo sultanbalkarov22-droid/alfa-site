@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Альфа — Рекламное агентство | Нальчик</title>
+    <style>
+        :root {
+            --bg: #0a0a0a; --bg-card: #141414; --bg-light: #1a1a1a;
+            --text: #fff; --text-secondary: #888; --text-muted: #aaa;
+            --border: #1f1f1f; --border-focus: #333; --red: #CC0000; --red-dark: #990000; --radius: 16px;
+        }
+        .light-theme {
+            --bg: #f5f5f5; --bg-card: #ffffff; --bg-light: #e8e8e8;
+            --text: #1a1a1a; --text-secondary: #666; --text-muted: #777;
+            --border: #ddd; --border-focus: #ccc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.3s, color 0.3s; }
+        .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(204,0,0,0.4); } 50% { box-shadow: 0 0 0 15px rgba(204,0,0,0); } }
+        @keyframes softGlowGreen { 0%, 100% { box-shadow: 0 0 8px rgba(37,211,102,0.4); } 50% { box-shadow: 0 0 22px rgba(37,211,102,0.8); } }
+        @keyframes softGlowBlue { 0%, 100% { box-shadow: 0 0 8px rgba(0,136,204,0.4); } 50% { box-shadow: 0 0 22px rgba(0,136,204,0.8); } }
+
+        .reveal { opacity: 0; transition: opacity 0.7s, transform 0.7s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-up { transform: translateY(40px); }
+
+        .btn { display: inline-block; background: var(--red); color: #fff; padding: 13px 28px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 15px; transition: 0.3s; border: 2px solid var(--red); cursor: pointer; text-align: center; }
+        .btn:hover { background: var(--red-dark); transform: translateY(-2px); }
+        .btn-outline { background: transparent; border-color: var(--text-muted); color: var(--text); }
+        .btn-outline:hover { background: var(--text); color: var(--bg); }
+        .btn-sm { padding: 9px 16px; font-size: 13px; }
+        .btn-wa { background: #25D366; border-color: #25D366; } .btn-wa:hover { background: #1da851; }
+        .btn-tg { background: #0088cc; border-color: #0088cc; } .btn-tg:hover { background: #006699; }
+        .btn-icon { background: transparent; border: 1px solid var(--border); color: var(--text); cursor: pointer; padding: 8px 12px; border-radius: 8px; font-size: 18px; transition: 0.3s; }
+        .btn-icon:hover { border-color: var(--red); }
+
+        header { background: var(--bg); padding: 12px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); transition: background 0.3s; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo-img { height: 40px; width: auto; border-radius: 6px; flex-shrink: 0; }
+        .logo-text { font-size: 26px; font-weight: 900; color: var(--red); letter-spacing: 2px; }
+        .logo-sub { font-size: 10px; color: var(--text-secondary); letter-spacing: 2px; display: block; }
+        .desktop-nav { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+        nav { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; padding: 8px 14px; font-weight: 500; font-size: 14px; border-radius: 50px; }
+        nav a:hover { color: var(--text); background: rgba(204,0,0,0.15); }
+        .burger-btn { display: none; background: transparent; border: 1px solid var(--border); color: var(--text); cursor: pointer; padding: 10px 14px; border-radius: 8px; font-size: 22px; }
+        .mobile-menu { display: none; flex-direction: column; background: var(--bg-card); border-radius: var(--radius); padding: 15px; position: absolute; top: 70px; right: 10px; left: 10px; z-index: 999; border: 1px solid var(--border); }
+        .mobile-menu.show { display: flex; }
+        .mobile-menu a { padding: 12px 16px; color: var(--text); text-decoration: none; font-weight: 600; border-radius: 8px; }
+        .mobile-menu a:hover { background: rgba(204,0,0,0.15); }
+
+        .hero { min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; }
+        .hero-badge { display: inline-block; background: rgba(204,0,0,0.15); color: var(--red); padding: 10px 22px; border-radius: 50px; font-size: 14px; margin-bottom: 20px; border: 1px solid rgba(204,0,0,0.3); animation: pulse 2.5s infinite; }
+        .hero h1 { font-size: clamp(34px, 7vw, 60px); font-weight: 900; line-height: 1.15; margin-bottom: 18px; }
+        .highlight { color: var(--red); }
+        .hero-sub { font-size: 17px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px; }
+        .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
+        .hero-stats { display: flex; gap: 45px; justify-content: center; flex-wrap: wrap; }
+        .stat-num { font-size: 42px; font-weight: 900; color: var(--red); }
+        .stat-lbl { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; }
+
+        section { padding: 80px 0; }
+        .sec-label { color: var(--red); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+        .sec-title { font-size: clamp(30px, 5vw, 44px); font-weight: 900; margin-bottom: 45px; }
+
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+        .service-card { background: var(--bg-card); padding: 28px 22px; border-radius: var(--radius); border: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
+        .service-card:hover { border-color: var(--border-focus); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .s-icon { font-size: 32px; margin-bottom: 12px; display: block; }
+        .service-card h3 { font-size: 17px; margin-bottom: 5px; }
+        .service-card p { color: var(--text-secondary); font-size: 12px; }
+        .price-tag { display: inline-block; background: rgba(204,0,0,0.15); color: var(--red); font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 20px; margin-top: 10px; }
+
+        .section-alt { background: var(--bg-light); transition: background 0.3s; }
+
+        .advantage-card { background: var(--bg-card); padding: 30px 22px; border-radius: var(--radius); border: 1px solid var(--border); transition: 0.3s; text-align: center; }
+        .advantage-card:hover { border-color: var(--red); transform: translateY(-5px); }
+        .advantage-icon { font-size: 36px; margin-bottom: 12px; }
+        .advantage-card h3 { font-size: 16px; margin-bottom: 6px; }
+        .advantage-card p { color: var(--text-secondary); font-size: 12px; }
+
+        .about-block { background: var(--bg-card); border-radius: var(--radius); padding: 40px; border: 1px solid var(--border); text-align: center; max-width: 900px; margin: 0 auto; }
+        .about-block p { color: var(--text-secondary); font-size: 15px; line-height: 1.8; }
+        .about-highlights { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 25px; }
+        .about-highlight { text-align: center; }
+        .about-highlight span { font-size: 28px; font-weight: 900; color: var(--red); display: block; }
+        .about-highlight small { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; }
+
+        .calc-box { background: var(--bg-card); border-radius: 20px; padding: 35px; border: 1px solid var(--border); max-width: 750px; margin: 0 auto; }
+        .calc-box h3 { text-align: center; font-size: 24px; margin-bottom: 22px; }
+        .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 16px; }
+        .calc-field { margin-bottom: 14px; }
+        .calc-field label { display: block; color: var(--text-muted); font-size: 12px; margin-bottom: 5px; font-weight: 600; text-transform: uppercase; }
+        .calc-field input, .calc-field select { width: 100%; padding: 12px 14px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 15px; font-family: inherit; }
+        .calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--red); }
+        .calc-price { background: rgba(204,0,0,0.1); border: 1px solid rgba(204,0,0,0.3); border-radius: 10px; padding: 18px; text-align: center; margin: 18px 0; font-size: 20px; font-weight: 900; }
+        .calc-price span { color: var(--red); font-size: 32px; }
+        .calc-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 15px; }
+        .required-star { color: var(--red); }
+
+        .indiv-card { background: var(--bg-card); border-radius: var(--radius); padding: 30px 22px; border: 1px solid var(--border); text-align: center; transition: 0.3s; }
+        .indiv-card:hover { border-color: var(--red); }
+        .indiv-card .s-icon { font-size: 40px; margin-bottom: 10px; }
+        .indiv-card h3 { font-size: 18px; margin-bottom: 6px; }
+        .indiv-card p { color: var(--text-secondary); font-size: 12px; margin-bottom: 15px; }
+
+        .contact-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 35px; }
+        .contact-card { background: var(--bg-card); padding: 28px 14px; border-radius: var(--radius); border: 1px solid var(--border); text-align: center; }
+        .c-icon { font-size: 32px; margin-bottom: 8px; }
+        .contact-card strong { color: var(--red); display: block; font-size: 10px; letter-spacing: 2px; margin-bottom: 5px; text-transform: uppercase; }
+        .contact-card a, .contact-card span { color: var(--text-muted); font-size: 14px; text-decoration: none; }
+
+        footer { background: var(--bg); border-top: 1px solid var(--border); padding: 45px 20px 20px; transition: background 0.3s; }
+        .footer-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 35px; max-width: 1240px; margin: 0 auto 25px; }
+        .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .footer-logo-img { height: 35px; width: auto; border-radius: 6px; flex-shrink: 0; }
+        footer h4 { color: var(--text); margin-bottom: 10px; }
+        footer a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 13px; margin-bottom: 5px; }
+        footer a:hover { color: var(--red); }
+        .footer-end { text-align: center; color: var(--text-secondary); font-size: 12px; padding-top: 14px; border-top: 1px solid var(--border); max-width: 1240px; margin: 0 auto; }
+
+        .map-container { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+        .map-container iframe { width: 100%; height: 400px; border: none; display: block; }
+
+        .floating-buttons { position: fixed; bottom: 25px; left: 25px; z-index: 999; display: flex; flex-direction: column; gap: 12px; }
+        .float-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 22px; transition: 0.3s; }
+        .float-btn.wa { background: #25D366; color: #fff; animation: softGlowGreen 2s infinite; }
+        .float-btn.tg { background: #0088cc; color: #fff; animation: softGlowBlue 2s infinite; }
+        .float-btn:hover { transform: scale(1.1); }
+
+        .call-btn { display: none; position: fixed; bottom: 25px; right: 25px; z-index: 999; width: 56px; height: 56px; border-radius: 50%; background: var(--red); color: #fff; font-size: 26px; text-decoration: none; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(204,0,0,0.5); transition: 0.3s; }
+        .call-btn:hover { transform: scale(1.1); background: var(--red-dark); }
+
+        .scroll-top-btn { position: fixed; bottom: 90px; right: 25px; z-index: 999; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); font-size: 20px; cursor: pointer; transition: 0.3s; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; }
+        .scroll-top-btn.show { opacity: 1; pointer-events: auto; }
+        .scroll-top-btn:hover { border-color: var(--red); color: var(--red); }
+
+        .toast { position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); background: var(--red); color: #fff; padding: 12px 24px; border-radius: 50px; font-weight: 700; z-index: 9999; display: none; }
+        .toast.show { display: block; }
+
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .burger-btn { display: block; }
+            .call-btn { display: flex; }
+            .grid-3, .grid-4, .contact-row { grid-template-columns: 1fr; }
+            .calc-row { grid-template-columns: 1fr; }
+            .footer-row { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo { justify-content: center; }
+            .hero h1 { font-size: 26px; }
+            .floating-buttons { bottom: 80px; left: 15px; }
+            .float-btn { width: 44px; height: 44px; font-size: 18px; }
+            .logo-img { height: 35px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="https://i.ibb.co/nqNn9PJr/photo-2026-06-16-13-49-41.jpg" alt="Альфа" class="logo-img">
+                <div>
+                    <span class="logo-text">АЛЬФА</span>
+                    <span class="logo-sub">рекламное агентство</span>
+                </div>
+            </a>
+            <div class="desktop-nav">
+                <nav>
+                    <a href="#services">Каталог</a>
+                    <a href="#calc">Рассчитать заказ</a>
+                    <a href="#individual">Индивидуально</a>
+                    <a href="#location">Где мы находимся</a>
+                    <a href="#contacts">Контакты</a>
+                    <button class="btn-icon" onclick="toggleTheme()" title="Сменить тему" id="themeBtn">🌙</button>
+                </nav>
+            </div>
+            <button class="burger-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#services" onclick="closeMobileMenu()">Каталог</a>
+            <a href="#calc" onclick="closeMobileMenu()">Рассчитать заказ</a>
+            <a href="#individual" onclick="closeMobileMenu()">Индивидуально</a>
+            <a href="#location" onclick="closeMobileMenu()">Где мы находимся</a>
+            <a href="#contacts" onclick="closeMobileMenu()">Контакты</a>
+            <button class="btn-icon" onclick="toggleTheme()" style="margin-top:10px;width:100%;" id="themeBtnMobile">🌙 Сменить тему</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div>
+            <p class="hero-badge">● Открыты к заказам</p>
+            <h1>Печать, что <span class="highlight">продаёт</span></h1>
+            <p class="hero-sub">Сувенирная продукция, полиграфия, УФ-печать и широкоформатная интерьерная печать в Нальчике с 2014 года.</p>
+            <div class="hero-buttons">
+                <a href="#calc" class="btn" style="padding:16px 36px;font-size:17px;">Рассчитать заказ</a>
+                <a href="#services" class="btn btn-outline" style="padding:16px 36px;font-size:17px;">Каталог</a>
+            </div>
+            <div class="hero-stats">
+                <div><span class="stat-num">12</span><span class="stat-lbl">лет</span></div>
+                <div><span class="stat-num">10 000+</span><span class="stat-lbl">заказов</span></div>
+                <div><span class="stat-num">24ч</span><span class="stat-lbl">срок</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-alt">
+        <div class="container">
+            <p class="sec-label">// О компании</p>
+            <h2 class="sec-title">Рекламное агентство <span class="highlight">Альфа</span></h2>
+            <div class="about-block">
+                <p>Работаем в Нальчике с 2014 года. Специализируемся на сувенирной продукции, полиграфии, УФ-печати и широкоформатной интерьерной печати. За 12 лет выполнили более 10 000 заказов. Помогаем с макетом, подбираем материалы и запускаем в печать за 24 часа.</p>
+                <div class="about-highlights">
+                    <div class="about-highlight"><span>12</span><small>лет опыта</small></div>
+                    <div class="about-highlight"><span>10 000+</span><small>заказов</small></div>
+                    <div class="about-highlight"><span>24ч</span><small>срок</small></div>
+                    <div class="about-highlight"><span>50+</span><small>видов продукции</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <p class="sec-label">// Преимущества</p>
+            <h2 class="sec-title">Почему выбирают <span class="highlight">именно нас</span></h2>
+            <div class="grid-4">
+                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🎯</div><h3>Всё в одном месте</h3><p>От визитки до баннера</p></div>
+                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">⚙️</div><h3>Современное оборудование</h3><p>Высокое разрешение печати</p></div>
+                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🔍</div><h3>Контроль качества</h3><p>Проверяем каждый заказ</p></div>
+                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🚀</div><h3>Постоянное развитие</h3><p>Новые мощности и технологии</p></div>
+                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🤝</div><h3>Работаем с юрлицами</h3><p>Договор, счета, документы</p></div>
+                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">💰</div><h3>Честные цены</h3><p>Без скрытых наценок</p></div>
+                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">⚡</div><h3>Срочные заказы</h3><p>Готовность от 24 часов</p></div>
+                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🎓</div><h3>Опыт 12 лет</h3><p>Знаем всё о печати</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-alt">
+        <div class="container">
+            <p class="sec-label">// Каталог</p>
+            <h2 class="sec-title">Что мы <span class="highlight">печатаем</span></h2>
+            <div class="grid-3" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <section id="calc">
+        <div class="container">
+            <p class="sec-label">// Рассчитать заказ</p>
+            <h2 class="sec-title">Соберите <span class="highlight">заказ</span> под себя</h2>
+            <div class="calc-box">
+                <h3>Сборка заказа</h3>
+                <div class="calc-row">
+                    <div class="calc-field"><label>Ваше ФИО <span class="required-star">*</span></label><input type="text" id="calcName" placeholder="Иванов Иван Иванович"></div>
+                    <div class="calc-field"><label>Номер телефона <span class="required-star">*</span></label><input type="tel" id="calcPhone" placeholder="+7 999 123-45-67"></div>
+                </div>
+                <div class="calc-row">
+                    <div class="calc-field"><label>Организация</label><input type="text" id="calcOrg" placeholder="ООО «Компания»"></div>
+                    <div class="calc-field"><label>Email</label><input type="email" id="calcEmail" placeholder="mail@example.com"></div>
+                </div>
+                <div class="calc-row">
+                    <div class="calc-field"><label>Тип продукции</label><select id="calcProduct" onchange="changeProduct()"><optgroup label="Одежда"><option value="futbolka-dtf">Футболка ДТФ-принт</option><option value="futbolka-nashi">Футболка (наши) ДТФ</option><option value="kepka">Кепка ДТФ</option></optgroup><optgroup label="Сувенирка"><option value="ruchka">Ручка с принтом</option><option value="ruchka-gold">Ручка TOR GOLD</option><option value="kruzhka">Кружка с принтом</option></optgroup><optgroup label="Полиграфия"><option value="vizitki">Визитки</option><option value="nakleyki-krug">Наклейки круглые 5см</option><option value="birki-satin">Бирки сатиновые</option><option value="beydzh">Бейдж с ламинацией</option><option value="flaery-a6">Флаеры А6</option><option value="bloknot-a5">Блокнот А5</option></optgroup><optgroup label="Широкоформат"><option value="interier-samokleyka">Интерьерная самоклейка</option><option value="interier-banner">Интерьерный баннер</option><option value="exterier-banner">Экстерьерный баннер</option></optgroup></select></div>
+                    <div class="calc-field"><label id="calcQtyLabel">Количество</label><input type="number" id="calcQty" value="10" min="1" onchange="recalc()"></div>
+                </div>
+                <div class="calc-row">
+                    <div class="calc-field"><label>Размер / Вариант</label><select id="calcSize" onchange="recalc()"></select></div>
+                    <div class="calc-field"><label>Срочность</label><select id="calcUrgent" onchange="recalc()"><option value="1">Обычная</option><option value="1.5">Срочно (+50%)</option><option value="2">Суперсрочно (+100%)</option></select></div>
+                </div>
+                <div class="calc-row"><div class="calc-field" style="grid-column:1/-1;"><label>Загрузить макет</label><input type="file" id="calcFile" accept=".jpg,.jpeg,.png,.pdf,.cdr,.ai,.eps,.svg" style="padding:10px;"></div></div>
+                <div class="calc-price">Стоимость: <span id="calcPrice">0 руб</span></div>
+                <div class="calc-btns">
+                    <button class="btn" onclick="sendOrder()" style="padding:14px 36px;">Отправить заявку в WhatsApp</button>
+                    <a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg">Telegram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="individual" class="section-alt">
+        <div class="container">
+            <p class="sec-label">// Индивидуальные заказы</p>
+            <h2 class="sec-title">Всё <span class="highlight">остальное</span></h2>
+            <p style="color:var(--text-secondary);margin:-25px 0 40px;">Для этих заказов нужен индивидуальный расчёт — напишите менеджеру.</p>
+            <div class="grid-4" id="indivGrid"></div>
+        </div>
+    </section>
+
+    <section id="location">
+        <div class="container">
+            <p class="sec-label">// Где мы находимся</p>
+            <h2 class="sec-title">Приезжайте <span class="highlight">в офис</span></h2>
+            <div class="map-container">
+                <iframe src="https://yandex.ru/map-widget/v1/?ll=43.575255%2C43.474928&z=18&pt=43.575255,43.474928,pm2rdm" width="100%" height="400" frameborder="0" allowfullscreen="true"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="section-alt">
+        <div class="container">
+            <p class="sec-label">// Контакты</p>
+            <h2 class="sec-title">Свяжитесь <span class="highlight">с нами</span></h2>
+            <div class="contact-row">
+                <div class="contact-card"><span class="c-icon">📞</span><strong>Телефон</strong><a href="tel:+79674257979">+7 (967) 425-79-79</a></div>
+                <div class="contact-card"><span class="c-icon">✉️</span><strong>Email</strong><a href="mailto:alfaprint07@emeil.ru">alfaprint07@emeil.ru</a></div>
+                <div class="contact-card"><span class="c-icon">📍</span><strong>Адрес</strong><span>Нальчик, Тарчокова 29</span></div>
+                <div class="contact-card"><span class="c-icon">💬</span><strong>Мессенджеры</strong><div style="display:flex;gap:6px;justify-content:center;margin-top:4px;"><a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg btn-sm">TG</a><a href="https://wa.me/79674257979" target="_blank" class="btn btn-wa btn-sm">WA</a></div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-row">
+            <div>
+                <div class="footer-logo">
+                    <img src="https://i.ibb.co/nqNn9PJr/photo-2026-06-16-13-49-41.jpg" alt="Альфа" class="footer-logo-img">
+                    <div>
+                        <span style="font-size:20px;font-weight:900;color:#CC0000;">АЛЬФА</span>
+                        <span style="display:block;font-size:10px;color:var(--text-secondary);">рекламное агентство</span>
+                    </div>
+                </div>
+                <p style="color:var(--text-secondary);font-size:12px;margin-top:8px;">Печать, сувенирка, полиграфия в Нальчике с 2014 года. 10 000+ заказов.</p>
+            </div>
+            <div><h4>Навигация</h4><a href="#services">Каталог</a><a href="#calc">Рассчитать заказ</a><a href="#individual">Индивидуально</a><a href="#location">Где мы находимся</a><a href="#contacts">Контакты</a></div>
+            <div><h4>Связаться</h4><a href="tel:+79674257979">+7 (967) 425-79-79</a><a href="mailto:alfaprint07@emeil.ru">alfaprint07@emeil.ru</a></div>
+        </div>
+        <div class="footer-end">© 2026 Альфа — рекламное агентство. Нальчик, Тарчокова 29.</div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="https://wa.me/79674257979" target="_blank" class="float-btn wa" title="WhatsApp">💬</a>
+        <a href="https://t.me/+79674257979" target="_blank" class="float-btn tg" title="Telegram">✈️</a>
+    </div>
+
+    <a href="tel:+79674257979" class="call-btn" title="Позвонить">📞</a>
+    <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">↑</button>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        var theme = localStorage.getItem('theme') || 'dark';
+        if (theme === 'light') document.body.classList.add('light-theme');
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            var isLight = document.body.classList.contains('light-theme');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            var icon = isLight ? '☀️' : '🌙';
+            document.getElementById('themeBtn').textContent = icon;
+            if (document.getElementById('themeBtnMobile')) document.getElementById('themeBtnMobile').textContent = icon + ' Сменить тему';
+        }
+
+        var currentIcon = theme === 'light' ? '☀️' : '🌙';
+        document.getElementById('themeBtn').textContent = currentIcon;
+
+        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
+        function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('show'); }
+
+        window.addEventListener('scroll', function() {
+            document.querySelector('.scroll-top-btn').classList.toggle('show', window.scrollY > 400);
+        });
+
+        var data = {
+            'futbolka-dtf':{sizes:{'A4':[540,480,460,420,410,400],'A6':[300,240,240,230,220,190]},tiers:[1,5,10,20,50,100],unit:'шт'},
+            'futbolka-nashi':{sizes:{'Стандарт':[1800,1450,1400,1350,1150]},tiers:[1,5,10,20,50],unit:'шт'},
+            'kepka':{sizes:{'Стандарт':[700,600,550]},tiers:[1,10,50],unit:'шт'},
+            'ruchka':{sizes:{'Пластик':[70,65,60,55,50]},tiers:[50,100,150,200,250],unit:'шт'},
+            'ruchka-gold':{sizes:{'Металл':[200,160,150,100]},tiers:[1,10,50,100],unit:'шт'},
+            'kruzhka':{sizes:{'Стандарт':[600,500,450,420,360,330,300]},tiers:[1,10,20,50,100,150,200],unit:'шт'},
+            'vizitki':{sizes:{'4+4':[11,8,6,4],'4+0':[10,6,5,3]},tiers:[100,300,500,1000],unit:'шт'},
+            'nakleyki-krug':{sizes:{'Черный/прозр':[20,17,15,13,11,9]},tiers:[30,50,80,100,300,500],unit:'шт'},
+            'birki-satin':{sizes:{'Стандарт':[18,10,7.5,6,5]},tiers:[50,100,300,500,1000],unit:'шт'},
+            'beydzh':{sizes:{'Стандарт':[270,250,200,150,130]},tiers:[1,10,20,50,100],unit:'шт'},
+            'flaery-a6':{sizes:{'4+4':[16,14,12,10]},tiers:[100,300,500,1000],unit:'шт'},
+            'bloknot-a5':{sizes:{'А5':[150,140,130,120,110]},tiers:[4,12,20,50,100],unit:'шт'},
+            'interier-samokleyka':{sizes:{'Самоклейка':[1500,1200,1100,1000,950]},tiers:[1,2,3,4,6],unit:'м²'},
+            'interier-banner':{sizes:{'Баннер':[750]},tiers:[1],unit:'м²'},
+            'exterier-banner':{sizes:{'Баннер':[550]},tiers:[1],unit:'м²'}
+        };
+
+        var services = [
+            {icon:'👕',name:'Печать на футболках',desc:'ДТФ-принт, вышивка',price:'от 400 руб',key:'futbolka-dtf'},
+            {icon:'🧢',name:'Кепки с принтом',desc:'ДТФ, вышивка',price:'от 550 руб',key:'kepka'},
+            {icon:'🖊️',name:'Ручки с логотипом',desc:'Пластик, металл',price:'от 50 руб',key:'ruchka'},
+            {icon:'☕',name:'Кружки с принтом',desc:'Сублимация',price:'от 300 руб',key:'kruzhka'},
+            {icon:'🃏',name:'Визитки',desc:'Меловка, УФ-лак',price:'от 3 руб/шт',key:'vizitki'},
+            {icon:'🔵',name:'Наклейки',desc:'Винил, круги 5 см',price:'от 9 руб/шт',key:'nakleyki-krug'},
+            {icon:'🏷️',name:'Сатиновые бирки',desc:'Ленты, упаковка',price:'от 5 руб/шт',key:'birki-satin'},
+            {icon:'🪪',name:'Бейджи',desc:'Пластик, магнит',price:'от 130 руб',key:'beydzh'},
+            {icon:'🖼️',name:'Интерьерная УФ',desc:'Самоклейка, холст',price:'от 750 руб/м²',key:'interier-samokleyka'},
+            {icon:'🎪',name:'Баннеры',desc:'Широкоформат',price:'от 550 руб/м²',key:'exterier-banner'},
+            {icon:'📰',name:'Флаеры и буклеты',desc:'Цифра, офсет',price:'от 2 руб/шт',key:'flaery-a6'},
+            {icon:'📒',name:'Блокноты',desc:'А5, А6, пружина',price:'от 65 руб',key:'bloknot-a5'}
+        ];
+
+        var indivServices = [
+            {icon:'👕',name:'Вышивка',desc:'Любой размер'},{icon:'🍫',name:'Шоколад',desc:'С логотипом'},
+            {icon:'📅',name:'Календари',desc:'Квартальные'},{icon:'🥤',name:'Стаканы',desc:'Интерьерная печать'},
+            {icon:'🏅',name:'Кубки/медали',desc:'Гравировка'},{icon:'🔘',name:'Гравировка',desc:'Лазерная'},
+            {icon:'📁',name:'Папки',desc:'Бумвинил'},{icon:'🎨',name:'Дизайнерская бумага',desc:'Маджестик, лён'},
+            {icon:'🎖️',name:'Значки',desc:'Металл, эмаль'},{icon:'🔩',name:'Люверсы',desc:'15 руб/шт'},
+            {icon:'📦',name:'Сатиновая лента',desc:'Упаковочная'},{icon:'🎯',name:'Стикерпаки',desc:'20×15 см'}
+        ];
+
+        function buildServices(){
+            var g=document.getElementById('servicesGrid');g.innerHTML='';
+            for(var i=0;i<services.length;i++){
+                var s=services[i];var c=document.createElement('div');c.className='service-card reveal reveal-up';
+                c.onclick=(function(k){return function(){openCalc(k);};})(s.key);
+                c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><span class="price-tag">'+s.price+'</span>';
+                g.appendChild(c);
+            }
+        }
+
+        function buildIndiv(){
+            var g=document.getElementById('indivGrid');g.innerHTML='';
+            for(var i=0;i<indivServices.length;i++){
+                var s=indivServices[i];var c=document.createElement('div');c.className='indiv-card reveal reveal-up';
+                c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><div style="display:flex;gap:6px;justify-content:center;"><a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg btn-sm">TG</a><a href="https://wa.me/79674257979" target="_blank" class="btn btn-wa btn-sm">WA</a></div>';
+                g.appendChild(c);
+            }
+        }
+
+        function changeProduct(){
+            var p=document.getElementById('calcProduct').value,d=data[p],sel=document.getElementById('calcSize');
+            sel.innerHTML='';
+            if(d&&d.sizes){var k=Object.keys(d.sizes);for(var i=0;i<k.length;i++){var o=document.createElement('option');o.value=k[i];o.textContent=k[i];sel.appendChild(o);}}
+            if(d&&d.unit)document.getElementById('calcQtyLabel').textContent='Количество ('+d.unit+')';
+            recalc();
+        }
+
+        function recalc(){
+            var p=document.getElementById('calcProduct').value,d=data[p];
+            if(!d||!d.sizes){document.getElementById('calcPrice').textContent='0 руб';return;}
+            var s=document.getElementById('calcSize').value;
+            if(!s||!d.sizes[s]){document.getElementById('calcPrice').textContent='0 руб';return;}
+            var q=parseInt(document.getElementById('calcQty').value)||1,u=parseFloat(document.getElementById('calcUrgent').value);
+            var pr=d.sizes[s],price=pr[pr.length-1];
+            for(var i=0;i<d.tiers.length;i++){if(q<=d.tiers[i]){price=pr[i];break;}}
+            document.getElementById('calcPrice').textContent=Math.round(price*q*u).toLocaleString('ru-RU')+' руб';
+        }
+
+        function openCalc(k){document.getElementById('calcProduct').value=k;changeProduct();document.getElementById('calc').scrollIntoView({behavior:'smooth'});}
+
+        function sendOrder(){
+            var n=document.getElementById('calcName').value.trim(),ph=document.getElementById('calcPhone').value.trim();
+            if(!n){alert('Введите ФИО');return;}if(!ph){alert('Введите телефон');return;}
+            var org=document.getElementById('calcOrg').value.trim(),em=document.getElementById('calcEmail').value.trim();
+            var pn=document.getElementById('calcProduct').selectedOptions[0].textContent;
+            var s=document.getElementById('calcSize').value,q=document.getElementById('calcQty').value;
+            var ut=document.getElementById('calcUrgent').selectedOptions[0].textContent,pr=document.getElementById('calcPrice').textContent;
+            var msg='НОВАЯ ЗАЯВКА!\n\nФИО: '+n+'\nТелефон: '+ph+'\n';
+            if(org)msg+='Организация: '+org+'\n';if(em)msg+='Email: '+em+'\n';
+            msg+='\nПродукт: '+pn+'\nРазмер: '+s+'\nКоличество: '+q+'\nСрочность: '+ut+'\nЦена: '+pr;
+            var f=document.getElementById('calcFile');if(f.files.length>0)msg+='\n\nМакет: '+f.files[0].name;
+            msg+='\n\nПрошу связаться.';
+            window.open('https://wa.me/79674257979?text='+encodeURIComponent(msg),'_blank');
+        }
+
+        buildServices();buildIndiv();changeProduct();
+        setTimeout(function(){
+            var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:0.15});
+            document.querySelectorAll('.reveal').forEach(function(el){o.observe(el);});
+        },100);
+    </script>
+</body>
+</html>
