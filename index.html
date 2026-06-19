@@ -144,7 +144,6 @@
         .scroll-top-btn.show { opacity: 1; pointer-events: auto; }
         .scroll-top-btn:hover { border-color: var(--red); color: var(--red); }
 
-        /* Чат */
         .chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 1000; }
         .chat-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--red); color: #fff; font-size: 28px; border: none; cursor: pointer; box-shadow: 0 8px 25px rgba(204,0,0,0.5); animation: chatBounce 2s infinite; }
         .chat-btn:hover { background: var(--red-dark); }
@@ -344,7 +343,6 @@
     <a href="tel:+79674257979" class="call-btn" title="Позвонить">📞</a>
     <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">↑</button>
 
-    <!-- Чат -->
     <div class="chat-widget">
         <button class="chat-btn" onclick="toggleChat()">💬</button>
         <div class="chat-window" id="chatWindow">
@@ -363,9 +361,8 @@
     </div>
 
     <script>
-        // Чат
         var BOT_TOKEN = '8943985524:AAEBPH32AhCR2CKjrdILxl4rgXgGkzm8_74';
-        var CHAT_ID = '7882095171';
+        var CHAT_IDS = ['7882095171', '1143658009', '7726724855'];
 
         function toggleChat() {
             document.getElementById('chatWindow').classList.toggle('open');
@@ -383,19 +380,22 @@
             messages.appendChild(userMsg);
             
             var text = '💬 Сообщение с сайта:\n\n' + msg;
-            fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: CHAT_ID,
-                    text: text
-                })
+            
+            CHAT_IDS.forEach(function(id) {
+                fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: id,
+                        text: text
+                    })
+                });
             });
             
             setTimeout(function() {
                 var botMsg = document.createElement('div');
                 botMsg.className = 'chat-msg bot';
-                botMsg.textContent = 'Спасибо! Менеджер уже получил ваше сообщение и скоро ответит.';
+                botMsg.textContent = 'Спасибо! Менеджеры уже получили ваше сообщение и скоро ответят.';
                 messages.appendChild(botMsg);
                 messages.scrollTop = messages.scrollHeight;
             }, 500);
@@ -404,7 +404,6 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
-        // Тема
         var theme = localStorage.getItem('theme') || 'dark';
         if (theme === 'light') document.body.classList.add('light-theme');
         function toggleTheme() {
@@ -528,5 +527,3 @@
     </script>
 </body>
 </html>
-
-
