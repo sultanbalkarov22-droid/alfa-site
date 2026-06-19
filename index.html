@@ -361,9 +361,10 @@
     </div>
 
     <script>
+        // === ЧАТ ===
         var BOT_TOKEN = '8943985524:AAEBPH32AhCR2CKjrdILxl4rgXgGkzm8_74';
         var CHAT_IDS = ['7882095171', '1143658009', '7726724855'];
-        var clientId = 'client_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+        var clientId = 'c_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 4);
         var lastUpdateId = 0;
 
         function toggleChat() {
@@ -377,54 +378,66 @@
             var input = document.getElementById('chatInput');
             var msg = input.value.trim();
             if (!msg) return;
-            
+
             var messages = document.getElementById('chatMessages');
-            var userMsg = document.createElement('div');
-            userMsg.className = 'chat-msg user';
-            userMsg.textContent = msg;
-            messages.appendChild(userMsg);
-            
-            var text = '💬 #' + clientId + '\n\n' + msg + '\n\nДля ответа: /reply ' + clientId + ' ваш ответ';
-            
+            var div = document.createElement('div');
+            div.className = 'chat-msg user';
+            div.textContent = msg;
+            messages.appendChild(div);
+
+            var text = '💬 #' + clientId + '\n\n' + msg + '\n\n📝 /reply ' + clientId + ' ваш ответ';
+
             CHAT_IDS.forEach(function(id) {
                 fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: id,
-                        text: text
-                    })
+                    body: JSON.stringify({ chat_id: id, text: text })
                 });
             });
-            
+
             input.value = '';
             messages.scrollTop = messages.scrollHeight;
+        }
+
+        function sendTelegram(chatId, text) {
+            fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: chatId, text: text })
+            });
         }
 
         function checkReplies() {
             fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/getUpdates', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    offset: lastUpdateId + 1,
-                    timeout: 5
-                })
+                body: JSON.stringify({ offset: lastUpdateId + 1, timeout: 5 })
             })
             .then(function(r) { return r.json(); })
             .then(function(data) {
                 if (data.ok && data.result.length > 0) {
-                    data.result.forEach(function(update) {
-                        lastUpdateId = update.update_id;
-                        if (update.message && update.message.text) {
-                            var text = update.message.text;
-                            if (text.startsWith('/reply ' + clientId)) {
-                                var reply = text.replace('/reply ' + clientId + ' ', '');
-                                var messages = document.getElementById('chatMessages');
-                                var botMsg = document.createElement('div');
-                                botMsg.className = 'chat-msg bot';
-                                botMsg.textContent = reply;
-                                messages.appendChild(botMsg);
-                                messages.scrollTop = messages.scrollHeight;
+                    data.result.forEach(function(upd) {
+                        if (upd.update_id > lastUpdateId) lastUpdateId = upd.update_id;
+                        if (upd.message && upd.message.text) {
+                            var txt = upd.message.text;
+                            var cid = upd.message.chat.id;
+
+                            if (txt === '/start') sendTelegram(cid, '👋 Вы подключены к чату Альфа.\nКлиент пишет → вы видите.\nОтвет: /reply ' + clientId + ' текст');
+                            else if (txt === '/help') sendTelegram(cid, '📋 /reply ID текст — ответить\n/managers — менеджеры\n/status — статус');
+                            else if (txt === '/managers') sendTelegram(cid, '👥 Менеджеры: Руководитель, Менеджер 1, Менеджер 2');
+                            else if (txt === '/status') sendTelegram(cid, '✅ Бот работает. Жду сообщения.');
+                            else if (txt.startsWith('/reply ' + clientId)) {
+                                var reply = txt.replace('/reply ' + clientId + ' ', '');
+                                var msgs = document.getElementById('chatMessages');
+                                var last = msgs.lastElementChild;
+                                // Проверка на дубли
+                                if (!last || last.textContent !== reply || last.className !== 'chat-msg bot') {
+                                    var botDiv = document.createElement('div');
+                                    botDiv.className = 'chat-msg bot';
+                                    botDiv.textContent = reply;
+                                    msgs.appendChild(botDiv);
+                                    msgs.scrollTop = msgs.scrollHeight;
+                                }
                             }
                         }
                     });
@@ -432,12 +445,14 @@
             });
         }
 
+        // Проверка ответов каждые 3 секунды
         setInterval(function() {
             if (document.getElementById('chatWindow').classList.contains('open')) {
                 checkReplies();
             }
         }, 3000);
 
+        // === ТЕМА ===
         var theme = localStorage.getItem('theme') || 'dark';
         if (theme === 'light') document.body.classList.add('light-theme');
         function toggleTheme() {
@@ -448,14 +463,18 @@
             document.getElementById('themeBtn').textContent = icon;
             if (document.getElementById('themeBtnMobile')) document.getElementById('themeBtnMobile').textContent = icon + ' Сменить тему';
         }
-        var currentIcon = theme === 'light' ? '☀️' : '🌙';
-        document.getElementById('themeBtn').textContent = currentIcon;
+        document.getElementById('themeBtn').textContent = theme === 'light' ? '☀️' : '🌙';
 
+        // === МЕНЮ ===
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
         function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('show'); }
 
-        window.addEventListener('scroll', function() { document.querySelector('.scroll-top-btn').classList.toggle('show', window.scrollY > 400); });
+        // === КНОПКА НАВЕРХ ===
+        window.addEventListener('scroll', function() {
+            document.querySelector('.scroll-top-btn').classList.toggle('show', window.scrollY > 400);
+        });
 
+        // === КАЛЬКУЛЯТОР ===
         var data = {
             'futbolka-dtf':{sizes:{'A4':[540,480,460,420,410,400],'A6':[300,240,240,230,220,190]},tiers:[1,5,10,20,50,100],unit:'шт'},
             'futbolka-nashi':{sizes:{'Стандарт':[1800,1450,1400,1350,1150]},tiers:[1,5,10,20,50],unit:'шт'},
