@@ -365,7 +365,7 @@
     <script>
         // Чат
         var BOT_TOKEN = '8943985524:AAEBPH32AhCR2CKjrdILxl4rgXgGkzm8_74';
-        var CHAT_ID = '79674257979';
+        var CHAT_ID = '7882095171';
 
         function toggleChat() {
             document.getElementById('chatWindow').classList.toggle('open');
@@ -376,14 +376,12 @@
             var msg = input.value.trim();
             if (!msg) return;
             
-            // Показываем сообщение пользователя
             var messages = document.getElementById('chatMessages');
             var userMsg = document.createElement('div');
             userMsg.className = 'chat-msg user';
             userMsg.textContent = msg;
             messages.appendChild(userMsg);
             
-            // Отправляем в Telegram
             var text = '💬 Сообщение с сайта:\n\n' + msg;
             fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
                 method: 'POST',
@@ -394,7 +392,6 @@
                 })
             });
             
-            // Ответ от бота
             setTimeout(function() {
                 var botMsg = document.createElement('div');
                 botMsg.className = 'chat-msg bot';
@@ -531,4 +528,5 @@
     </script>
 </body>
 </html>
+
 
