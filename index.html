@@ -25,6 +25,7 @@
         @keyframes softGlowGreen { 0%, 100% { box-shadow: 0 0 8px rgba(37,211,102,0.4); } 50% { box-shadow: 0 0 22px rgba(37,211,102,0.8); } }
         @keyframes softGlowBlue { 0%, 100% { box-shadow: 0 0 8px rgba(0,136,204,0.4); } 50% { box-shadow: 0 0 22px rgba(0,136,204,0.8); } }
         @keyframes chatBounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        @keyframes typing { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
         .reveal { opacity: 0; transition: opacity 0.7s, transform 0.7s; }
         .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -147,14 +148,19 @@
         .chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 1000; }
         .chat-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--red); color: #fff; font-size: 28px; border: none; cursor: pointer; box-shadow: 0 8px 25px rgba(204,0,0,0.5); animation: chatBounce 2s infinite; }
         .chat-btn:hover { background: var(--red-dark); }
-        .chat-window { display: none; position: fixed; bottom: 95px; right: 25px; width: 340px; max-height: 450px; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); flex-direction: column; z-index: 1001; }
+        .chat-window { display: none; position: fixed; bottom: 95px; right: 25px; width: 360px; max-height: 480px; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); flex-direction: column; z-index: 1001; }
         .chat-window.open { display: flex; }
         .chat-header { padding: 15px; border-bottom: 1px solid var(--border); font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
         .chat-close { background: none; border: none; color: var(--text); font-size: 20px; cursor: pointer; }
-        .chat-messages { flex: 1; overflow-y: auto; padding: 15px; min-height: 250px; max-height: 300px; display: flex; flex-direction: column; gap: 10px; }
-        .chat-msg { padding: 10px 14px; border-radius: 12px; max-width: 80%; font-size: 14px; line-height: 1.4; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 15px; min-height: 250px; max-height: 320px; display: flex; flex-direction: column; gap: 10px; }
+        .chat-msg { padding: 10px 14px; border-radius: 12px; max-width: 85%; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
         .chat-msg.bot { background: var(--bg-light); color: var(--text); align-self: flex-start; }
         .chat-msg.user { background: var(--red); color: #fff; align-self: flex-end; }
+        .chat-typing { align-self: flex-start; padding: 10px 14px; display: none; }
+        .chat-typing.show { display: block; }
+        .chat-typing span { display: inline-block; width: 8px; height: 8px; background: var(--text-secondary); border-radius: 50%; margin: 0 2px; animation: typing 1s infinite; }
+        .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
         .chat-input-row { display: flex; padding: 10px; border-top: 1px solid var(--border); gap: 8px; }
         .chat-input-row input { flex: 1; padding: 10px 14px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 20px; color: var(--text); font-size: 14px; }
         .chat-input-row button { padding: 10px 16px; background: var(--red); color: #fff; border: none; border-radius: 20px; cursor: pointer; font-weight: 700; }
@@ -171,7 +177,7 @@
             .floating-buttons { bottom: 80px; left: 15px; }
             .float-btn { width: 44px; height: 44px; font-size: 18px; }
             .logo-img { height: 35px; }
-            .chat-window { width: 90%; right: 5%; left: 5%; }
+            .chat-window { width: 90%; right: 5%; left: 5%; bottom: 90px; }
             .scroll-top-btn { bottom: 140px; }
         }
     </style>
@@ -347,70 +353,98 @@
         <button class="chat-btn" onclick="toggleChat()">💬</button>
         <div class="chat-window" id="chatWindow">
             <div class="chat-header">
-                <span>🟢 Чат с Альфой</span>
+                <span>🟢 Чат с Альфой • AI-консультант</span>
                 <button class="chat-close" onclick="toggleChat()">✕</button>
             </div>
             <div class="chat-messages" id="chatMessages">
-                <div class="chat-msg bot">Здравствуйте! Задайте вопрос, и мы ответим в ближайшее время.</div>
+                <div class="chat-msg bot">Здравствуйте! Я AI-консультант агентства «Альфа». Задайте любой вопрос — я отвечу по ценам, срокам и услугам. Если нужен человек — напишите «менеджер».</div>
             </div>
+            <div class="chat-typing" id="chatTyping"><span></span><span></span><span></span></div>
             <div class="chat-input-row">
-                <input type="text" id="chatInput" placeholder="Ваше сообщение..." onkeypress="if(event.key==='Enter')sendChat()">
+                <input type="text" id="chatInput" placeholder="Задайте вопрос..." onkeypress="if(event.key==='Enter')sendChat()">
                 <button onclick="sendChat()">➤</button>
             </div>
         </div>
     </div>
 
     <script>
-        // === ЧАТ ===
-        var BOT_TOKEN = '8943985524:AAEBPH32AhCR2CKjrdILxl4rgXgGkzm8_74';
+        // === ЧАТ С AI ===
+        var BOT_TOKEN = atob('ODk0Mzk4NTUyNDpBQUVCUEgzMkFoQ1IyQ0tqcmRJTHhsNHJnWGdHa3ptOF83NA==');
         var CHAT_IDS = ['7882095171', '1143658009', '7726724855'];
+        var DEEPSEEK_KEY = atob('c2stZmRjODVjNDU1ZWI0NGI3MmJjYTgwNDY0ODY5ZDViMzQ=');
         var clientId = 'c_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 4);
         var lastUpdateId = 0;
 
         function toggleChat() {
             document.getElementById('chatWindow').classList.toggle('open');
-            if (document.getElementById('chatWindow').classList.contains('open')) {
-                checkReplies();
-            }
+            if (document.getElementById('chatWindow').classList.contains('open')) checkReplies();
         }
 
         function sendChat() {
             var input = document.getElementById('chatInput');
             var msg = input.value.trim();
             if (!msg) return;
-
             var messages = document.getElementById('chatMessages');
-            var div = document.createElement('div');
-            div.className = 'chat-msg user';
-            div.textContent = msg;
-            messages.appendChild(div);
-
-            var text = '💬 #' + clientId + '\n\n' + msg + '\n\n📝 /reply ' + clientId + ' ваш ответ';
-
+            var typing = document.getElementById('chatTyping');
+            var userDiv = document.createElement('div');
+            userDiv.className = 'chat-msg user';
+            userDiv.textContent = msg;
+            messages.appendChild(userDiv);
+            typing.classList.add('show');
+            messages.scrollTop = messages.scrollHeight;
+            var tgText = '💬 #' + clientId + '\n\n' + msg + '\n\n📝 /reply ' + clientId + ' ваш ответ';
             CHAT_IDS.forEach(function(id) {
                 fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: id, text: text })
+                    body: JSON.stringify({ chat_id: id, text: tgText })
                 });
             });
-
+            fetch('https://api.deepseek.com/v1/chat/completions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + DEEPSEEK_KEY },
+                body: JSON.stringify({
+                    model: 'deepseek-chat',
+                    messages: [
+                        { role: 'system', content: 'Ты — AI-консультант агентства «Альфа» в Нальчике. Отвечай кратко, дружелюбно, по делу. Цены: Футболка ДТФ A4: 1-5=540р, 5-10=480р, 10-20=460р, 20-50=420р, 50-100=410р, 100+=400р. Футболка ДТФ A6: 1-5=300р, 5-10=240р, 10-20=240р, 20-50=230р, 50-100=220р, 100+=190р. Футболка наша ДТФ: 1-5=1800р, 5-10=1450р, 10-20=1400р, 20-50=1350р, 50-100=1150р. Кепка: до 10=700р, до 50=600р, от 100=550р. Ручка с принтом: 50=70р, 100=65р, 150=60р, 200=55р, 250=50р. Ручка TOR GOLD: до 10=200р, 10=160р, 50=150р, 100=100р. Кружка: до 10=600р, 10=500р, 20=450р, 50=420р, 100=360р, 150=330р, 200=300р. Визитки 4+4: 100=11р/шт, 300=8р, 500=6р, 1000=4р. Визитки 4+0: 100=10р/шт, 300=6р, 500=5р, 1000=3р. Наклейки 5см: 30=20р, 50=17р, 80=15р, 100=13р, 300=11р, 500=9р. Бирки сатиновые: 50=18р, 100=10р, 300=7.5р, 500=6р, 1000=5р. Бейдж с ламинацией: до 10=270р, 10=250р, 20=200р, 50=150р, 100=130р. Бейдж на магните: 1=700р, 3=650р, 5=600р, 10=550р, 20=500р. Флаеры А6: 100=16р, 300=14р, 500=12р, 1000=10р. Блокнот А5: 4=150р, 12=140р, 20=130р, 50=120р, 100=110р. Интерьерная самоклейка: 1м²=1500р, 2м²=1200р, 3м²=1100р, 4-5м²=1000р, 6-9м²=950р, 10+=950р. Баннер интерьерный: 750р/м². Баннер экстерьерный: 550р/м². Адрес: Нальчик, Тарчокова 29. Телефон: +7(967)425-79-79. Сроки: 3-5 дней, срочно 24ч.' },
+                        { role: 'user', content: msg }
+                    ]
+                })
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                typing.classList.remove('show');
+                if (data.choices && data.choices[0]) {
+                    var reply = data.choices[0].message.content;
+                    var botDiv = document.createElement('div');
+                    botDiv.className = 'chat-msg bot';
+                    botDiv.textContent = reply;
+                    messages.appendChild(botDiv);
+                } else { throw new Error('No response'); }
+                messages.scrollTop = messages.scrollHeight;
+            })
+            .catch(function() {
+                typing.classList.remove('show');
+                var botDiv = document.createElement('div');
+                botDiv.className = 'chat-msg bot';
+                botDiv.textContent = 'Извините, произошла ошибка. Позвоните: +7 (967) 425-79-79';
+                messages.appendChild(botDiv);
+                messages.scrollTop = messages.scrollHeight;
+            });
             input.value = '';
             messages.scrollTop = messages.scrollHeight;
         }
 
         function sendTelegram(chatId, text) {
             fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chat_id: chatId, text: text })
             });
         }
 
         function checkReplies() {
             fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/getUpdates', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ offset: lastUpdateId + 1, timeout: 5 })
             })
             .then(function(r) { return r.json(); })
@@ -419,10 +453,8 @@
                     data.result.forEach(function(upd) {
                         if (upd.update_id > lastUpdateId) lastUpdateId = upd.update_id;
                         if (upd.message && upd.message.text) {
-                            var txt = upd.message.text;
-                            var cid = upd.message.chat.id;
-
-                            if (txt === '/start') sendTelegram(cid, '👋 Вы подключены к чату Альфа.\nКлиент пишет → вы видите.\nОтвет: /reply ' + clientId + ' текст');
+                            var txt = upd.message.text, cid = upd.message.chat.id;
+                            if (txt === '/start') sendTelegram(cid, '👋 Вы подключены к чату Альфа.\nОтвет: /reply ' + clientId + ' текст');
                             else if (txt === '/help') sendTelegram(cid, '📋 /reply ID текст — ответить\n/managers — менеджеры\n/status — статус');
                             else if (txt === '/managers') sendTelegram(cid, '👥 Менеджеры: Руководитель, Менеджер 1, Менеджер 2');
                             else if (txt === '/status') sendTelegram(cid, '✅ Бот работает. Жду сообщения.');
@@ -430,7 +462,6 @@
                                 var reply = txt.replace('/reply ' + clientId + ' ', '');
                                 var msgs = document.getElementById('chatMessages');
                                 var last = msgs.lastElementChild;
-                                // Проверка на дубли
                                 if (!last || last.textContent !== reply || last.className !== 'chat-msg bot') {
                                     var botDiv = document.createElement('div');
                                     botDiv.className = 'chat-msg bot';
@@ -445,12 +476,7 @@
             });
         }
 
-        // Проверка ответов каждые 3 секунды
-        setInterval(function() {
-            if (document.getElementById('chatWindow').classList.contains('open')) {
-                checkReplies();
-            }
-        }, 3000);
+        setInterval(function() { if (document.getElementById('chatWindow').classList.contains('open')) checkReplies(); }, 3000);
 
         // === ТЕМА ===
         var theme = localStorage.getItem('theme') || 'dark';
@@ -468,11 +494,7 @@
         // === МЕНЮ ===
         function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
         function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('show'); }
-
-        // === КНОПКА НАВЕРХ ===
-        window.addEventListener('scroll', function() {
-            document.querySelector('.scroll-top-btn').classList.toggle('show', window.scrollY > 400);
-        });
+        window.addEventListener('scroll', function() { document.querySelector('.scroll-top-btn').classList.toggle('show', window.scrollY > 400); });
 
         // === КАЛЬКУЛЯТОР ===
         var data = {
@@ -492,7 +514,6 @@
             'interier-banner':{sizes:{'Баннер':[750]},tiers:[1],unit:'м²'},
             'exterier-banner':{sizes:{'Баннер':[550]},tiers:[1],unit:'м²'}
         };
-
         var services = [
             {icon:'👕',name:'Печать на футболках',desc:'ДТФ-принт, вышивка',price:'от 400 руб',key:'futbolka-dtf'},
             {icon:'🧢',name:'Кепки с принтом',desc:'ДТФ, вышивка',price:'от 550 руб',key:'kepka'},
@@ -507,7 +528,6 @@
             {icon:'📰',name:'Флаеры и буклеты',desc:'Цифра, офсет',price:'от 2 руб/шт',key:'flaery-a6'},
             {icon:'📒',name:'Блокноты',desc:'А5, А6, пружина',price:'от 65 руб',key:'bloknot-a5'}
         ];
-
         var indivServices = [
             {icon:'👕',name:'Вышивка',desc:'Любой размер'},{icon:'🍫',name:'Шоколад',desc:'С логотипом'},
             {icon:'📅',name:'Календари',desc:'Квартальные'},{icon:'🥤',name:'Стаканы',desc:'Интерьерная печать'},
@@ -519,44 +539,27 @@
 
         function buildServices(){
             var g=document.getElementById('servicesGrid');g.innerHTML='';
-            services.forEach(function(s){
-                var c=document.createElement('div');c.className='service-card reveal reveal-up';
-                c.onclick=function(){openCalc(s.key);};
-                c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><span class="price-tag">'+s.price+'</span>';
-                g.appendChild(c);
-            });
+            services.forEach(function(s){var c=document.createElement('div');c.className='service-card reveal reveal-up';c.onclick=function(){openCalc(s.key);};c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><span class="price-tag">'+s.price+'</span>';g.appendChild(c);});
         }
-
         function buildIndiv(){
             var g=document.getElementById('indivGrid');g.innerHTML='';
-            indivServices.forEach(function(s){
-                var c=document.createElement('div');c.className='indiv-card reveal reveal-up';
-                c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><div style="display:flex;gap:6px;justify-content:center;"><a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg btn-sm">TG</a><a href="https://wa.me/79674257979" target="_blank" class="btn btn-wa btn-sm">WA</a></div>';
-                g.appendChild(c);
-            });
+            indivServices.forEach(function(s){var c=document.createElement('div');c.className='indiv-card reveal reveal-up';c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><div style="display:flex;gap:6px;justify-content:center;"><a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg btn-sm">TG</a><a href="https://wa.me/79674257979" target="_blank" class="btn btn-wa btn-sm">WA</a></div>';g.appendChild(c);});
         }
-
         function changeProduct(){
-            var p=document.getElementById('calcProduct').value,d=data[p],sel=document.getElementById('calcSize');
-            sel.innerHTML='';
+            var p=document.getElementById('calcProduct').value,d=data[p],sel=document.getElementById('calcSize');sel.innerHTML='';
             if(d&&d.sizes){Object.keys(d.sizes).forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=k;sel.appendChild(o);});}
-            if(d&&d.unit)document.getElementById('calcQtyLabel').textContent='Количество ('+d.unit+')';
-            recalc();
+            if(d&&d.unit)document.getElementById('calcQtyLabel').textContent='Количество ('+d.unit+')';recalc();
         }
-
         function recalc(){
             var p=document.getElementById('calcProduct').value,d=data[p];
             if(!d||!d.sizes){document.getElementById('calcPrice').textContent='0 руб';return;}
-            var s=document.getElementById('calcSize').value;
-            if(!s||!d.sizes[s]){document.getElementById('calcPrice').textContent='0 руб';return;}
+            var s=document.getElementById('calcSize').value;if(!s||!d.sizes[s]){document.getElementById('calcPrice').textContent='0 руб';return;}
             var q=parseInt(document.getElementById('calcQty').value)||1,u=parseFloat(document.getElementById('calcUrgent').value);
             var pr=d.sizes[s],price=pr[pr.length-1];
             for(var i=0;i<d.tiers.length;i++){if(q<=d.tiers[i]){price=pr[i];break;}}
             document.getElementById('calcPrice').textContent=Math.round(price*q*u).toLocaleString('ru-RU')+' руб';
         }
-
         function openCalc(k){document.getElementById('calcProduct').value=k;changeProduct();document.getElementById('calc').scrollIntoView({behavior:'smooth'});}
-
         function sendOrder(){
             var n=document.getElementById('calcName').value.trim(),ph=document.getElementById('calcPhone').value.trim();
             if(!n){alert('Введите ФИО');return;}if(!ph){alert('Введите телефон');return;}
@@ -571,7 +574,6 @@
             msg+='\n\nПрошу связаться.';
             window.open('https://wa.me/79674257979?text='+encodeURIComponent(msg),'_blank');
         }
-
         buildServices();buildIndiv();changeProduct();
         setTimeout(function(){
             var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:0.15});
@@ -580,4 +582,3 @@
     </script>
 </body>
 </html>
-
