@@ -1,584 +1,1033 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Альфа — Рекламное агентство | Нальчик</title>
-    <style>
-        :root {
-            --bg: #0a0a0a; --bg-card: #141414; --bg-light: #1a1a1a;
-            --text: #fff; --text-secondary: #888; --text-muted: #aaa;
-            --border: #1f1f1f; --red: #CC0000; --red-dark: #990000; --radius: 16px;
-        }
-        .light-theme {
-            --bg: #f5f5f5; --bg-card: #ffffff; --bg-light: #e8e8e8;
-            --text: #1a1a1a; --text-secondary: #666; --text-muted: #777;
-            --border: #ddd;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.3s, color 0.3s; }
-        .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Альфа — рекламное агентство в Нальчике</title>
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(204,0,0,0.4); } 50% { box-shadow: 0 0 0 15px rgba(204,0,0,0); } }
-        @keyframes softGlowGreen { 0%, 100% { box-shadow: 0 0 8px rgba(37,211,102,0.4); } 50% { box-shadow: 0 0 22px rgba(37,211,102,0.8); } }
-        @keyframes softGlowBlue { 0%, 100% { box-shadow: 0 0 8px rgba(0,136,204,0.4); } 50% { box-shadow: 0 0 22px rgba(0,136,204,0.8); } }
-        @keyframes chatBounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-        @keyframes typing { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+  <style>
+    :root {
+      --red: #e5252a;
+      --red-dark: #b81218;
+      --black: #1f1f1f;
+      --dark: #262626;
+      --gray: #777;
+      --light: #f6f6f6;
+      --white: #ffffff;
+      --radius: 28px;
+      --shadow: 0 25px 80px rgba(0, 0, 0, 0.18);
+    }
 
-        .reveal { opacity: 0; transition: opacity 0.7s, transform 0.7s; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-up { transform: translateY(40px); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .btn { display: inline-block; background: var(--red); color: #fff; padding: 13px 28px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 15px; transition: 0.3s; border: 2px solid var(--red); cursor: pointer; text-align: center; }
-        .btn:hover { background: var(--red-dark); transform: translateY(-2px); }
-        .btn-outline { background: transparent; border-color: var(--text-muted); color: var(--text); }
-        .btn-outline:hover { background: var(--text); color: var(--bg); }
-        .btn-sm { padding: 9px 16px; font-size: 13px; }
-        .btn-wa { background: #25D366; border-color: #25D366; } .btn-wa:hover { background: #1da851; }
-        .btn-tg { background: #0088cc; border-color: #0088cc; } .btn-tg:hover { background: #006699; }
-        .btn-icon { background: transparent; border: 1px solid var(--border); color: var(--text); cursor: pointer; padding: 8px 12px; border-radius: 8px; font-size: 18px; transition: 0.3s; }
-        .btn-icon:hover { border-color: var(--red); }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        header { background: var(--bg); padding: 12px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border); }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-        .logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
-        .logo-img { height: 40px; width: auto; border-radius: 6px; flex-shrink: 0; }
-        .logo-text { font-size: 26px; font-weight: 900; color: var(--red); letter-spacing: 2px; }
-        .logo-sub { font-size: 10px; color: var(--text-secondary); letter-spacing: 2px; display: block; }
-        .desktop-nav { display: flex; gap: 4px; align-items: center; }
-        nav { display: flex; gap: 4px; align-items: center; }
-        nav a { color: var(--text-muted); text-decoration: none; padding: 8px 14px; font-weight: 500; font-size: 14px; border-radius: 50px; }
-        nav a:hover { color: var(--text); background: rgba(204,0,0,0.15); }
-        .burger-btn { display: none; background: transparent; border: 1px solid var(--border); color: var(--text); cursor: pointer; padding: 10px 14px; border-radius: 8px; font-size: 22px; }
-        .mobile-menu { display: none; flex-direction: column; background: var(--bg-card); border-radius: var(--radius); padding: 15px; position: absolute; top: 70px; right: 10px; left: 10px; z-index: 999; border: 1px solid var(--border); }
-        .mobile-menu.show { display: flex; }
-        .mobile-menu a { padding: 12px 16px; color: var(--text); text-decoration: none; font-weight: 600; border-radius: 8px; }
-        .mobile-menu a:hover { background: rgba(204,0,0,0.15); }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
 
-        .hero { min-height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center; }
-        .hero-badge { display: inline-block; background: rgba(204,0,0,0.15); color: var(--red); padding: 10px 22px; border-radius: 50px; font-size: 14px; margin-bottom: 20px; border: 1px solid rgba(204,0,0,0.3); animation: pulse 2.5s infinite; }
-        .hero h1 { font-size: clamp(34px, 7vw, 60px); font-weight: 900; line-height: 1.15; margin-bottom: 18px; }
-        .highlight { color: var(--red); }
-        .hero-sub { font-size: 17px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px; }
-        .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px; }
-        .hero-stats { display: flex; gap: 45px; justify-content: center; flex-wrap: wrap; }
-        .stat-num { font-size: 42px; font-weight: 900; color: var(--red); }
-        .stat-lbl { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        section { padding: 80px 0; }
-        .sec-label { color: var(--red); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
-        .sec-title { font-size: clamp(30px, 5vw, 44px); font-weight: 900; margin-bottom: 45px; }
+    .page {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(229,37,42,.22), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(229,37,42,.14), transparent 35%),
+        #1f1f1f;
+    }
 
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-        .service-card { background: var(--bg-card); padding: 28px 22px; border-radius: var(--radius); border: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
-        .service-card:hover { border-color: #333; transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .s-icon { font-size: 32px; margin-bottom: 12px; display: block; }
-        .service-card h3 { font-size: 17px; margin-bottom: 5px; }
-        .service-card p { color: var(--text-secondary); font-size: 12px; }
-        .price-tag { display: inline-block; background: rgba(204,0,0,0.15); color: var(--red); font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 20px; margin-top: 10px; }
+    .top-line {
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+      animation: glowLine 3s infinite alternate;
+    }
 
-        .section-alt { background: var(--bg-light); }
+    @keyframes glowLine {
+      from { opacity: .4; }
+      to { opacity: 1; box-shadow: 0 0 30px var(--red); }
+    }
 
-        .advantage-card { background: var(--bg-card); padding: 30px 22px; border-radius: var(--radius); border: 1px solid var(--border); transition: 0.3s; text-align: center; }
-        .advantage-card:hover { border-color: var(--red); transform: translateY(-5px); }
-        .advantage-icon { font-size: 36px; margin-bottom: 12px; }
-        .advantage-card h3 { font-size: 16px; margin-bottom: 6px; }
-        .advantage-card p { color: var(--text-secondary); font-size: 12px; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(31,31,31,.82);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
 
-        .about-block { background: var(--bg-card); border-radius: var(--radius); padding: 40px; border: 1px solid var(--border); text-align: center; max-width: 900px; margin: 0 auto; }
-        .about-block p { color: var(--text-secondary); font-size: 15px; line-height: 1.8; }
-        .about-highlights { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; margin-top: 25px; }
-        .about-highlight { text-align: center; }
-        .about-highlight span { font-size: 28px; font-weight: 900; color: var(--red); display: block; }
-        .about-highlight small { font-size: 11px; color: var(--text-secondary); }
+    .nav {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .calc-box { background: var(--bg-card); border-radius: 20px; padding: 35px; border: 1px solid var(--border); max-width: 750px; margin: 0 auto; }
-        .calc-box h3 { text-align: center; font-size: 24px; margin-bottom: 22px; }
-        .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 16px; }
-        .calc-field { margin-bottom: 14px; }
-        .calc-field label { display: block; color: var(--text-muted); font-size: 12px; margin-bottom: 5px; font-weight: 600; text-transform: uppercase; }
-        .calc-field input, .calc-field select { width: 100%; padding: 12px 14px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 15px; font-family: inherit; }
-        .calc-field input:focus, .calc-field select:focus { outline: none; border-color: var(--red); }
-        .calc-price { background: rgba(204,0,0,0.1); border: 1px solid rgba(204,0,0,0.3); border-radius: 10px; padding: 18px; text-align: center; margin: 18px 0; font-size: 20px; font-weight: 900; }
-        .calc-price span { color: var(--red); font-size: 32px; }
-        .calc-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 15px; }
-        .required-star { color: var(--red); }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-        .indiv-card { background: var(--bg-card); border-radius: var(--radius); padding: 30px 22px; border: 1px solid var(--border); text-align: center; transition: 0.3s; }
-        .indiv-card:hover { border-color: var(--red); }
-        .indiv-card .s-icon { font-size: 40px; margin-bottom: 10px; }
-        .indiv-card h3 { font-size: 18px; margin-bottom: 6px; }
-        .indiv-card p { color: var(--text-secondary); font-size: 12px; margin-bottom: 15px; }
+    .brand img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(229,37,42,.25);
+      animation: logoPulse 4s infinite ease-in-out;
+    }
 
-        .contact-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 35px; }
-        .contact-card { background: var(--bg-card); padding: 28px 14px; border-radius: var(--radius); border: 1px solid var(--border); text-align: center; }
-        .c-icon { font-size: 32px; margin-bottom: 8px; }
-        .contact-card strong { color: var(--red); display: block; font-size: 10px; letter-spacing: 2px; margin-bottom: 5px; text-transform: uppercase; }
-        .contact-card a, .contact-card span { color: var(--text-muted); font-size: 14px; text-decoration: none; }
+    @keyframes logoPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
 
-        footer { background: var(--bg); border-top: 1px solid var(--border); padding: 45px 20px 20px; }
-        .footer-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 35px; max-width: 1240px; margin: 0 auto 25px; }
-        .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-        .footer-logo-img { height: 35px; width: auto; border-radius: 6px; flex-shrink: 0; }
-        footer h4 { color: var(--text); margin-bottom: 10px; }
-        footer a { display: block; color: var(--text-secondary); text-decoration: none; font-size: 13px; margin-bottom: 5px; }
-        footer a:hover { color: var(--red); }
-        .footer-end { text-align: center; color: var(--text-secondary); font-size: 12px; padding-top: 14px; border-top: 1px solid var(--border); max-width: 1240px; margin: 0 auto; }
+    .brand-text strong {
+      display: block;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
 
-        .map-container { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
-        .map-container iframe { width: 100%; height: 400px; border: none; display: block; }
+    .brand-text span {
+      color: #bbb;
+      font-size: 13px;
+    }
 
-        .floating-buttons { position: fixed; bottom: 25px; left: 25px; z-index: 997; display: flex; flex-direction: column; gap: 12px; }
-        .float-btn { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 22px; transition: 0.3s; }
-        .float-btn.wa { background: #25D366; color: #fff; animation: softGlowGreen 2s infinite; }
-        .float-btn.tg { background: #0088cc; color: #fff; animation: softGlowBlue 2s infinite; }
-        .float-btn:hover { transform: scale(1.1); }
+    .menu {
+      display: flex;
+      gap: 26px;
+      color: #ddd;
+      font-size: 15px;
+    }
 
-        .call-btn { display: none; position: fixed; bottom: 25px; right: 25px; z-index: 997; width: 56px; height: 56px; border-radius: 50%; background: var(--red); color: #fff; font-size: 26px; text-decoration: none; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(204,0,0,0.5); transition: 0.3s; }
-        .call-btn:hover { transform: scale(1.1); background: var(--red-dark); }
+    .menu a {
+      position: relative;
+    }
 
-        .scroll-top-btn { position: fixed; bottom: 90px; right: 25px; z-index: 997; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); font-size: 20px; cursor: pointer; transition: 0.3s; opacity: 0; pointer-events: none; display: flex; align-items: center; justify-content: center; }
-        .scroll-top-btn.show { opacity: 1; pointer-events: auto; }
-        .scroll-top-btn:hover { border-color: var(--red); color: var(--red); }
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: .3s;
+    }
 
-        .chat-widget { position: fixed; bottom: 25px; right: 25px; z-index: 1000; }
-        .chat-btn { width: 60px; height: 60px; border-radius: 50%; background: var(--red); color: #fff; font-size: 28px; border: none; cursor: pointer; box-shadow: 0 8px 25px rgba(204,0,0,0.5); animation: chatBounce 2s infinite; }
-        .chat-btn:hover { background: var(--red-dark); }
-        .chat-window { display: none; position: fixed; bottom: 95px; right: 25px; width: 360px; max-height: 480px; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); flex-direction: column; z-index: 1001; }
-        .chat-window.open { display: flex; }
-        .chat-header { padding: 15px; border-bottom: 1px solid var(--border); font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
-        .chat-close { background: none; border: none; color: var(--text); font-size: 20px; cursor: pointer; }
-        .chat-messages { flex: 1; overflow-y: auto; padding: 15px; min-height: 250px; max-height: 320px; display: flex; flex-direction: column; gap: 10px; }
-        .chat-msg { padding: 10px 14px; border-radius: 12px; max-width: 85%; font-size: 14px; line-height: 1.5; word-wrap: break-word; }
-        .chat-msg.bot { background: var(--bg-light); color: var(--text); align-self: flex-start; }
-        .chat-msg.user { background: var(--red); color: #fff; align-self: flex-end; }
-        .chat-typing { align-self: flex-start; padding: 10px 14px; display: none; }
-        .chat-typing.show { display: block; }
-        .chat-typing span { display: inline-block; width: 8px; height: 8px; background: var(--text-secondary); border-radius: 50%; margin: 0 2px; animation: typing 1s infinite; }
-        .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
-        .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
-        .chat-input-row { display: flex; padding: 10px; border-top: 1px solid var(--border); gap: 8px; }
-        .chat-input-row input { flex: 1; padding: 10px 14px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 20px; color: var(--text); font-size: 14px; }
-        .chat-input-row button { padding: 10px 16px; background: var(--red); color: #fff; border: none; border-radius: 20px; cursor: pointer; font-weight: 700; }
+    .menu a:hover::after {
+      width: 100%;
+    }
 
-        @media (max-width: 768px) {
-            .desktop-nav { display: none; }
-            .burger-btn { display: block; }
-            .call-btn { display: flex; }
-            .grid-3, .grid-4, .contact-row { grid-template-columns: 1fr; }
-            .calc-row { grid-template-columns: 1fr; }
-            .footer-row { grid-template-columns: 1fr; text-align: center; }
-            .footer-logo { justify-content: center; }
-            .hero h1 { font-size: 26px; }
-            .floating-buttons { bottom: 80px; left: 15px; }
-            .float-btn { width: 44px; height: 44px; font-size: 18px; }
-            .logo-img { height: 35px; }
-            .chat-window { width: 90%; right: 5%; left: 5%; bottom: 90px; }
-            .scroll-top-btn { bottom: 140px; }
-        }
-    </style>
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.12);
+      transition: .3s;
+      cursor: pointer;
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      color: white;
+      box-shadow: 0 15px 40px rgba(229,37,42,.35);
+    }
+
+    .btn-red:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 60px rgba(229,37,42,.5);
+    }
+
+    .btn-dark {
+      background: rgba(255,255,255,.08);
+    }
+
+    .btn-dark:hover {
+      background: rgba(255,255,255,.16);
+      transform: translateY(-4px);
+    }
+
+    .hero {
+      position: relative;
+      padding: 90px 0 80px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(229,37,42,.14);
+      color: #ffb3b3;
+      border: 1px solid rgba(229,37,42,.28);
+      margin-bottom: 26px;
+      animation: fadeUp .8s ease both;
+    }
+
+    .badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 20px var(--red);
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: .95;
+      letter-spacing: -3px;
+      margin-bottom: 24px;
+      animation: fadeUp .9s ease both .1s;
+    }
+
+    h1 span {
+      color: var(--red);
+      text-shadow: 0 0 35px rgba(229,37,42,.5);
+    }
+
+    .hero p {
+      font-size: 21px;
+      line-height: 1.55;
+      color: #d4d4d4;
+      max-width: 650px;
+      margin-bottom: 34px;
+      animation: fadeUp .9s ease both .2s;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      animation: fadeUp .9s ease both .3s;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 500px;
+      border-radius: 40px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03)),
+        #292929;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: floatCard 5s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-16px) rotate(1deg); }
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: var(--red);
+      filter: blur(80px);
+      opacity: .45;
+      right: -90px;
+      top: -80px;
+      animation: blobMove 7s infinite alternate;
+    }
+
+    @keyframes blobMove {
+      from { transform: translate(0,0) scale(1); }
+      to { transform: translate(-80px,100px) scale(1.25); }
+    }
+
+    .big-logo {
+      position: absolute;
+      inset: 55px;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+
+    .big-logo img {
+      width: min(300px, 80%);
+      border-radius: 30px;
+      filter: drop-shadow(0 30px 40px rgba(0,0,0,.55));
+    }
+
+    .mini-stat {
+      position: absolute;
+      z-index: 3;
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: rgba(20,20,20,.72);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+
+    .mini-stat strong {
+      display: block;
+      color: white;
+      font-size: 28px;
+    }
+
+    .mini-stat span {
+      color: #bbb;
+      font-size: 13px;
+    }
+
+    .s1 { left: 28px; bottom: 34px; }
+    .s2 { right: 28px; bottom: 110px; }
+    .s3 { right: 55px; top: 40px; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(35px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 36px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .section-head h2 span {
+      color: var(--red);
+    }
+
+    .section-head p {
+      color: #bdbdbd;
+      max-width: 440px;
+      line-height: 1.6;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 250px;
+      padding: 26px;
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
+      border: 1px solid rgba(255,255,255,.1);
+      overflow: hidden;
+      transition: .35s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-12px);
+      border-color: rgba(229,37,42,.65);
+      box-shadow: 0 25px 70px rgba(229,37,42,.16);
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: var(--red);
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0;
+      right: -35px;
+      bottom: -35px;
+      transition: .35s;
+    }
+
+    .service-card:hover::after {
+      opacity: .65;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(229,37,42,.18);
+      color: var(--red);
+      font-size: 25px;
+      margin-bottom: 26px;
+    }
+
+    .service-card h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: #c8c8c8;
+      line-height: 1.55;
+    }
+
+    .marquee {
+      padding: 22px 0;
+      overflow: hidden;
+      background: var(--red);
+      color: white;
+      font-weight: 900;
+      font-size: 28px;
+      white-space: nowrap;
+      transform: rotate(-1deg);
+      margin: 40px 0;
+    }
+
+    .marquee-track {
+      display: inline-block;
+      animation: marquee 18s linear infinite;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 18px;
+    }
+
+    .work {
+      min-height: 280px;
+      border-radius: 30px;
+      padding: 28px;
+      background:
+        linear-gradient(145deg, rgba(229,37,42,.28), rgba(255,255,255,.04)),
+        #292929;
+      border: 1px solid rgba(255,255,255,.1);
+      position: relative;
+      overflow: hidden;
+      transition: .35s;
+    }
+
+    .work:hover {
+      transform: scale(1.03);
+    }
+
+    .work.large {
+      min-height: 580px;
+    }
+
+    .work h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .work p {
+      color: #ddd;
+      position: relative;
+      z-index: 2;
+    }
+
+    .work::before {
+      content: "";
+      position: absolute;
+      width: 230px;
+      height: 230px;
+      background: var(--red);
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: .38;
+      right: -70px;
+      bottom: -70px;
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      background: #f7f7f7;
+      color: #222;
+      border-radius: 40px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .calc-info {
+      background: #222;
+      color: white;
+      border-radius: 30px;
+      padding: 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calc-info::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: var(--red);
+      filter: blur(75px);
+      opacity: .45;
+      right: -80px;
+      bottom: -80px;
+    }
+
+    .calc-info h2 {
+      font-size: 42px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .calc-info p {
+      color: #d5d5d5;
+      line-height: 1.6;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 17px 18px;
+      border-radius: 18px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      outline: none;
+      transition: .25s;
+      background: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 4px rgba(229,37,42,.1);
+    }
+
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .contact-card {
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      transition: .3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-8px);
+      background: rgba(229,37,42,.15);
+    }
+
+    .contact-card span {
+      color: var(--red);
+      font-weight: 800;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .contact-card strong {
+      font-size: 23px;
+      line-height: 1.3;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: #aaa;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: 1s;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .floating-buttons {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      display: grid;
+      gap: 10px;
+      z-index: 60;
+    }
+
+    .float-btn {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--red);
+      color: white;
+      font-size: 24px;
+      box-shadow: 0 15px 35px rgba(229,37,42,.45);
+      animation: bounce 2.4s infinite;
+    }
+
+    .float-btn:nth-child(2) {
+      animation-delay: .35s;
+      background: #222;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    @media (max-width: 980px) {
+      .menu {
+        display: none;
+      }
+
+      .hero-grid,
+      .calculator {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portfolio {
+        grid-template-columns: 1fr;
+      }
+
+      .work.large {
+        min-height: 320px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav-actions {
+        display: none;
+      }
+
+      .brand img {
+        width: 54px;
+        height: 54px;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero-card {
+        min-height: 390px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 16px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .calculator {
+        padding: 18px;
+        border-radius: 28px;
+      }
+    }
+  </style>
 </head>
-<body>
 
+<body>
+  <div class="top-line"></div>
+
+  <div class="page">
     <header>
-        <div class="container header-inner">
-            <a href="#" class="logo">
-                <img src="https://i.ibb.co/nqNn9PJr/photo-2026-06-16-13-49-41.jpg" alt="Альфа" class="logo-img">
-                <div>
-                    <span class="logo-text">АЛЬФА</span>
-                    <span class="logo-sub">рекламное агентство</span>
-                </div>
-            </a>
-            <div class="desktop-nav">
-                <nav>
-                    <a href="#services">Каталог</a>
-                    <a href="#calc">Рассчитать заказ</a>
-                    <a href="#individual">Индивидуально</a>
-                    <a href="#location">Где мы находимся</a>
-                    <a href="#contacts">Контакты</a>
-                    <button class="btn-icon" onclick="toggleTheme()" title="Сменить тему" id="themeBtn">🌙</button>
-                </nav>
-            </div>
-            <button class="burger-btn" onclick="toggleMobileMenu()">☰</button>
+      <div class="container nav">
+        <a href="#" class="brand">
+          <img alt="Альфа логотип" src="data:image/jpeg;base64,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" />
+          <div class="brand-text">
+            <strong>АЛЬФА</strong>
+            <span>рекламное агентство</span>
+          </div>
+        </a>
+
+        <nav class="menu">
+          <a href="#services">Услуги</a>
+          <a href="#portfolio">Работы</a>
+          <a href="#calc">Заказ</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-dark" href="tel:+79287072007">Позвонить</a>
+          <a class="btn btn-red" href="#calc">Рассчитать</a>
         </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <a href="#services" onclick="closeMobileMenu()">Каталог</a>
-            <a href="#calc" onclick="closeMobileMenu()">Рассчитать заказ</a>
-            <a href="#individual" onclick="closeMobileMenu()">Индивидуально</a>
-            <a href="#location" onclick="closeMobileMenu()">Где мы находимся</a>
-            <a href="#contacts" onclick="closeMobileMenu()">Контакты</a>
-            <button class="btn-icon" onclick="toggleTheme()" style="margin-top:10px;width:100%;" id="themeBtnMobile">🌙 Сменить тему</button>
-        </div>
+      </div>
     </header>
 
-    <section class="hero">
-        <div>
-            <p class="hero-badge">● Открыты к заказам</p>
-            <h1>Печать, что <span class="highlight">продаёт</span></h1>
-            <p class="hero-sub">Сувенирная продукция, полиграфия, УФ-печать и широкоформатная интерьерная печать в Нальчике с 2014 года.</p>
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              Реклама • Печать • Дизайн • Сувениры
+            </div>
+
+            <h1>Печать, которая <span>продаёт</span></h1>
+
+            <p>
+              Рекламное агентство «Альфа» в Нальчике. Создаём вывески,
+              баннеры, полиграфию, брендированную одежду и сувенирную
+              продукцию для бизнеса, который хочет выглядеть сильнее.
+            </p>
+
             <div class="hero-buttons">
-                <a href="#calc" class="btn" style="padding:16px 36px;font-size:17px;">Рассчитать заказ</a>
-                <a href="#services" class="btn btn-outline" style="padding:16px 36px;font-size:17px;">Каталог</a>
+              <a class="btn btn-red" href="#calc">Оставить заявку</a>
+              <a class="btn btn-dark" href="https://wa.me/79287072007" target="_blank">Написать в WhatsApp</a>
             </div>
-            <div class="hero-stats">
-                <div><span class="stat-num">12</span><span class="stat-lbl">лет</span></div>
-                <div><span class="stat-num">10 000+</span><span class="stat-lbl">заказов</span></div>
-                <div><span class="stat-num">24ч</span><span class="stat-lbl">срок</span></div>
+          </div>
+
+          <div class="hero-card">
+            <div class="big-logo">
+              <img alt="Альфа" src="data:image/jpeg;base64,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" />
             </div>
-        </div>
-    </section>
 
-    <section class="section-alt">
-        <div class="container">
-            <p class="sec-label">// О компании</p>
-            <h2 class="sec-title">Рекламное агентство <span class="highlight">Альфа</span></h2>
-            <div class="about-block">
-                <p>Работаем в Нальчике с 2014 года. Свой цех, 12 лет опыта и больше 10 000 довольных клиентов. От визитки до интерьерной печати — делаем всё в одном месте. Быстро, честно и с душой.</p>
-                <div class="about-highlights">
-                    <div class="about-highlight"><span>12</span><small>лет</small></div>
-                    <div class="about-highlight"><span>10 000+</span><small>заказов</small></div>
-                    <div class="about-highlight"><span>24ч</span><small>срок</small></div>
-                    <div class="about-highlight"><span>50+</span><small>продуктов</small></div>
-                </div>
+            <div class="mini-stat s1">
+              <strong>10 000+</strong>
+              <span>выполненных заказов</span>
             </div>
-        </div>
-    </section>
 
-    <section>
-        <div class="container">
-            <p class="sec-label">// Преимущества</p>
-            <h2 class="sec-title">Почему выбирают <span class="highlight">именно нас</span></h2>
-            <div class="grid-4">
-                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🎯</div><h3>Всё в одном месте</h3><p>От визитки до баннера</p></div>
-                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">⚙️</div><h3>Современное оборудование</h3><p>Высокое разрешение</p></div>
-                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🔍</div><h3>Контроль качества</h3><p>Проверяем каждый заказ</p></div>
-                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🚀</div><h3>Постоянное развитие</h3><p>Новые мощности</p></div>
-                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🤝</div><h3>Работаем с юрлицами</h3><p>Договор, счета</p></div>
-                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">💰</div><h3>Честные цены</h3><p>Без скрытых наценок</p></div>
-                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">⚡</div><h3>Срочные заказы</h3><p>Готовность от 24ч</p></div>
-                <div class="advantage-card reveal reveal-up"><div class="advantage-icon">🎓</div><h3>Опыт 12 лет</h3><p>Знаем всё о печати</p></div>
+            <div class="mini-stat s2">
+              <strong>с 2014</strong>
+              <span>работаем для бизнеса</span>
             </div>
-        </div>
-    </section>
 
-    <section id="services" class="section-alt">
-        <div class="container">
-            <p class="sec-label">// Каталог</p>
-            <h2 class="sec-title">Что мы <span class="highlight">печатаем</span></h2>
-            <div class="grid-3" id="servicesGrid"></div>
-        </div>
-    </section>
-
-    <section id="calc">
-        <div class="container">
-            <p class="sec-label">// Рассчитать заказ</p>
-            <h2 class="sec-title">Соберите <span class="highlight">заказ</span> под себя</h2>
-            <div class="calc-box">
-                <h3>Сборка заказа</h3>
-                <div class="calc-row"><div class="calc-field"><label>ФИО <span class="required-star">*</span></label><input type="text" id="calcName" placeholder="Иванов Иван"></div><div class="calc-field"><label>Телефон <span class="required-star">*</span></label><input type="tel" id="calcPhone" placeholder="+7 999 123-45-67"></div></div>
-                <div class="calc-row"><div class="calc-field"><label>Организация</label><input type="text" id="calcOrg" placeholder="ООО «Компания»"></div><div class="calc-field"><label>Email</label><input type="email" id="calcEmail" placeholder="mail@example.com"></div></div>
-                <div class="calc-row"><div class="calc-field"><label>Продукт</label><select id="calcProduct" onchange="changeProduct()"><optgroup label="Одежда"><option value="futbolka-dtf">Футболка ДТФ</option><option value="futbolka-nashi">Футболка наша ДТФ</option><option value="kepka">Кепка ДТФ</option></optgroup><optgroup label="Сувенирка"><option value="ruchka">Ручка с принтом</option><option value="ruchka-gold">Ручка TOR GOLD</option><option value="kruzhka">Кружка</option></optgroup><optgroup label="Полиграфия"><option value="vizitki">Визитки</option><option value="nakleyki-krug">Наклейки 5см</option><option value="birki-satin">Бирки сатин</option><option value="beydzh">Бейдж</option><option value="flaery-a6">Флаеры А6</option><option value="bloknot-a5">Блокнот А5</option></optgroup><optgroup label="Широкоформат"><option value="interier-samokleyka">Интерьерная самоклейка</option><option value="interier-banner">Интерьерный баннер</option><option value="exterier-banner">Экстерьерный баннер</option></optgroup></select></div><div class="calc-field"><label id="calcQtyLabel">Количество</label><input type="number" id="calcQty" value="10" min="1" onchange="recalc()"></div></div>
-                <div class="calc-row"><div class="calc-field"><label>Размер</label><select id="calcSize" onchange="recalc()"></select></div><div class="calc-field"><label>Срочность</label><select id="calcUrgent" onchange="recalc()"><option value="1">Обычная</option><option value="1.5">Срочно (+50%)</option><option value="2">Суперсрочно (+100%)</option></select></div></div>
-                <div class="calc-row"><div class="calc-field" style="grid-column:1/-1;"><label>Макет</label><input type="file" id="calcFile" accept=".jpg,.jpeg,.png,.pdf,.cdr,.ai,.eps,.svg" style="padding:10px;"></div></div>
-                <div class="calc-price">Стоимость: <span id="calcPrice">0 руб</span></div>
-                <div class="calc-btns">
-                    <button class="btn" onclick="sendOrder()" style="padding:14px 36px;">Отправить в WhatsApp</button>
-                    <a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg">Telegram</a>
-                </div>
+            <div class="mini-stat s3">
+              <strong>24/7</strong>
+              <span>заявки онлайн</span>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section id="individual" class="section-alt">
-        <div class="container">
-            <p class="sec-label">// Индивидуально</p>
-            <h2 class="sec-title">Всё <span class="highlight">остальное</span></h2>
-            <div class="grid-4" id="indivGrid"></div>
+      <div class="marquee">
+        <div class="marquee-track">
+          БАННЕРЫ • ВЫВЕСКИ • ВИЗИТКИ • НАКЛЕЙКИ • СУВЕНИРЫ • ФУТБОЛКИ • ДИЗАЙН • ПЕЧАТЬ • БАННЕРЫ • ВЫВЕСКИ • ВИЗИТКИ • НАКЛЕЙКИ • СУВЕНИРЫ • ФУТБОЛКИ • ДИЗАЙН • ПЕЧАТЬ •
         </div>
-    </section>
+      </div>
 
-    <section id="location">
+      <section id="services">
         <div class="container">
-            <p class="sec-label">// Где мы</p>
-            <h2 class="sec-title">Приезжайте <span class="highlight">в офис</span></h2>
-            <div class="map-container">
-                <iframe src="https://yandex.ru/map-widget/v1/?ll=43.575255%2C43.474928&z=18&pt=43.575255,43.474928,pm2rdm" width="100%" height="400" frameborder="0" allowfullscreen="true"></iframe>
+          <div class="section-head reveal">
+            <h2>Что мы <span>делаем</span></h2>
+            <p>
+              От идеи и макета до готового изделия. Быстро, аккуратно и с визуалом,
+              который заметят.
+            </p>
+          </div>
+
+          <div class="services">
+            <div class="service-card reveal">
+              <div class="icon">✦</div>
+              <h3>Наружная реклама</h3>
+              <p>Вывески, баннеры, таблички, оформление фасадов и витрин.</p>
             </div>
-        </div>
-    </section>
 
-    <section id="contacts" class="section-alt">
-        <div class="container">
-            <p class="sec-label">// Контакты</p>
-            <h2 class="sec-title">Свяжитесь <span class="highlight">с нами</span></h2>
-            <div class="contact-row">
-                <div class="contact-card"><span class="c-icon">📞</span><strong>Телефон</strong><a href="tel:+79674257979">+7 (967) 425-79-79</a></div>
-                <div class="contact-card"><span class="c-icon">✉️</span><strong>Email</strong><a href="mailto:alfaprint07@emeil.ru">alfaprint07@emeil.ru</a></div>
-                <div class="contact-card"><span class="c-icon">📍</span><strong>Адрес</strong><span>Нальчик, Тарчокова 29</span></div>
-                <div class="contact-card"><span class="c-icon">💬</span><strong>Мессенджеры</strong><div style="display:flex;gap:6px;justify-content:center;margin-top:4px;"><a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg btn-sm">TG</a><a href="https://wa.me/79674257979" target="_blank" class="btn btn-wa btn-sm">WA</a></div></div>
+            <div class="service-card reveal">
+              <div class="icon">▣</div>
+              <h3>Полиграфия</h3>
+              <p>Визитки, листовки, буклеты, меню, сертификаты и фирменные материалы.</p>
             </div>
+
+            <div class="service-card reveal">
+              <div class="icon">●</div>
+              <h3>Сувенирка</h3>
+              <p>Кружки, ручки, пакеты, ежедневники и подарки с вашим брендом.</p>
+            </div>
+
+            <div class="service-card reveal">
+              <div class="icon">✎</div>
+              <h3>Дизайн</h3>
+              <p>Логотипы, макеты, фирменный стиль и подготовка файлов к печати.</p>
+            </div>
+
+            <div class="service-card reveal">
+              <div class="icon">▰</div>
+              <h3>Одежда</h3>
+              <p>Печать на футболках, худи, спецодежде и корпоративной форме.</p>
+            </div>
+
+            <div class="service-card reveal">
+              <div class="icon">⬢</div>
+              <h3>Наклейки</h3>
+              <p>Стикеры, этикетки, брендирование упаковки, авто и витрин.</p>
+            </div>
+
+            <div class="service-card reveal">
+              <div class="icon">★</div>
+              <h3>Срочные заказы</h3>
+              <p>Когда нужно быстро — поможем подобрать оптимальный формат и срок.</p>
+            </div>
+
+            <div class="service-card reveal">
+              <div class="icon">✓</div>
+              <h3>Под ключ</h3>
+              <p>Консультация, дизайн, производство и помощь с установкой.</p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+
+      <section id="portfolio">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Работы, которые <span>замечают</span></h2>
+            <p>
+              Здесь можно позже поставить реальные фото ваших работ. Сейчас блок
+              уже выглядит как профессиональное портфолио.
+            </p>
+          </div>
+
+          <div class="portfolio">
+            <div class="work large reveal">
+              <h3>Вывески и фасады</h3>
+              <p>Сильная наружная реклама для магазинов, кафе, салонов и офисов.</p>
+            </div>
+
+            <div class="work reveal">
+              <h3>Баннеры</h3>
+              <p>Яркие баннеры для акций, мероприятий и оформления точек продаж.</p>
+            </div>
+
+            <div class="work reveal">
+              <h3>Брендирование</h3>
+              <p>Одежда, сувениры, упаковка и корпоративный стиль.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="calc">
+        <div class="container">
+          <div class="calculator reveal">
+            <div class="calc-info">
+              <h2>Рассчитаем заказ</h2>
+              <p>
+                Заполните форму — после нажатия откроется WhatsApp с готовым
+                сообщением. Вам останется только отправить его.
+              </p>
+            </div>
+
+            <form class="form" id="orderForm">
+              <div class="form-row">
+                <input id="name" type="text" placeholder="Ваше имя" required />
+                <input id="phone" type="tel" placeholder="Телефон" required />
+              </div>
+
+              <div class="form-row">
+                <select id="service" required>
+                  <option value="">Выберите услугу</option>
+                  <option>Вывеска</option>
+                  <option>Баннер</option>
+                  <option>Визитки</option>
+                  <option>Листовки</option>
+                  <option>Наклейки</option>
+                  <option>Печать на одежде</option>
+                  <option>Сувенирная продукция</option>
+                  <option>Дизайн</option>
+                  <option>Другое</option>
+                </select>
+
+                <input id="quantity" type="text" placeholder="Количество / размер" />
+              </div>
+
+              <textarea id="comment" placeholder="Кратко опишите задачу"></textarea>
+
+              <button class="btn btn-red" type="submit">Отправить в WhatsApp</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts">
+        <div class="container">
+          <div class="section-head reveal">
+            <h2>Связаться с <span>нами</span></h2>
+            <p>Напишите или приезжайте — подскажем по материалам, срокам и цене.</p>
+          </div>
+
+          <div class="contact-grid">
+            <a class="contact-card reveal" href="tel:+79287072007">
+              <span>Телефон</span>
+              <strong>+7 928 707-20-07</strong>
+            </a>
+
+            <a class="contact-card reveal" href="https://wa.me/79287072007" target="_blank">
+              <span>WhatsApp</span>
+              <strong>Написать в мессенджер</strong>
+            </a>
+
+            <div class="contact-card reveal">
+              <span>Адрес</span>
+              <strong>г. Нальчик, ул. Идарова, 139</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
-        <div class="footer-row">
-            <div>
-                <div class="footer-logo">
-                    <img src="https://i.ibb.co/nqNn9PJr/photo-2026-06-16-13-49-41.jpg" alt="Альфа" class="footer-logo-img">
-                    <div>
-                        <span style="font-size:20px;font-weight:900;color:#CC0000;">АЛЬФА</span>
-                        <span style="display:block;font-size:10px;color:var(--text-secondary);">рекламное агентство</span>
-                    </div>
-                </div>
-                <p style="color:var(--text-secondary);font-size:12px;margin-top:8px;">Печать, сувенирка, полиграфия в Нальчике с 2014 года.</p>
-            </div>
-            <div><h4>Навигация</h4><a href="#services">Каталог</a><a href="#calc">Рассчитать заказ</a><a href="#individual">Индивидуально</a><a href="#location">Где мы</a><a href="#contacts">Контакты</a></div>
-            <div><h4>Связаться</h4><a href="tel:+79674257979">+7 (967) 425-79-79</a><a href="mailto:alfaprint07@emeil.ru">alfaprint07@emeil.ru</a></div>
-        </div>
-        <div class="footer-end">© 2026 Альфа — рекламное агентство. Нальчик, Тарчокова 29.</div>
+      <div class="container footer-inner">
+        <div>© 2026 АЛЬФА — рекламное агентство</div>
+        <div>Нальчик • Печать • Дизайн • Реклама</div>
+      </div>
     </footer>
+  </div>
 
-    <div class="floating-buttons">
-        <a href="https://wa.me/79674257979" target="_blank" class="float-btn wa" title="WhatsApp">💬</a>
-        <a href="https://t.me/+79674257979" target="_blank" class="float-btn tg" title="Telegram">✈️</a>
-    </div>
-    <a href="tel:+79674257979" class="call-btn" title="Позвонить">📞</a>
-    <button class="scroll-top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Наверх">↑</button>
+  <div class="floating-buttons">
+    <a class="float-btn" href="https://wa.me/79287072007" target="_blank">☏</a>
+    <a class="float-btn" href="tel:+79287072007">☎</a>
+  </div>
 
-    <div class="chat-widget">
-        <button class="chat-btn" onclick="toggleChat()">💬</button>
-        <div class="chat-window" id="chatWindow">
-            <div class="chat-header">
-                <span>🟢 Чат с Альфой • AI-консультант</span>
-                <button class="chat-close" onclick="toggleChat()">✕</button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="chat-msg bot">Здравствуйте! Я AI-консультант агентства «Альфа». Задайте любой вопрос — я отвечу по ценам, срокам и услугам. Если нужен человек — напишите «менеджер».</div>
-            </div>
-            <div class="chat-typing" id="chatTyping"><span></span><span></span><span></span></div>
-            <div class="chat-input-row">
-                <input type="text" id="chatInput" placeholder="Задайте вопрос..." onkeypress="if(event.key==='Enter')sendChat()">
-                <button onclick="sendChat()">➤</button>
-            </div>
-        </div>
-    </div>
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
 
-    <script>
-        // === ЧАТ С AI ===
-        var BOT_TOKEN = atob('ODk0Mzk4NTUyNDpBQUVCUEgzMkFoQ1IyQ0tqcmRJTHhsNHJnWGdHa3ptOF83NA==');
-        var CHAT_IDS = ['7882095171', '1143658009', '7726724855'];
-        var DEEPSEEK_KEY = atob('c2stZmRjODVjNDU1ZWI0NGI3MmJjYTgwNDY0ODY5ZDViMzQ=');
-        var clientId = 'c_' + Date.now().toString(36) + Math.random().toString(36).substr(2, 4);
-        var lastUpdateId = 0;
-
-        function toggleChat() {
-            document.getElementById('chatWindow').classList.toggle('open');
-            if (document.getElementById('chatWindow').classList.contains('open')) checkReplies();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('active');
+          }, index * 80);
         }
+      });
+    }, {
+      threshold: 0.15
+    });
 
-        function sendChat() {
-            var input = document.getElementById('chatInput');
-            var msg = input.value.trim();
-            if (!msg) return;
-            var messages = document.getElementById('chatMessages');
-            var typing = document.getElementById('chatTyping');
-            var userDiv = document.createElement('div');
-            userDiv.className = 'chat-msg user';
-            userDiv.textContent = msg;
-            messages.appendChild(userDiv);
-            typing.classList.add('show');
-            messages.scrollTop = messages.scrollHeight;
-            var tgText = '💬 #' + clientId + '\n\n' + msg + '\n\n📝 /reply ' + clientId + ' ваш ответ';
-            CHAT_IDS.forEach(function(id) {
-                fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ chat_id: id, text: tgText })
-                });
-            });
-            fetch('https://api.deepseek.com/v1/chat/completions', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + DEEPSEEK_KEY },
-                body: JSON.stringify({
-                    model: 'deepseek-chat',
-                    messages: [
-                        { role: 'system', content: 'Ты — AI-консультант агентства «Альфа» в Нальчике. Отвечай кратко, дружелюбно, по делу. Цены: Футболка ДТФ A4: 1-5=540р, 5-10=480р, 10-20=460р, 20-50=420р, 50-100=410р, 100+=400р. Футболка ДТФ A6: 1-5=300р, 5-10=240р, 10-20=240р, 20-50=230р, 50-100=220р, 100+=190р. Футболка наша ДТФ: 1-5=1800р, 5-10=1450р, 10-20=1400р, 20-50=1350р, 50-100=1150р. Кепка: до 10=700р, до 50=600р, от 100=550р. Ручка с принтом: 50=70р, 100=65р, 150=60р, 200=55р, 250=50р. Ручка TOR GOLD: до 10=200р, 10=160р, 50=150р, 100=100р. Кружка: до 10=600р, 10=500р, 20=450р, 50=420р, 100=360р, 150=330р, 200=300р. Визитки 4+4: 100=11р/шт, 300=8р, 500=6р, 1000=4р. Визитки 4+0: 100=10р/шт, 300=6р, 500=5р, 1000=3р. Наклейки 5см: 30=20р, 50=17р, 80=15р, 100=13р, 300=11р, 500=9р. Бирки сатиновые: 50=18р, 100=10р, 300=7.5р, 500=6р, 1000=5р. Бейдж с ламинацией: до 10=270р, 10=250р, 20=200р, 50=150р, 100=130р. Бейдж на магните: 1=700р, 3=650р, 5=600р, 10=550р, 20=500р. Флаеры А6: 100=16р, 300=14р, 500=12р, 1000=10р. Блокнот А5: 4=150р, 12=140р, 20=130р, 50=120р, 100=110р. Интерьерная самоклейка: 1м²=1500р, 2м²=1200р, 3м²=1100р, 4-5м²=1000р, 6-9м²=950р, 10+=950р. Баннер интерьерный: 750р/м². Баннер экстерьерный: 550р/м². Адрес: Нальчик, Тарчокова 29. Телефон: +7(967)425-79-79. Сроки: 3-5 дней, срочно 24ч.' },
-                        { role: 'user', content: msg }
-                    ]
-                })
-            })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                typing.classList.remove('show');
-                if (data.choices && data.choices[0]) {
-                    var reply = data.choices[0].message.content;
-                    var botDiv = document.createElement('div');
-                    botDiv.className = 'chat-msg bot';
-                    botDiv.textContent = reply;
-                    messages.appendChild(botDiv);
-                } else { throw new Error('No response'); }
-                messages.scrollTop = messages.scrollHeight;
-            })
-            .catch(function() {
-                typing.classList.remove('show');
-                var botDiv = document.createElement('div');
-                botDiv.className = 'chat-msg bot';
-                botDiv.textContent = 'Извините, произошла ошибка. Позвоните: +7 (967) 425-79-79';
-                messages.appendChild(botDiv);
-                messages.scrollTop = messages.scrollHeight;
-            });
-            input.value = '';
-            messages.scrollTop = messages.scrollHeight;
-        }
+    reveals.forEach((el) => observer.observe(el));
 
-        function sendTelegram(chatId, text) {
-            fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/sendMessage', {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chat_id: chatId, text: text })
-            });
-        }
+    document.getElementById('orderForm').addEventListener('submit', function(event) {
+      event.preventDefault();
 
-        function checkReplies() {
-            fetch('https://api.telegram.org/bot' + BOT_TOKEN + '/getUpdates', {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ offset: lastUpdateId + 1, timeout: 5 })
-            })
-            .then(function(r) { return r.json(); })
-            .then(function(data) {
-                if (data.ok && data.result.length > 0) {
-                    data.result.forEach(function(upd) {
-                        if (upd.update_id > lastUpdateId) lastUpdateId = upd.update_id;
-                        if (upd.message && upd.message.text) {
-                            var txt = upd.message.text, cid = upd.message.chat.id;
-                            if (txt === '/start') sendTelegram(cid, '👋 Вы подключены к чату Альфа.\nОтвет: /reply ' + clientId + ' текст');
-                            else if (txt === '/help') sendTelegram(cid, '📋 /reply ID текст — ответить\n/managers — менеджеры\n/status — статус');
-                            else if (txt === '/managers') sendTelegram(cid, '👥 Менеджеры: Руководитель, Менеджер 1, Менеджер 2');
-                            else if (txt === '/status') sendTelegram(cid, '✅ Бот работает. Жду сообщения.');
-                            else if (txt.startsWith('/reply ' + clientId)) {
-                                var reply = txt.replace('/reply ' + clientId + ' ', '');
-                                var msgs = document.getElementById('chatMessages');
-                                var last = msgs.lastElementChild;
-                                if (!last || last.textContent !== reply || last.className !== 'chat-msg bot') {
-                                    var botDiv = document.createElement('div');
-                                    botDiv.className = 'chat-msg bot';
-                                    botDiv.textContent = reply;
-                                    msgs.appendChild(botDiv);
-                                    msgs.scrollTop = msgs.scrollHeight;
-                                }
-                            }
-                        }
-                    });
-                }
-            });
-        }
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value.trim();
+      const quantity = document.getElementById('quantity').value.trim();
+      const comment = document.getElementById('comment').value.trim();
 
-        setInterval(function() { if (document.getElementById('chatWindow').classList.contains('open')) checkReplies(); }, 3000);
+      const message =
+        'Здравствуйте! Хочу рассчитать заказ:%0A%0A' +
+        'Имя: ' + encodeURIComponent(name) + '%0A' +
+        'Телефон: ' + encodeURIComponent(phone) + '%0A' +
+        'Услуга: ' + encodeURIComponent(service) + '%0A' +
+        'Количество / размер: ' + encodeURIComponent(quantity || 'не указано') + '%0A' +
+        'Комментарий: ' + encodeURIComponent(comment || 'нет комментария');
 
-        // === ТЕМА ===
-        var theme = localStorage.getItem('theme') || 'dark';
-        if (theme === 'light') document.body.classList.add('light-theme');
-        function toggleTheme() {
-            document.body.classList.toggle('light-theme');
-            var isLight = document.body.classList.contains('light-theme');
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            var icon = isLight ? '☀️' : '🌙';
-            document.getElementById('themeBtn').textContent = icon;
-            if (document.getElementById('themeBtnMobile')) document.getElementById('themeBtnMobile').textContent = icon + ' Сменить тему';
-        }
-        document.getElementById('themeBtn').textContent = theme === 'light' ? '☀️' : '🌙';
+      window.open('https://wa.me/79287072007?text=' + message, '_blank');
+    });
 
-        // === МЕНЮ ===
-        function toggleMobileMenu() { document.getElementById('mobileMenu').classList.toggle('show'); }
-        function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('show'); }
-        window.addEventListener('scroll', function() { document.querySelector('.scroll-top-btn').classList.toggle('show', window.scrollY > 400); });
+    document.addEventListener('mousemove', (e) => {
+      const card = document.querySelector('.hero-card');
+      if (!card || window.innerWidth < 900) return;
 
-        // === КАЛЬКУЛЯТОР ===
-        var data = {
-            'futbolka-dtf':{sizes:{'A4':[540,480,460,420,410,400],'A6':[300,240,240,230,220,190]},tiers:[1,5,10,20,50,100],unit:'шт'},
-            'futbolka-nashi':{sizes:{'Стандарт':[1800,1450,1400,1350,1150]},tiers:[1,5,10,20,50],unit:'шт'},
-            'kepka':{sizes:{'Стандарт':[700,600,550]},tiers:[1,10,50],unit:'шт'},
-            'ruchka':{sizes:{'Пластик':[70,65,60,55,50]},tiers:[50,100,150,200,250],unit:'шт'},
-            'ruchka-gold':{sizes:{'Металл':[200,160,150,100]},tiers:[1,10,50,100],unit:'шт'},
-            'kruzhka':{sizes:{'Стандарт':[600,500,450,420,360,330,300]},tiers:[1,10,20,50,100,150,200],unit:'шт'},
-            'vizitki':{sizes:{'4+4':[11,8,6,4],'4+0':[10,6,5,3]},tiers:[100,300,500,1000],unit:'шт'},
-            'nakleyki-krug':{sizes:{'Черный/прозр':[20,17,15,13,11,9]},tiers:[30,50,80,100,300,500],unit:'шт'},
-            'birki-satin':{sizes:{'Стандарт':[18,10,7.5,6,5]},tiers:[50,100,300,500,1000],unit:'шт'},
-            'beydzh':{sizes:{'Стандарт':[270,250,200,150,130]},tiers:[1,10,20,50,100],unit:'шт'},
-            'flaery-a6':{sizes:{'4+4':[16,14,12,10]},tiers:[100,300,500,1000],unit:'шт'},
-            'bloknot-a5':{sizes:{'А5':[150,140,130,120,110]},tiers:[4,12,20,50,100],unit:'шт'},
-            'interier-samokleyka':{sizes:{'Самоклейка':[1500,1200,1100,1000,950]},tiers:[1,2,3,4,6],unit:'м²'},
-            'interier-banner':{sizes:{'Баннер':[750]},tiers:[1],unit:'м²'},
-            'exterier-banner':{sizes:{'Баннер':[550]},tiers:[1],unit:'м²'}
-        };
-        var services = [
-            {icon:'👕',name:'Печать на футболках',desc:'ДТФ-принт, вышивка',price:'от 400 руб',key:'futbolka-dtf'},
-            {icon:'🧢',name:'Кепки с принтом',desc:'ДТФ, вышивка',price:'от 550 руб',key:'kepka'},
-            {icon:'🖊️',name:'Ручки с логотипом',desc:'Пластик, металл',price:'от 50 руб',key:'ruchka'},
-            {icon:'☕',name:'Кружки с принтом',desc:'Сублимация',price:'от 300 руб',key:'kruzhka'},
-            {icon:'🃏',name:'Визитки',desc:'Меловка, УФ-лак',price:'от 3 руб/шт',key:'vizitki'},
-            {icon:'🔵',name:'Наклейки',desc:'Винил, круги 5 см',price:'от 9 руб/шт',key:'nakleyki-krug'},
-            {icon:'🏷️',name:'Сатиновые бирки',desc:'Ленты, упаковка',price:'от 5 руб/шт',key:'birki-satin'},
-            {icon:'🪪',name:'Бейджи',desc:'Пластик, магнит',price:'от 130 руб',key:'beydzh'},
-            {icon:'🖼️',name:'Интерьерная УФ',desc:'Самоклейка, холст',price:'от 750 руб/м²',key:'interier-samokleyka'},
-            {icon:'🎪',name:'Баннеры',desc:'Широкоформат',price:'от 550 руб/м²',key:'exterier-banner'},
-            {icon:'📰',name:'Флаеры и буклеты',desc:'Цифра, офсет',price:'от 2 руб/шт',key:'flaery-a6'},
-            {icon:'📒',name:'Блокноты',desc:'А5, А6, пружина',price:'от 65 руб',key:'bloknot-a5'}
-        ];
-        var indivServices = [
-            {icon:'👕',name:'Вышивка',desc:'Любой размер'},{icon:'🍫',name:'Шоколад',desc:'С логотипом'},
-            {icon:'📅',name:'Календари',desc:'Квартальные'},{icon:'🥤',name:'Стаканы',desc:'Интерьерная печать'},
-            {icon:'🏅',name:'Кубки/медали',desc:'Гравировка'},{icon:'🔘',name:'Гравировка',desc:'Лазерная'},
-            {icon:'📁',name:'Папки',desc:'Бумвинил'},{icon:'🎨',name:'Дизайнерская бумага',desc:'Маджестик, лён'},
-            {icon:'🎖️',name:'Значки',desc:'Металл, эмаль'},{icon:'🔩',name:'Люверсы',desc:'15 руб/шт'},
-            {icon:'📦',name:'Сатиновая лента',desc:'Упаковочная'},{icon:'🎯',name:'Стикерпаки',desc:'20×15 см'}
-        ];
+      const x = (window.innerWidth / 2 - e.clientX) / 45;
+      const y = (window.innerHeight / 2 - e.clientY) / 45;
 
-        function buildServices(){
-            var g=document.getElementById('servicesGrid');g.innerHTML='';
-            services.forEach(function(s){var c=document.createElement('div');c.className='service-card reveal reveal-up';c.onclick=function(){openCalc(s.key);};c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><span class="price-tag">'+s.price+'</span>';g.appendChild(c);});
-        }
-        function buildIndiv(){
-            var g=document.getElementById('indivGrid');g.innerHTML='';
-            indivServices.forEach(function(s){var c=document.createElement('div');c.className='indiv-card reveal reveal-up';c.innerHTML='<span class="s-icon">'+s.icon+'</span><h3>'+s.name+'</h3><p>'+s.desc+'</p><div style="display:flex;gap:6px;justify-content:center;"><a href="https://t.me/+79674257979" target="_blank" class="btn btn-tg btn-sm">TG</a><a href="https://wa.me/79674257979" target="_blank" class="btn btn-wa btn-sm">WA</a></div>';g.appendChild(c);});
-        }
-        function changeProduct(){
-            var p=document.getElementById('calcProduct').value,d=data[p],sel=document.getElementById('calcSize');sel.innerHTML='';
-            if(d&&d.sizes){Object.keys(d.sizes).forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=k;sel.appendChild(o);});}
-            if(d&&d.unit)document.getElementById('calcQtyLabel').textContent='Количество ('+d.unit+')';recalc();
-        }
-        function recalc(){
-            var p=document.getElementById('calcProduct').value,d=data[p];
-            if(!d||!d.sizes){document.getElementById('calcPrice').textContent='0 руб';return;}
-            var s=document.getElementById('calcSize').value;if(!s||!d.sizes[s]){document.getElementById('calcPrice').textContent='0 руб';return;}
-            var q=parseInt(document.getElementById('calcQty').value)||1,u=parseFloat(document.getElementById('calcUrgent').value);
-            var pr=d.sizes[s],price=pr[pr.length-1];
-            for(var i=0;i<d.tiers.length;i++){if(q<=d.tiers[i]){price=pr[i];break;}}
-            document.getElementById('calcPrice').textContent=Math.round(price*q*u).toLocaleString('ru-RU')+' руб';
-        }
-        function openCalc(k){document.getElementById('calcProduct').value=k;changeProduct();document.getElementById('calc').scrollIntoView({behavior:'smooth'});}
-        function sendOrder(){
-            var n=document.getElementById('calcName').value.trim(),ph=document.getElementById('calcPhone').value.trim();
-            if(!n){alert('Введите ФИО');return;}if(!ph){alert('Введите телефон');return;}
-            var org=document.getElementById('calcOrg').value.trim(),em=document.getElementById('calcEmail').value.trim();
-            var pn=document.getElementById('calcProduct').selectedOptions[0].textContent;
-            var s=document.getElementById('calcSize').value,q=document.getElementById('calcQty').value;
-            var ut=document.getElementById('calcUrgent').selectedOptions[0].textContent,pr=document.getElementById('calcPrice').textContent;
-            var msg='НОВАЯ ЗАЯВКА!\n\nФИО: '+n+'\nТелефон: '+ph+'\n';
-            if(org)msg+='Организация: '+org+'\n';if(em)msg+='Email: '+em+'\n';
-            msg+='\nПродукт: '+pn+'\nРазмер: '+s+'\nКоличество: '+q+'\nСрочность: '+ut+'\nЦена: '+pr;
-            var f=document.getElementById('calcFile');if(f.files.length>0)msg+='\n\nМакет: '+f.files[0].name;
-            msg+='\n\nПрошу связаться.';
-            window.open('https://wa.me/79674257979?text='+encodeURIComponent(msg),'_blank');
-        }
-        buildServices();buildIndiv();changeProduct();
-        setTimeout(function(){
-            var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:0.15});
-            document.querySelectorAll('.reveal').forEach(function(el){o.observe(el);});
-        },100);
-    </script>
+      card.style.transform = `rotateY(${x}deg) rotateX(${-y}deg) translateY(-8px)`;
+    });
+
+    document.addEventListener('mouseleave', () => {
+      const card = document.querySelector('.hero-card');
+      if (card) card.style.transform = '';
+    });
+  </script>
 </body>
 </html>
