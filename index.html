@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>АЛЬФА — полиграфия и рекламное производство в Нальчике</title>
-<meta name="description" content="АЛЬФА в Нальчике: полиграфия, наружная реклама, сувенирная продукция, одежда с логотипом, УФ-печать и дизайн.">
+<title>Рекламное агентство Альфа в Нальчике — печать, дизайн, сувенирка</title>
+<meta name="description" content="Рекламное агентство Альфа в Нальчике: полиграфия, наружная реклама, УФ-печать, визитки, баннеры, сувенирная продукция, футболки с принтом и дизайн под ключ.">
 <style>
 :root{
   --red:#e30613;--red2:#ff3440;--dark:#070707;--bg:#0d0d0f;--white:#fff;
@@ -50,7 +50,7 @@ h1 span{color:var(--red2);text-shadow:0 0 44px rgba(227,6,19,.52)}
 .hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 10%,rgba(255,255,255,.12) 38%,transparent 58%);transform:translateX(-120%);animation:shine 5.5s infinite}
 @keyframes blob{from{transform:translate(0,0) scale(1)}to{transform:translate(-70px,90px) scale(1.2)}}@keyframes shine{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
 .big-logo{position:absolute;inset:55px;display:grid;place-items:center;z-index:3}.big-logo img{width:min(330px,82%);object-fit:contain;border-radius:34px;filter:drop-shadow(0 28px 52px rgba(227,6,19,.34))}
-.mini{position:absolute;z-index:5;padding:18px 20px;border-radius:24px;background:rgba(0,0,0,.5);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.15);box-shadow:0 20px 60px rgba(0,0,0,.28)}.mini strong{display:block;font-size:27px}.mini span{display:block;color:#c9c9c9;font-size:13px;margin-top:5px}.s1{left:28px;bottom:34px}.s2{right:28px;bottom:58px}.s3{right:50px;top:42px}
+.mini{position:absolute;z-index:5;padding:18px 20px;border-radius:24px;background:rgba(0,0,0,.5);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.15);box-shadow:0 20px 60px rgba(0,0,0,.28)}.mini strong{display:block;font-size:27px}.mini span{display:block;color:#c9c9c9;font-size:13px;margin-top:5px}.s1{left:28px;bottom:26px}.s2{right:28px;bottom:24px}.s3{right:28px;top:28px}
 section{padding:88px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:38px}.section-head h2{font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-2px}.section-head h2 span{color:var(--red2)}.section-head p{max-width:520px;color:var(--muted);line-height:1.6}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.about-card{padding:32px;border-radius:36px;background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035));border:1px solid var(--line);min-height:280px;position:relative;overflow:hidden}.about-card.red{background:radial-gradient(circle at 90% 100%,rgba(227,6,19,.45),transparent 40%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035))}.about-card h3{font-size:34px;line-height:1.05;margin-bottom:14px}.about-card p{color:#d2d2d2;line-height:1.65;font-size:17px}
 .advantages{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.adv{padding:26px;border-radius:30px;background:var(--card);border:1px solid var(--line);transition:.35s}.adv:hover{transform:translateY(-10px);background:rgba(227,6,19,.13);border-color:rgba(227,6,19,.6)}.adv i{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:rgba(227,6,19,.16);font-style:normal;font-size:25px;color:var(--red2);margin-bottom:22px}.adv h3{font-size:22px;margin-bottom:10px}.adv p{color:#c8c8c8;line-height:1.52}
@@ -108,7 +108,222 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:#aaa}.footer-inner{
 .float{transition:.25s}
 .float:hover{transform:scale(1.12) rotate(-6deg)}
 
+
+/* PRO MAX ADDITIONS */
+.hero-kicker{
+  display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;animation:fadeUp .85s .4s both
+}
+.hero-kicker span{
+  padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.075);
+  border:1px solid var(--line);color:#ddd;font-size:13px
+}
+.pro-strip{
+  padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.035);overflow:hidden
+}
+.pro-track{
+  display:flex;gap:18px;white-space:nowrap;animation:proMarquee 24s linear infinite;color:#ddd;font-weight:800
+}
+.pro-track span{padding:0 8px;color:#fff}.pro-track b{color:var(--red2)}
+@keyframes proMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.quiz{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:start
+}
+.quiz-card,.uploader-card,.faq-card{
+  padding:30px;border-radius:36px;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));
+  border:1px solid var(--line);box-shadow:0 22px 70px rgba(0,0,0,.25)
+}
+.quiz-card h3,.uploader-card h3{font-size:34px;line-height:1.05;margin-bottom:14px}
+.quiz-card p,.uploader-card p{color:#d2d2d2;line-height:1.6;margin-bottom:18px}
+.quiz-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.quiz-option{
+  border:1px solid var(--line);background:rgba(255,255,255,.08);border-radius:22px;padding:18px;text-align:left;color:#fff;cursor:pointer;transition:.3s
+}
+.quiz-option:hover,.quiz-option.active{transform:translateY(-6px);background:rgba(227,6,19,.18);border-color:rgba(227,6,19,.55)}
+.quiz-result{
+  margin-top:16px;padding:20px;border-radius:24px;background:rgba(0,0,0,.35);border:1px solid var(--line);color:#ddd;line-height:1.55
+}
+.uploader{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center
+}
+.upload-box{
+  min-height:320px;border:1px dashed rgba(255,255,255,.35);border-radius:32px;background:rgba(255,255,255,.06);
+  display:grid;place-items:center;text-align:center;padding:24px;position:relative;overflow:hidden
+}
+.upload-box input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upload-box img{max-width:100%;max-height:260px;border-radius:22px;display:none;filter:drop-shadow(0 20px 40px rgba(0,0,0,.45))}
+.upload-box.has-image .upload-text{display:none}.upload-box.has-image img{display:block}
+.upload-text b{display:block;font-size:24px;margin-bottom:8px}.upload-text span{color:var(--muted);line-height:1.4}
+.mock-product{
+  min-height:320px;border-radius:32px;background:radial-gradient(circle at 50% 30%,rgba(227,6,19,.25),transparent 38%),#111;
+  border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden
+}
+.mock-shirt{
+  width:210px;height:240px;background:#f6f6f6;border-radius:48px 48px 30px 30px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.45)
+}
+.mock-shirt:before,.mock-shirt:after{content:"";position:absolute;top:28px;width:70px;height:96px;background:#f6f6f6;border-radius:26px}
+.mock-shirt:before{left:-48px;transform:rotate(22deg)}.mock-shirt:after{right:-48px;transform:rotate(-22deg)}
+.mock-logo{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);max-width:90px;max-height:90px;z-index:3;display:none}
+.mock-product.has-image .mock-logo{display:block}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.faq-card h3{font-size:21px;margin-bottom:10px}.faq-card p{color:#cfcfcf;line-height:1.55}
+.premium-cta{
+  padding:38px;border-radius:38px;background:radial-gradient(circle at 85% 70%,rgba(227,6,19,.46),transparent 38%),linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.035));
+  border:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;box-shadow:var(--shadow)
+}
+.premium-cta h2{font-size:clamp(32px,5vw,58px);line-height:1;letter-spacing:-2px;margin-bottom:12px}
+.premium-cta h2 span{color:var(--red2)}
+.premium-cta p{color:#d4d4d4;line-height:1.6;max-width:720px}
+.hero-card.pro-3d .big-logo img{transform-style:preserve-3d;animation:proLogo3d 6s ease-in-out infinite}
+@keyframes proLogo3d{
+  0%,100%{transform:translateY(0) rotateY(-8deg) rotateX(3deg)}
+  50%{transform:translateY(-14px) rotateY(8deg) rotateX(-3deg)}
+}
+@media(max-width:980px){.quiz,.uploader,.premium-cta{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.quiz-options{grid-template-columns:1fr}.upload-box,.mock-product{min-height:260px}.mock-shirt{width:160px;height:190px}.mock-shirt:before,.mock-shirt:after{width:52px;height:76px}.mock-shirt:before{left:-36px}.mock-shirt:after{right:-36px}}
+
+
+/* Hero label spacing fix */
+.hero-card .mini{max-width:190px}
+.hero-card .s1{left:22px;bottom:24px}
+.hero-card .s2{right:22px;bottom:24px}
+.hero-card .s3{right:22px;top:24px}
+@media(max-width:620px){
+  .hero-card .mini{max-width:150px}
+  .hero-card .s1{left:14px;bottom:16px}
+  .hero-card .s2{right:14px;bottom:16px}
+  .hero-card .s3{right:14px;top:16px}
+}
+
+
+/* AI ASSISTANT */
+.ai-float{
+  position:fixed;left:18px;bottom:18px;z-index:85;
+  display:flex;align-items:center;gap:10px;padding:14px 18px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(135deg,rgba(227,6,19,.95),rgba(120,0,8,.95));
+  color:#fff;font-weight:900;box-shadow:0 18px 55px rgba(227,6,19,.42);
+  cursor:pointer;transition:.25s
+}
+.ai-float:hover{transform:translateY(-4px) scale(1.02)}
+.ai-float span:first-child{font-size:22px}
+.ai-chat{
+  position:fixed;left:18px;bottom:86px;z-index:160;width:min(420px,calc(100vw - 36px));
+  max-height:75vh;display:none;flex-direction:column;overflow:hidden;border-radius:30px;
+  background:radial-gradient(circle at top right,rgba(227,6,19,.24),transparent 38%),#111;
+  border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 100px rgba(0,0,0,.62)
+}
+.ai-chat.active{display:flex}
+.ai-head{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:space-between;gap:14px}
+.ai-title{display:flex;align-items:center;gap:12px}
+.ai-avatar{width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:rgba(227,6,19,.22);box-shadow:0 0 28px rgba(227,6,19,.28)}
+.ai-title b{display:block;font-size:17px}.ai-title small{display:block;color:#bdbdbd;margin-top:3px}
+.ai-close{width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);color:#fff;font-size:20px;cursor:pointer}
+.ai-body{padding:18px;overflow:auto;display:grid;gap:12px}
+.ai-msg{padding:13px 15px;border-radius:18px;line-height:1.45;font-size:14px;max-width:92%}
+.ai-msg.bot{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:#eee;border-bottom-left-radius:6px}
+.ai-msg.user{background:rgba(227,6,19,.9);justify-self:end;border-bottom-right-radius:6px;color:#fff}
+.ai-chips{display:flex;gap:8px;flex-wrap:wrap;padding:0 18px 14px}
+.ai-chip{padding:9px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07);color:#fff;font-size:13px;cursor:pointer}
+.ai-chip:hover{background:rgba(227,6,19,.18)}
+.ai-form{display:flex;gap:8px;padding:14px;border-top:1px solid rgba(255,255,255,.1)}
+.ai-form input{flex:1;border-radius:16px;background:#fff;color:#111;border:0;padding:13px 14px}
+.ai-form button{border:0;border-radius:16px;background:var(--red);color:#fff;font-weight:900;padding:0 16px;cursor:pointer}
+@media(max-width:620px){.ai-float{left:14px;bottom:14px;padding:13px 15px}.ai-float span:last-child{display:none}.ai-chat{left:12px;bottom:76px;width:calc(100vw - 24px);max-height:72vh}}
+
+
+/* AI LEVEL 4 */
+.ai-suggestions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  padding:0 18px 14px;
+}
+.ai-suggest{
+  padding:10px 11px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.13);
+  background:rgba(255,255,255,.055);
+  color:#eee;
+  font-size:12.5px;
+  text-align:left;
+  cursor:pointer;
+  transition:.25s;
+}
+.ai-suggest:hover{
+  transform:translateY(-3px);
+  background:rgba(227,6,19,.16);
+  border-color:rgba(227,6,19,.4);
+}
+.ai-msg.bot{
+  white-space:pre-line;
+}
+@media(max-width:620px){
+  .ai-suggestions{grid-template-columns:1fr}
+}
+
+
+/* ALFA AI PRO MAX FINAL */
+.ai-chat{
+  width:min(470px,calc(100vw - 36px));
+}
+.ai-status{
+  padding:10px 18px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  color:#d6d6d6;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+}
+.ai-status b{color:#fff}
+.ai-msg.bot strong{color:#fff}
+.ai-order-card{
+  margin:0 18px 14px;
+  padding:14px;
+  border-radius:20px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.11);
+  color:#ddd;
+  font-size:13px;
+  line-height:1.45;
+}
+.ai-order-card b{color:#fff}
+
+
+/* UNIVERSAL PRINT AI ENGINE BADGE */
+.ai-status span:first-child b:after{
+  content:" • универсальный режим";
+  color:#ff5b64;
+}
+
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Рекламное агентство Альфа",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Нальчик",
+    "streetAddress": "Тарчокова 29",
+    "addressCountry": "RU"
+  },
+  "telephone": "+79674257979",
+  "description": "Рекламное агентство Альфа в Нальчике: полиграфия, наружная реклама, сувенирная продукция, одежда с логотипом, УФ-печать, визитки, баннеры и дизайн."
+}
+</script>
+
+
+<meta name="keywords" content="Рекламное агентство Альфа, Альфа Нальчик, рекламное агентство Нальчик, полиграфия Нальчик, печать Нальчик, визитки Нальчик, баннеры Нальчик, сувенирная продукция Нальчик, УФ печать Нальчик, футболки с принтом Нальчик">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Рекламное агентство Альфа в Нальчике">
+<meta property="og:description" content="Печать, дизайн, сувенирная продукция, наружная реклама, УФ-печать и калькулятор заказа.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+
 </head>
 <body>
 <div class="cursor-glow" id="cursorGlow"></div>
@@ -144,7 +359,7 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:#aaa}.footer-inner{
         <div class="point"><b>24/7</b><span>заявки онлайн</span></div>
       </div>
     </div>
-    <div class="hero-card" id="heroCard">
+    <div class="hero-card pro-3d" id="heroCard">
       <div class="big-logo"><img src="data:image/jpeg;base64,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" alt="АЛЬФА"></div>
       <div class="mini s1"><strong>Быстро</strong><span>расчёт и запуск</span></div>
       <div class="mini s2"><strong>Тарчокова 29</strong><span>Нальчик</span></div>
@@ -199,6 +414,32 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:#aaa}.footer-inner{
   </div>
 </section>
 
+
+<section id="quiz">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Не знаете, что <span>выбрать?</span></h2>
+      <p>Мини-квиз помогает быстро направить клиента к нужному продукту и не потерять заявку.</p>
+    </div>
+    <div class="quiz">
+      <div class="quiz-card reveal">
+        <h3>Подбор за 10 секунд</h3>
+        <p>Клиент выбирает задачу — сайт показывает, что лучше заказать, а потом ведёт в калькулятор или к менеджеру.</p>
+        <button class="btn btn-red" onclick="document.querySelector('#calculator').scrollIntoView({behavior:'smooth'})">Перейти к калькулятору</button>
+      </div>
+      <div class="quiz-card reveal">
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="setQuiz('brand')">Запустить бренд / бизнес</button>
+          <button class="quiz-option" onclick="setQuiz('gift')">Сувениры с логотипом</button>
+          <button class="quiz-option" onclick="setQuiz('clothes')">Одежда с принтом</button>
+          <button class="quiz-option" onclick="setQuiz('promo')">Акция / мероприятие</button>
+        </div>
+        <div class="quiz-result" id="quizResult">Выберите задачу — здесь появится рекомендация.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="calculator">
   <div class="container">
     <div class="section-head reveal"><h2>Калькулятор <span>стоимости</span></h2><p>Выберите товар, параметры и количество. Цена ориентировочная — индивидуальные заказы подтверждаются менеджером.</p></div>
@@ -230,6 +471,32 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:#aaa}.footer-inner{
   </div>
 </section>
 
+
+<section id="upload-preview">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Примерьте <span>логотип</span></h2>
+      <p>Мини-превью для клиента: можно загрузить логотип и примерно увидеть, как он будет смотреться на продукции.</p>
+    </div>
+    <div class="uploader">
+      <div class="uploader-card reveal">
+        <h3>Загрузите макет</h3>
+        <p>Это не отправляет файл менеджеру, а показывает клиенту визуальное превью. Для реального заказа файл можно отправить в WhatsApp/Telegram.</p>
+        <div class="upload-box" id="uploadBox">
+          <input type="file" accept="image/*" id="logoUpload">
+          <div class="upload-text"><b>Нажмите, чтобы выбрать файл</b><span>PNG, JPG, логотип или макет</span></div>
+          <img id="previewImg" alt="Предпросмотр">
+        </div>
+      </div>
+      <div class="mock-product reveal" id="mockProduct">
+        <div class="mock-shirt">
+          <img class="mock-logo" id="mockLogo" alt="Логотип на футболке">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="container">
     <div class="custom reveal"><div><h2>Не нашли нужный <span>товар?</span></h2><p>Опишите задачу менеджеру. Мы считаем индивидуальные заказы: нестандартные размеры, материалы, брендирование, срочные тиражи и сложные макеты.</p></div><button class="btn btn-red" onclick="openManager('Здравствуйте! У меня индивидуальный заказ, хочу обсудить детали.')">Обсудить проект</button></div>
@@ -247,6 +514,38 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:#aaa}.footer-inner{
   </div>
 </section>
 
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Частые <span>вопросы</span></h2>
+      <p>Этот блок снимает сомнения и помогает клиенту быстрее оставить заявку.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-card reveal"><h3>Можно без готового макета?</h3><p>Да. Можно описать идею, а менеджер подскажет по макету, материалу и подготовке к печати.</p></div>
+      <div class="faq-card reveal"><h3>Цена в калькуляторе окончательная?</h3><p>Нет, это ориентир. Итог зависит от материала, срочности, макета, резки, белой печати и индивидуальных параметров.</p></div>
+      <div class="faq-card reveal"><h3>Можно срочно?</h3><p>Да, но срочность лучше согласовать с менеджером — зависит от товара, тиража и загрузки производства.</p></div>
+      <div class="faq-card reveal"><h3>Можно заказать нестандарт?</h3><p>Да. Большинство задач индивидуальные: размеры, цвет, материал, тираж и технология подбираются под проект.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="seo-local-text">
+  <div class="container">
+    <div class="about-card reveal">
+      <h2 style="font-size:clamp(30px,5vw,52px);line-height:1;letter-spacing:-2px;margin-bottom:16px;">
+        Рекламное агентство <span style="color:var(--red2)">Альфа</span> в Нальчике
+      </h2>
+      <p>
+        Рекламное агентство Альфа — это печать, дизайн и рекламное производство в Нальчике.
+        Мы делаем визитки, баннеры, вывески, наклейки, УФ-печать, сувенирную продукцию,
+        футболки с принтом, кружки, ручки, бирки, флаеры и брендирование под заказ.
+      </p>
+    </div>
+  </div>
+</section>
+
 <section id="contacts">
   <div class="container">
     <div class="section-head reveal"><h2>Контакты <span>Альфа</span></h2><p>Нажмите на менеджера — откроется выбор WhatsApp или Telegram. Кнопка звонка всегда справа снизу.</p></div>
@@ -254,6 +553,19 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:#aaa}.footer-inner{
       <button class="contact reveal" onclick="openManager()"><span>Менеджер</span><strong>+7 967 425-79-79</strong></button>
       <div class="contact reveal"><span>Адрес</span><strong>Нальчик, Тарчокова 29</strong></div>
       <div class="contact reveal"><span>Направления</span><strong>Печать • Дизайн • Реклама</strong></div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+    <div class="premium-cta reveal">
+      <div>
+        <h2>Хотите, чтобы реклама <span>выглядела дороже?</span></h2>
+        <p>Напишите менеджеру: подберём материал, формат, тираж и решение под ваш бизнес. Даже если вы не знаете, что именно нужно — поможем определиться.</p>
+      </div>
+      <button class="btn btn-red" onclick="openManager('Здравствуйте! Хочу подобрать рекламную продукцию для бизнеса.')">Подобрать решение</button>
     </div>
   </div>
 </section>
@@ -271,6 +583,40 @@ footer{padding:34px 0;border-top:1px solid var(--line);color:#aaa}.footer-inner{
 <footer><div class="container footer-inner"><div>© 2026 АЛЬФА — рекламное агентство</div><div>Нальчик, Тарчокова 29</div></div></footer>
 
 <div class="float-wrap"><a class="float call" href="tel:+79674257979">☎</a><button class="float" onclick="openManager()">✉</button></div>
+
+
+<button class="ai-float" onclick="toggleAIChat()"><span>🤖</span><span>ALFA AI PRO MAX</span></button>
+<div class="ai-chat" id="aiChat">
+  <div class="ai-head">
+    <div class="ai-title">
+      <div class="ai-avatar">🤖</div>
+      <div><b>ALFA AI PRO MAX</b><small>Эксперт по полиграфии и рекламе</small></div>
+    </div>
+    <button class="ai-close" onclick="toggleAIChat()">×</button>
+  </div>
+  <div class="ai-status"><span>Режим: <b>виртуальный менеджер</b></span><span id="aiMemoryCount">0 позиций</span></div>
+  <div class="ai-body" id="aiBody">
+    <div class="ai-msg bot">Здравствуйте! Я ALFA AI PRO MAX. Я отвечаю по полиграфии, рекламе, брендингу, материалам, макетам, тиражам, бюджетам и помогаю собрать заявку менеджеру.</div>
+  </div>
+  <div class="ai-chips">
+    <button class="ai-chip" onclick="askAI('Посоветуй что заказать для кофейни')">Для кофейни</button>
+    <button class="ai-chip" onclick="askAI('У меня бюджет 30000 рублей')">Бюджет 30 000</button>
+    <button class="ai-chip" onclick="askAI('Нужен баннер 3 на 2')">Баннер 3×2</button>
+    <button class="ai-chip" onclick="askAI('Собери заявку')">Собрать заявку</button>
+    <button class="ai-chip" onclick="sendAIOrderToManager()">Отправить менеджеру</button>
+  </div>
+  <div class="ai-suggestions">
+    <button class="ai-suggest" onclick="askAI('Что лучше для салона красоты?')">Что лучше для салона красоты?</button>
+    <button class="ai-suggest" onclick="askAI('Сколько стоят 300 визиток?')">Сколько стоят 300 визиток?</button>
+    <button class="ai-suggest" onclick="askAI('Можно ли сделать брендирование одежды?')">Брендирование одежды</button>
+    <button class="ai-suggest" onclick="askAI('Какие товары есть в ассортименте?')">Весь ассортимент</button>
+  </div>
+  <div class="ai-order-card" id="aiOrderCard"><b>Корзина заявки:</b><br>Пока пусто. Напишите, что нужно заказать.</div>
+  <form class="ai-form" onsubmit="submitAI(event)">
+    <input id="aiInput" placeholder="Напишите вопрос..." autocomplete="off">
+    <button type="submit">➤</button>
+  </form>
+</div>
 
 <div class="modal" id="managerModal"><div class="modal-box"><h3>Связаться с менеджером</h3><p>Выберите удобный способ. WhatsApp открывается по номеру. Telegram по номеру может открыться через приложение Telegram.</p><div class="modal-actions"><a class="btn btn-red" id="waLink" target="_blank" rel="noopener">Открыть WhatsApp</a><a class="btn" id="tgLink" target="_blank" rel="noopener">Открыть Telegram</a></div><button class="btn modal-close" onclick="closeManager()">Закрыть</button></div></div>
 
@@ -353,6 +699,375 @@ const reveals=document.querySelectorAll(".reveal");const observer=new Intersecti
 const counters=document.querySelectorAll("[data-count]");const co=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;const el=entry.target,target=Number(el.dataset.count),start=performance.now(),duration=1300;function tick(now){const p=Math.min((now-start)/duration,1);el.textContent=Math.floor(target*p).toLocaleString("ru-RU")+"+";if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);co.unobserve(el)})},{threshold:.6});counters.forEach(el=>co.observe(el));
 const glow=document.getElementById("cursorGlow");document.addEventListener("mousemove",e=>{glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px"});
 const heroCard=document.getElementById("heroCard");document.addEventListener("mousemove",e=>{if(!heroCard||innerWidth<900)return;const x=(innerWidth/2-e.clientX)/48,y=(innerHeight/2-e.clientY)/48;heroCard.style.transform=`rotateY(${x}deg) rotateX(${-y}deg) translateY(-8px)`});document.addEventListener("mouseleave",()=>{if(heroCard)heroCard.style.transform=""});
+
+
+function setQuiz(type){
+  const result=document.getElementById("quizResult");
+  if(!result)return;
+  const texts={
+    brand:"Для запуска бизнеса подойдут: вывеска, визитки, наклейки, фирменные пакеты, брендированная одежда и базовая полиграфия.",
+    gift:"Для сувениров лучше начать с кружек, ручек, шоколада, значков и упаковки с логотипом. Это хорошо работает для клиентов и мероприятий.",
+    clothes:"Для одежды чаще выбирают ДТФ-печать на футболках, кепках и корпоративной форме. Важно уточнить цвет, размер принта и тираж.",
+    promo:"Для акции подойдут баннеры, флаеры, буклеты, стикеры, таблички и наружное оформление точки."
+  };
+  result.textContent=texts[type]||"Опишите задачу менеджеру — подберём решение.";
+  document.querySelectorAll(".quiz-option").forEach(b=>b.classList.remove("active"));
+  event.currentTarget.classList.add("active");
+}
+const logoUpload=document.getElementById("logoUpload");
+if(logoUpload){
+  logoUpload.addEventListener("change",function(){
+    const file=this.files&&this.files[0];
+    if(!file)return;
+    const reader=new FileReader();
+    reader.onload=function(e){
+      const src=e.target.result;
+      document.getElementById("previewImg").src=src;
+      document.getElementById("mockLogo").src=src;
+      document.getElementById("uploadBox").classList.add("has-image");
+      document.getElementById("mockProduct").classList.add("has-image");
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+
+
+function toggleAIChat(){
+  const chat=document.getElementById("aiChat");
+  if(chat) chat.classList.toggle("active");
+}
+function addAIMessage(text,type){
+  const body=document.getElementById("aiBody");
+  if(!body)return;
+  const div=document.createElement("div");
+  div.className="ai-msg "+type;
+  div.textContent=text;
+  body.appendChild(div);
+  body.scrollTop=body.scrollHeight;
+}
+
+
+/* ALFA AI PRO MAX — MAXIMUM FRONTEND INTELLIGENCE */
+const ALFA_STATE = {
+  items: [],
+  business: "",
+  budget: null,
+  deadline: "",
+  hasDesign: null,
+  contact: "",
+  notes: []
+};
+
+const ALFA_KB = {
+  phone: "+7 967 425-79-79",
+  address: "Нальчик, Тарчокова 29",
+  products: [
+    {id:"tshirt_dtf", names:["футболка","футболки","дтф","dtf","принт на футбол"], unit:"шт", answer:"ДТФ-принт на футболки: A4 — 410–540 ₽/шт, A6 — 220–300 ₽/шт. Наши футболки с принтом — 1150–1800 ₽/шт.", tiers:[{min:1,max:5,price:540,label:"A4"},{min:6,max:10,price:480,label:"A4"},{min:11,max:20,price:460,label:"A4"},{min:21,max:50,price:420,label:"A4"},{min:51,max:999999,price:410,label:"A4"}], upsell:["кепки с логотипом","наклейки","пакеты","бирки"]},
+    {id:"tshirt_own", names:["наши футболки","футболка с принтом","футболки с принтом"], unit:"шт", answer:"Наши футболки с принтом: 1–5 шт — 1800 ₽/шт, 5–10 — 1450 ₽/шт, 10–20 — 1400 ₽/шт, 20–50 — 1350 ₽/шт, 50–100 — 1150 ₽/шт.", tiers:[{min:1,max:5,price:1800},{min:6,max:10,price:1450},{min:11,max:20,price:1400},{min:21,max:50,price:1350},{min:51,max:999999,price:1150}], upsell:["кепки","бейджи","наклейки"]},
+    {id:"cap", names:["кепка","кепки","бейсболка","бейсболки"], unit:"шт", answer:"Кепки ДТФ: до 10 шт — 700 ₽/шт, до 50 шт — 600 ₽/шт, от 100 шт — 550 ₽/шт.", tiers:[{min:1,max:10,price:700},{min:11,max:50,price:600},{min:51,max:999999,price:550}], upsell:["футболки","значки","наклейки"]},
+    {id:"pen", names:["ручка","ручки"], unit:"шт", answer:"Ручки с принтом: от 50 шт — 70 ₽/шт, от 100 — 65 ₽, от 150 — 60 ₽, от 200 — 55 ₽, от 250 — 50 ₽.", tiers:[{min:1,max:99,price:70},{min:100,max:149,price:65},{min:150,max:199,price:60},{min:200,max:249,price:55},{min:250,max:999999,price:50}], upsell:["блокноты","визитки","пакеты"]},
+    {id:"tor_gold", names:["tor gold","тор голд","золотые ручки"], unit:"шт", answer:"Ручки TOR GOLD: до 10 шт — 200 ₽/шт, от 10 — 160 ₽, от 50 — 150 ₽, от 100 — 100 ₽/шт.", tiers:[{min:1,max:10,price:200},{min:11,max:49,price:160},{min:50,max:99,price:150},{min:100,max:999999,price:100}], upsell:["премиальные визитки","блокноты","шоколад с логотипом"]},
+    {id:"mug", names:["кружка","кружки","чашка","чашки"], unit:"шт", answer:"Кружки с принтом: до 10 шт — 600 ₽/шт, от 10 — 500 ₽, от 20 — 450 ₽, от 50 — 420 ₽, от 100 — 360 ₽, от 150 — 330 ₽, от 200 — 300 ₽/шт.", tiers:[{min:1,max:10,price:600},{min:11,max:19,price:500},{min:20,max:49,price:450},{min:50,max:99,price:420},{min:100,max:149,price:360},{min:150,max:199,price:330},{min:200,max:999999,price:300}], upsell:["наклейки","шоколад с логотипом","фирменные пакеты"]},
+    {id:"silicone_tag", names:["силиконовые бирки","силиконовая бирка","бирки силикон"], unit:"шт", answer:"Силиконовые бирки 20×70 мм: от 30 шт — 35 ₽/шт, от 50 — 24 ₽, от 80 — 22 ₽, от 100 — 19 ₽, от 300 — 15 ₽, от 500 — 12 ₽.", tiers:[{min:30,max:49,price:35},{min:50,max:79,price:24},{min:80,max:99,price:22},{min:100,max:299,price:19},{min:300,max:499,price:15},{min:500,max:999999,price:12}], upsell:["сатиновые ленты","наклейки","пакеты"]},
+    {id:"round_sticker", names:["наклейки","наклейка","круглые наклейки","стикеры","стикер"], unit:"шт", answer:"Круглые наклейки 5 см: от 30 шт — 20 ₽/шт, от 50 — 17 ₽, от 80 — 15 ₽, от 100 — 13 ₽, от 300 — 11 ₽, от 500 — 9 ₽.", tiers:[{min:30,max:49,price:20},{min:50,max:79,price:17},{min:80,max:99,price:15},{min:100,max:299,price:13},{min:300,max:499,price:11},{min:500,max:999999,price:9}], upsell:["визитки","пакеты","флаеры"]},
+    {id:"satin_tag", names:["сатиновые бирки","сатиновая бирка","бирки сатин"], unit:"шт", answer:"Сатиновые бирки 20×70 мм без резки: от 50 шт — 18 ₽/шт, от 100 — 10 ₽, от 300 — 7,5 ₽, от 500 — 6 ₽, от 1000 — 5 ₽.", tiers:[{min:50,max:99,price:18},{min:100,max:299,price:10},{min:300,max:499,price:7.5},{min:500,max:999,price:6},{min:1000,max:999999,price:5}], upsell:["силиконовые бирки","упаковочная лента","наклейки"]},
+    {id:"ribbon", names:["лента","ленты","сатиновая лента","упаковочная лента"], unit:"м", answer:"Сатиновая упаковочная лента: от 10 м — 95 ₽/м, от 50 м — 65 ₽/м, от 100 м — 55 ₽/м, от 200 м — 35 ₽/м.", tiers:[{min:10,max:49,price:95},{min:50,max:99,price:65},{min:100,max:199,price:55},{min:200,max:999999,price:35}], upsell:["бирки","наклейки","пакеты"]},
+    {id:"uv_print", names:["уф","ув","uv","интерьерная печать","самоклейка уф","постер"], unit:"м²", answer:"Интерьерная УФ-печать: самоклейка 800 ₽/м², баннер 750 ₽/м², постер 1500 ₽/м². Белая УФ-печать: +250 ₽.", tiers:[{min:1,max:999999,price:800}], upsell:["плоттерная резка","ламинация","монтаж"]},
+    {id:"outdoor", names:["экстерьерная печать","наружная печать","баннер печать","баннер","баннеры"], unit:"м²", answer:"Экстерьерная печать: самоклейка, баннер и постер — от 550 ₽/м². Люверсы — 15 ₽/шт.", tiers:[{min:1,max:999999,price:550}], upsell:["люверсы","монтаж","дизайн макета"]},
+    {id:"business_card", names:["визитка","визитки","визиток"], unit:"шт", answer:"Визитки: 4+4 — 100 шт 1100 ₽, 300 шт 2400 ₽, 500 шт 3000 ₽, 1000 шт 4000 ₽. 4+0 — 100 шт 1000 ₽, 300 шт 1800 ₽, 500 шт 2500 ₽, 1000 шт 3000 ₽.", qtyPrices:{100:1100,300:2400,500:3000,1000:4000}, upsell:["наклейки","флаеры","бейджи","ручки"]},
+    {id:"foil_card", names:["фольга","фольгирование","визитки с фольгой"], unit:"шт", answer:"Визитки с фольгированием: 1+0 — от 10 до 20 ₽/шт, 1+1 — от 12 до 25 ₽/шт.", qtyPrices:{100:2000,300:4500,500:6000,1000:10000}, upsell:["ламинация","премиальные ручки","сертификаты"]},
+    {id:"badge", names:["бейдж","бейджи"], unit:"шт", answer:"Бейдж А4 с ламинацией и лентой: до 10 шт — 270 ₽/шт, от 10 — 250 ₽, от 20 — 200 ₽, от 50 — 150 ₽, от 100 — 130 ₽. Бейдж на магните — 500–700 ₽/шт.", tiers:[{min:1,max:10,price:270},{min:11,max:19,price:250},{min:20,max:49,price:200},{min:50,max:99,price:150},{min:100,max:999999,price:130}], upsell:["ленты","визитки","формы для персонала"]},
+    {id:"calendar", names:["календарь","календари","квартальные"], unit:"шт", answer:"Календари квартальные: от 10 шт — 700 ₽/шт, от 50 — 650 ₽, от 100 — 590 ₽, от 500 — 540 ₽.", tiers:[{min:10,max:49,price:700},{min:50,max:99,price:650},{min:100,max:499,price:590},{min:500,max:999999,price:540}], upsell:["ручки","блокноты","подарочные наборы"]},
+    {id:"notebook", names:["блокнот","блокноты","пружина"], unit:"шт", answer:"Блокноты на пружине: А5 — от 110 до 150 ₽/шт, А6 — от 65 до 100 ₽/шт. Блок в клетку считается дополнительно.", tiers:[{min:1,max:11,price:150},{min:12,max:19,price:140},{min:20,max:49,price:130},{min:50,max:99,price:120},{min:100,max:999999,price:110}], upsell:["ручки","календари","папки"]},
+    {id:"flyer", names:["флаер","флаеры","буклет","буклеты","листовка","листовки"], unit:"шт", answer:"Флаеры и буклеты: цифровая печать от 1400 ₽ за 100 шт. Например, флаеры А6 4+0 / 100 шт — 1400 ₽, А5 4+4 / 100 шт — 2700 ₽.", qtyPrices:{100:1400}, upsell:["визитки","баннер","наклейки"]},
+    {id:"choco", names:["шоколад","шоколадки","шоколад с логотипом"], unit:"шт", answer:"Шоколад с логотипом: от 100 шт — 25 ₽/шт, от 500 — 22 ₽, от 1000 — 21 ₽. Макет от 500 ₽.", tiers:[{min:100,max:499,price:25},{min:500,max:999,price:22},{min:1000,max:999999,price:21}], upsell:["пакеты","открытки","кружки"]},
+    {id:"stickerpack", names:["стикерпак","стикерпаки"], unit:"шт", answer:"Стикерпаки 20×15: 30 шт — 100 ₽/ед, 120 шт — 70 ₽/ед, 200 шт — 65 ₽/ед.", tiers:[{min:30,max:119,price:100},{min:120,max:199,price:70},{min:200,max:999999,price:65}], upsell:["наклейки","визитки","упаковка"]},
+    {id:"sign", names:["вывеска","вывески","фасад","табличка","наружная реклама"], unit:"проект", answer:"Вывески, фасады и наружная реклама считаются индивидуально: размер, материал, подсветка, монтаж, высота, макет и место установки.", upsell:["баннер","таблички","наклейки на витрину"]}
+  ],
+  businessCases: [
+    {keys:["кофейн","кофе","кафе","ресторан","еда","общепит","шаурм","пекар"], budget:[["до 15000","наклейки, меню, визитки, флаеры"],["15000-50000","вывеска малого формата, наклейки, кружки, футболки персонала"],["от 50000","вывеска, брендирование упаковки, форма, меню, сувенирка"]], text:"Для кафе/кофейни: вывеска, меню, наклейки на упаковку, кружки с логотипом, футболки/фартуки персонала, визитки, флаеры для открытия."},
+    {keys:["салон","красоты","барбер","парикмах","маникюр","космет"], budget:[["до 15000","визитки, сертификаты, наклейки"],["15000-50000","вывеска, сертификаты, прайс, флаеры"],["от 50000","полное оформление салона, вывеска, упаковка, форма"]], text:"Для салона красоты: вывеска, прайс-лист, визитки, подарочные сертификаты, наклейки, брендированные пакеты, флаеры."},
+    {keys:["магазин","бутик","одежд","шоурум"], budget:[["до 15000","бирки, наклейки, визитки"],["15000-50000","силиконовые/сатиновые бирки, упаковочная лента, наклейки, вывеска"],["от 50000","полный фирменный комплект: вывеска, бирки, ленты, пакеты, наклейки"]], text:"Для магазина одежды: сатиновые и силиконовые бирки, упаковочная лента, наклейки, вывеска, визитки, брендированные пакеты."},
+    {keys:["авто","сервис","мойка","шиномонтаж","детейлинг"], text:"Для автосервиса/мойки: наружная вывеска, баннеры, наклейки, визитки, таблички, брендированная спецодежда, флаеры для акций."},
+    {keys:["строй","ремонт","мебел","окна","двери"], text:"Для строительных и ремонтных услуг: баннер, визитки, флаеры, брендированная форма, наклейки на авто, таблички, презентационные материалы."},
+    {keys:["мероприят","свадьб","ивент","конференц","форум"], text:"Для мероприятия: бейджи, баннеры, пресс-волл, флаеры, наклейки, значки, сувенирка, блокноты, ручки и навигационные таблички."},
+    {keys:["школ","детсад","университет","образован"], text:"Для школы/образования: грамоты, сертификаты, бейджи, таблички, стенды, наклейки, блокноты, календари, сувенирная продукция."},
+    {keys:["спорт","фитнес","зал","команда"], text:"Для спорта/фитнеса: футболки с принтом, кепки, наклейки, баннеры, сертификаты, абонементы, брендированные сувениры."},
+    {keys:["стомат","клиник","медицин","аптек"], text:"Для клиники/стоматологии: вывеска, таблички, бейджи, визитки, сертификаты, папки, флаеры и аккуратная навигация."},
+    {keys:["недвиж","риэлтор","агентство"], text:"Для недвижимости: визитки, папки, буклеты, баннеры, таблички, брендированные ручки и презентационные материалы."}
+  ]
+};
+
+function normalizeAI(s){return (s||"").toLowerCase().replace(/ё/g,"е").replace(/[.,!?;:()]/g," ").replace(/\s+/g," ").trim();}
+function hasAI(s,arr){const n=normalizeAI(s);return arr.some(w=>n.includes(normalizeAI(w)));}
+function extractQty(s){const m=(s||"").match(/(\d+)\s*(шт|штук|ш|м2|м²|метр|метров|м|лист|листов)?/i);return m?Number(m[1]):null;}
+function extractBudget(s){const m=(s||"").replace(/\s/g,"").match(/(?:бюджет|есть|до|на)?(\d{4,7})/i);return m?Number(m[1]):null;}
+function extractSizeArea(s){
+  const n=(s||"").replace(/,/g,".").toLowerCase();
+  const m=n.match(/(\d+(?:\.\d+)?)\s*(?:x|х|на|\*)\s*(\d+(?:\.\d+)?)/i);
+  if(m){return {w:Number(m[1]),h:Number(m[2]),area:Number(m[1])*Number(m[2])};}
+  const a=n.match(/(\d+(?:\.\d+)?)\s*(м2|м²)/i);
+  if(a){return {area:Number(a[1])};}
+  return null;
+}
+function findProductAI(s){
+  const n=normalizeAI(s);let best=null,score=0;
+  for(const p of ALFA_KB.products){
+    let local=0;
+    for(const name of p.names){if(n.includes(normalizeAI(name)))local+=name.length;}
+    if(local>score){score=local;best=p;}
+  }
+  return best;
+}
+function priceForAI(product, qty, area){
+  const amount = area || qty;
+  if(!product || !amount) return null;
+  if(product.tiers){
+    let tier=product.tiers.find(t=>amount>=t.min&&amount<=t.max)||product.tiers[product.tiers.length-1];
+    let total=Math.round(tier.price*amount);
+    return {unit:tier.price,total,details:`${tier.price} ₽ × ${amount} ${area?"м²":product.unit} = ${total.toLocaleString("ru-RU")} ₽`};
+  }
+  if(product.qtyPrices){
+    const keys=Object.keys(product.qtyPrices).map(Number).sort((a,b)=>a-b);let chosen=keys[0];
+    for(const k of keys){if(amount>=k)chosen=k;}
+    return {unit:Math.round(product.qtyPrices[chosen]/chosen),total:product.qtyPrices[chosen],details:`ближайший прайсовый тираж ${chosen} ${product.unit}: ${product.qtyPrices[chosen].toLocaleString("ru-RU")} ₽`};
+  }
+  return null;
+}
+function rememberItem(product, qty, calc, raw){
+  if(!product)return;
+  ALFA_STATE.items.push({name:product.names[0], qty:qty||"", unit:product.unit, total:calc?calc.total:null, raw:raw||""});
+  updateAIOrderCard();
+}
+function updateAIOrderCard(){
+  const card=document.getElementById("aiOrderCard"), count=document.getElementById("aiMemoryCount");
+  if(!card)return;
+  if(count)count.textContent=ALFA_STATE.items.length+" позиций";
+  if(!ALFA_STATE.items.length){card.innerHTML="<b>Корзина заявки:</b><br>Пока пусто. Напишите, что нужно заказать.";return;}
+  let total=ALFA_STATE.items.reduce((s,i)=>s+(i.total||0),0);
+  card.innerHTML="<b>Корзина заявки:</b><br>"+ALFA_STATE.items.map((i,idx)=>`${idx+1}. ${i.name}${i.qty?" — "+i.qty+" "+i.unit:""}${i.total?" — "+i.total.toLocaleString("ru-RU")+" ₽":""}`).join("<br>")+(total?`<br><br><b>Итого ориентир:</b> ${total.toLocaleString("ru-RU")} ₽`:"");
+}
+function businessAdviceAI(s){
+  const n=normalizeAI(s);
+  for(const c of ALFA_KB.businessCases){
+    if(c.keys.some(k=>n.includes(normalizeAI(k)))){
+      ALFA_STATE.business=c.keys[0];
+      return c;
+    }
+  }
+  return null;
+}
+function buildBudgetAdvice(budget,businessCase){
+  let base = businessCase ? businessCase.text : "Подберём набор продукции под ваш бюджет.";
+  if(budget<15000) return base+"\n\nПри бюджете до 15 000 ₽ лучше начать с самого нужного: визитки/наклейки/флаеры/небольшая сувенирка. Это даст быстрый старт без перегруза.";
+  if(budget<50000) return base+"\n\nПри бюджете 15 000–50 000 ₽ можно собрать заметный стартовый комплект: вывеска малого формата или баннер, визитки, наклейки, часть сувенирки/одежды.";
+  return base+"\n\nПри бюджете от 50 000 ₽ можно делать полноценное брендирование: вывеска, упаковка, сувенирка, одежда персонала, полиграфия и оформление точки.";
+}
+function buildOrderSummary(){
+  let total=ALFA_STATE.items.reduce((s,i)=>s+(i.total||0),0);
+  let lines=["Готовая заявка ALFA AI PRO MAX:"];
+  if(ALFA_STATE.business) lines.push("Сфера/задача: "+ALFA_STATE.business);
+  if(ALFA_STATE.budget) lines.push("Бюджет: "+ALFA_STATE.budget.toLocaleString("ru-RU")+" ₽");
+  if(ALFA_STATE.deadline) lines.push("Срок: "+ALFA_STATE.deadline);
+  if(ALFA_STATE.hasDesign!==null) lines.push("Макет: "+(ALFA_STATE.hasDesign?"есть":"нужен/нет"));
+  if(ALFA_STATE.items.length){
+    lines.push("\nПозиции:");
+    ALFA_STATE.items.forEach((i,idx)=>lines.push(`${idx+1}. ${i.name}${i.qty?" — "+i.qty+" "+i.unit:""}${i.total?" — "+i.total.toLocaleString("ru-RU")+" ₽":""}`));
+  }
+  if(total) lines.push("\nОриентировочная сумма: "+total.toLocaleString("ru-RU")+" ₽");
+  lines.push("\nФинальную стоимость подтверждает менеджер.");
+  return lines.join("\n");
+}
+function sendAIOrderToManager(){
+  const msg = buildOrderSummary();
+  openManager(msg);
+}
+function aiAnswer(q){
+  const s=normalizeAI(q);
+  const qty=extractQty(q);
+  const budget=extractBudget(q);
+  const size=extractSizeArea(q);
+  const product=findProductAI(q);
+  const bcase=businessAdviceAI(q);
+
+  if(hasAI(q,["очистить","сбросить","заново"])){
+    ALFA_STATE.items=[];ALFA_STATE.business="";ALFA_STATE.budget=null;ALFA_STATE.deadline="";ALFA_STATE.hasDesign=null;ALFA_STATE.notes=[];updateAIOrderCard();
+    return "Очистил корзину заявки. Можем собрать заказ заново.";
+  }
+  if(hasAI(q,["собери заявку","готовая заявка","итог","что получилось","отправить заявку"])){
+    return buildOrderSummary();
+  }
+  if(hasAI(q,["нет макета","макета нет","нужен макет","дизайн нужен"])){ALFA_STATE.hasDesign=false;return "Понял: макета нет или нужен дизайн. Это нормально — можно прислать идею, текст, логотип, пример и пожелания. Макет/подготовка файла могут считаться отдельно.";}
+  if(hasAI(q,["макет есть","есть макет","готовый макет"])){ALFA_STATE.hasDesign=true;return "Отлично, я отметил: макет есть. Лучше отправить файл менеджеру на проверку качества, формата и размеров перед печатью.";}
+  if(hasAI(q,["сегодня","завтра","срочно","дедлайн","когда готово"])){ALFA_STATE.deadline=q;return "Отметил срочность/срок. Срочные заказы возможны, но зависят от товара, тиража, макета и загрузки производства. Лучше сразу отправить заявку менеджеру.";}
+  if(hasAI(q,["адрес","где","находитесь","карта","маршрут","приехать"])) return "Адрес: "+ALFA_KB.address+". Внизу сайта есть Яндекс.Карта и кнопка маршрута.";
+  if(hasAI(q,["телефон","номер","позвон","связаться","менеджер","ватсап","whatsapp","вацап","телеграм","telegram"])) return "Связь с менеджером: "+ALFA_KB.phone+". На сайте есть кнопки звонка, WhatsApp и Telegram.";
+  if(hasAI(q,["ассортимент","что есть","услуги","что делаете","товары","каталог"])) return "Ассортимент Альфы:\n• одежда: футболки, кепки, ДТФ;\n• сувенирка: кружки, ручки, значки, шоколад;\n• полиграфия: визитки, флаеры, буклеты, календари, блокноты;\n• реклама: баннеры, вывески, таблички;\n• наклейки, бирки, сатиновые ленты;\n• УФ, интерьерная и экстерьерная печать;\n• дизайн и подготовка макетов.";
+  if(hasAI(q,["как заказать","оформить","заявка","заказ сделать","оставить заказ"])) return "Как заказать:\n1) Напишите, что нужно.\n2) Укажите количество, размер, цвет, срок.\n3) Скажите, есть ли макет.\n4) Я соберу заявку, а вы отправите её менеджеру в WhatsApp/Telegram.";
+
+  if(budget){
+    ALFA_STATE.budget=budget;
+    const advice=buildBudgetAdvice(budget,bcase);
+    return advice+"\n\nБюджет сохранил. Можете написать товар или сферу бизнеса — соберу оптимальный набор.";
+  }
+
+  if(bcase){
+    return bcase.text+"\n\nЕсли напишете бюджет, я предложу комплект под сумму. Например: «бюджет 30000» или «есть 50000 рублей».";
+  }
+
+  if(product){
+    let area = size && (product.id==="outdoor" || product.id==="uv_print") ? size.area : null;
+    let calc=priceForAI(product, qty, area);
+    let ans=product.answer;
+    if(size && (product.id==="outdoor" || product.id==="uv_print")){
+      ans += `\n\nРазмер: ${size.w?size.w+"×"+size.h+" м, ":""}площадь ${size.area} м².`;
+    }
+    if(calc){
+      ans += "\n\nОриентировочный расчёт: "+calc.details+".";
+      rememberItem(product, area||qty, calc, q);
+    } else if(qty) {
+      rememberItem(product, qty, null, q);
+      ans += "\n\nКоличество я сохранил в заявке, но точный расчёт по этой позиции лучше подтвердить у менеджера.";
+    }
+    if(product.upsell && product.upsell.length){
+      ans += "\n\nЧасто вместе заказывают: "+product.upsell.join(", ")+".";
+    }
+    ans += "\n\nФинальную стоимость подтверждает менеджер.";
+    return ans;
+  }
+
+  if(size){
+    return `Понял размер: ${size.w?size.w+"×"+size.h+" м, ":""}площадь ${size.area} м². Если это баннер/самоклейка/УФ-печать — напишите материал, и я посчитаю ориентировочно.`;
+  }
+
+  if(hasAI(q,["дорого","дешевле","скидка","дороговато"])){
+    return "Можно подобрать вариант дешевле: уменьшить тираж, выбрать другой материал, упростить макет или заменить технологию. Напишите товар и бюджет — предложу более выгодный комплект.";
+  }
+  if(hasAI(q,["png","jpg","jpeg","pdf","cdr","ai","svg","формат файла","разрешение"])){
+    return "Для печати лучше PDF, AI, CDR, SVG или качественный PNG/JPG. Для баннеров и крупного формата важны размер и разрешение. Файл лучше отправить менеджеру на проверку перед печатью.";
+  }
+  if(hasAI(q,["доставка","сдэк","отправ","курьер","по россии"])){
+    return "Доставку/отправку лучше уточнить у менеджера. Напишите город, товар, тираж и срок — менеджер скажет возможные варианты.";
+  }
+  if(hasAI(q,["оплата","нал","безнал","карта","счет","предоплата"])){
+    return "По оплате лучше уточнить у менеджера: наличный/безналичный расчёт, счёт и предоплата зависят от заказа и формата работы.";
+  }
+  if(hasAI(q,["привет","здравствуйте","добрый"])){
+    return "Здравствуйте! Я ALFA AI PRO MAX — виртуальный менеджер Альфы. Могу подобрать продукцию под бизнес, посчитать ориентир, объяснить технологии и собрать заявку.";
+  }
+  return "Я не нашёл точный ответ, но могу помочь по печати, рекламе и сувенирной продукции. Напишите товар, количество, размер, бюджет или сферу бизнеса. Например: «150 кружек», «баннер 3×2», «открываю кофейню», «бюджет 30000».";
+}
+function askAI(q){
+  addAIMessage(q,"user");
+  setTimeout(()=>addAIMessage(aiAnswer(q),"bot"),250);
+}
+function submitAI(e){
+  e.preventDefault();
+  const input=document.getElementById("aiInput");
+  const q=input.value.trim();
+  if(!q)return;
+  input.value="";
+  askAI(q);
+}
+
+
+
+/* ALFA AI PRO MAX — UNIVERSAL PRINTING CONSULTANT ENGINE
+   Без сервера: не 10 000 ручных сценариев, а универсальный движок по теме полиграфии.
+*/
+const ALFA_UNI = {
+  products: [
+    {key:"кружки", words:["кружк","чашк"], unit:"шт", tiers:[[1,10,600],[11,19,500],[20,49,450],[50,99,420],[100,149,360],[150,199,330],[200,999999,300]], add:["наклейки","шоколад с логотипом","подарочные пакеты"], desc:"Кружки с принтом подходят для подарков, кафе, офисов и промо-наборов."},
+    {key:"футболки ДТФ", words:["футбол","дтф","dtf","одежд","принт"], unit:"шт", tiers:[[1,5,540],[6,10,480],[11,20,460],[21,50,420],[51,999999,410]], add:["кепки","наклейки","бирки"], desc:"ДТФ хорошо подходит для одежды, логотипов, мерча, формы персонала и небольших партий."},
+    {key:"футболки наши", words:["наши футбол","готовые футбол"], unit:"шт", tiers:[[1,5,1800],[6,10,1450],[11,20,1400],[21,50,1350],[51,999999,1150]], add:["кепки","брендированные пакеты"], desc:"Футболки с принтом под ключ: изделие + нанесение."},
+    {key:"кепки", words:["кепк","бейсбол"], unit:"шт", tiers:[[1,10,700],[11,50,600],[51,999999,550]], add:["футболки","значки"], desc:"Кепки подходят для персонала, промо, мероприятий и команд."},
+    {key:"ручки", words:["ручк"], unit:"шт", tiers:[[1,99,70],[100,149,65],[150,199,60],[200,249,55],[250,999999,50]], add:["блокноты","визитки"], desc:"Ручки — недорогая сувенирная продукция для массовой раздачи."},
+    {key:"ручки TOR GOLD", words:["tor","тор","gold","голд"], unit:"шт", tiers:[[1,10,200],[11,49,160],[50,99,150],[100,999999,100]], add:["премиальные визитки","шоколад"], desc:"TOR GOLD выглядит дороже и подходит для подарочных наборов."},
+    {key:"визитки", words:["визит"], unit:"шт", qtyPrices:{100:1100,300:2400,500:3000,1000:4000}, add:["наклейки","флаеры","бейджи","ручки"], desc:"Визитки нужны почти любому бизнесу: для продаж, встреч, упаковки и презентации."},
+    {key:"визитки с фольгой", words:["фольг","фольга"], unit:"шт", qtyPrices:{100:2000,300:4500,500:6000,1000:10000}, add:["ламинация","премиальная бумага"], desc:"Фольгирование делает визитки премиальнее и заметнее."},
+    {key:"наклейки", words:["наклей","стикер"], unit:"шт", tiers:[[30,49,20],[50,79,17],[80,99,15],[100,299,13],[300,499,11],[500,999999,9]], add:["визитки","упаковка"], desc:"Наклейки подходят для упаковки, стаканов, коробок, витрин и подарков."},
+    {key:"стикерпаки", words:["стикерпак"], unit:"шт", tiers:[[30,119,100],[120,199,70],[200,999999,65]], add:["наклейки","упаковка"], desc:"Стикерпаки — хороший формат для бренда, мерча и подарков."},
+    {key:"силиконовые бирки", words:["силикон","силиконов"], unit:"шт", tiers:[[30,49,35],[50,79,24],[80,99,22],[100,299,19],[300,499,15],[500,999999,12]], add:["сатиновые ленты","наклейки"], desc:"Силиконовые бирки делают одежду и товары визуально дороже."},
+    {key:"сатиновые бирки", words:["сатинов","бирк"], unit:"шт", tiers:[[50,99,18],[100,299,10],[300,499,7.5],[500,999,6],[1000,999999,5]], add:["упаковочная лента","наклейки"], desc:"Сатиновые бирки подходят для одежды, текстиля и упаковки."},
+    {key:"упаковочная лента", words:["лента","ленты"], unit:"м", tiers:[[10,49,95],[50,99,65],[100,199,55],[200,999999,35]], add:["бирки","наклейки"], desc:"Лента помогает сделать упаковку фирменной и подарочной."},
+    {key:"баннер / наружная печать", words:["баннер","наруж","экстерьер"], unit:"м²", tiers:[[1,999999,550]], add:["люверсы","монтаж","дизайн"], desc:"Баннер подходит для акций, фасадов, мероприятий и наружной рекламы."},
+    {key:"УФ-печать", words:["уф","uv","самоклей","постер"], unit:"м²", tiers:[[1,999999,800]], add:["белая печать","плоттерная резка"], desc:"УФ-печать подходит для самоклейки, постеров, наклеек, табличек и премиальной печати."},
+    {key:"флаеры / буклеты", words:["флаер","буклет","листов"], unit:"шт", qtyPrices:{100:1400}, add:["визитки","баннер","наклейки"], desc:"Флаеры и буклеты подходят для акций, открытий, скидок и массового продвижения."},
+    {key:"бейджи", words:["бейдж"], unit:"шт", tiers:[[1,10,270],[11,19,250],[20,49,200],[50,99,150],[100,999999,130]], add:["ленты","форма персонала"], desc:"Бейджи нужны персоналу, мероприятиям, клиникам, салонам и конференциям."},
+    {key:"календари", words:["календар"], unit:"шт", tiers:[[10,49,700],[50,99,650],[100,499,590],[500,999999,540]], add:["ручки","блокноты"], desc:"Календари — хороший корпоративный подарок и долгий рекламный носитель."},
+    {key:"блокноты", words:["блокнот"], unit:"шт", tiers:[[1,11,150],[12,19,140],[20,49,130],[50,99,120],[100,999999,110]], add:["ручки","календари"], desc:"Блокноты подходят для офисов, мероприятий, подарков и корпоративных наборов."},
+    {key:"шоколад с логотипом", words:["шоколад"], unit:"шт", tiers:[[100,499,25],[500,999,22],[1000,999999,21]], add:["открытки","пакеты"], desc:"Шоколад с логотипом — недорогой подарок клиентам и гостям."},
+    {key:"вывеска / табличка", words:["вывес","таблич","фасад"], unit:"проект", custom:true, add:["баннер","наклейки на витрину","визитки"], desc:"Вывески и таблички считаются индивидуально: материал, размер, подсветка, монтаж и макет."}
+  ],
+  niches: [
+    {words:["кофе","кофейн","кафе","ресторан","пекар","шаурм","общепит"], name:"кафе/кофейня", set:["вывеска","меню","наклейки на упаковку","кружки","футболки персонала","визитки","флаеры"]},
+    {words:["салон","красот","барбер","маникюр","космет"], name:"салон красоты", set:["вывеска","прайс-лист","визитки","сертификаты","наклейки","флаеры","бейджи"]},
+    {words:["магазин","бутик","одежд","шоурум"], name:"магазин одежды", set:["вывеска","сатиновые бирки","силиконовые бирки","упаковочная лента","наклейки","пакеты","визитки"]},
+    {words:["авто","мойка","сервис","детейлинг","шиномонтаж"], name:"авто-бизнес", set:["вывеска","баннер","наклейки","визитки","таблички","форма персонала"]},
+    {words:["стомат","клиник","медицин","аптек"], name:"клиника/стоматология", set:["вывеска","таблички","бейджи","визитки","сертификаты","флаеры","папки"]},
+    {words:["фитнес","спорт","зал","команда"], name:"спорт/фитнес", set:["футболки","кепки","наклейки","баннеры","абонементы","сертификаты"]},
+    {words:["школ","детсад","универс","образован"], name:"образование", set:["грамоты","сертификаты","бейджи","таблички","стенды","блокноты","календари"]},
+    {words:["стро","ремонт","мебел","окна","двери"], name:"стройка/ремонт", set:["баннер","визитки","флаеры","форма","наклейки на авто","таблички"]},
+    {words:["мероприят","форум","конферен","ивент","свадьб"], name:"мероприятие", set:["бейджи","баннеры","пресс-волл","флаеры","значки","сувенирка","навигация"]},
+    {words:["отель","гостиниц","туризм","санатор"], name:"отель/туризм", set:["вывеска","таблички","бейджи","буклеты","карты гостя","сувенирка","меню"]},
+    {words:["недвиж","риэлтор"], name:"недвижимость", set:["визитки","буклеты","баннеры","таблички","папки","ручки"]}
+  ],
+  tech: [
+    {words:["дтф","dtf"], text:"ДТФ — технология переноса полноцветного принта на ткань. Хорошо подходит для футболок, кепок, формы, мерча и небольших партий."},
+    {words:["уф","uv"], text:"УФ-печать — печать, которая закрепляется ультрафиолетом. Подходит для самоклейки, постеров, табличек, наклеек и премиальных решений. Белая УФ-печать может считаться отдельно."},
+    {words:["ламинац"], text:"Ламинация защищает печать и делает изделие приятнее на ощупь. Бывает тонкая и плотная. Часто используется для визиток, бейджей и карточек."},
+    {words:["фольг"], text:"Фольгирование добавляет металлический блеск — золото, серебро и другие эффекты. Хорошо для премиальных визиток, сертификатов и упаковки."},
+    {words:["плоттер","резк"], text:"Плоттерная резка нужна для фигурных наклеек, контуров, самоклейки и аккуратного вырезания сложных форм."},
+    {words:["баннер"], text:"Баннер — практичный материал для наружной рекламы, фасадов, мероприятий и акций. Цена часто считается по м²."}
+  ]
+};
+function U_norm(s){return (s||"").toLowerCase().replace(/ё/g,"е").replace(/[.,!?;:()]/g," ").replace(/\s+/g," ").trim();}
+function U_has(s,arr){const n=U_norm(s);return arr.some(w=>n.includes(U_norm(w)));}
+function U_qty(s){const m=(s||"").match(/(\d+)\s*(шт|штук|м2|м²|метр|метров|м|лист|листов)?/i);return m?Number(m[1]):null;}
+function U_budget(s){const m=(s||"").replace(/\s/g,"").match(/(?:бюджет|есть|до|на|за)?(\d{4,7})/i);return m?Number(m[1]):null;}
+function U_area(s){const n=(s||"").replace(/,/g,".").toLowerCase();let m=n.match(/(\d+(?:\.\d+)?)\s*(?:x|х|на|\*)\s*(\d+(?:\.\d+)?)/);if(m)return Number(m[1])*Number(m[2]);m=n.match(/(\d+(?:\.\d+)?)\s*(м2|м²)/);return m?Number(m[1]):null;}
+function U_product(s){let best=null,score=0,n=U_norm(s);for(const p of ALFA_UNI.products){let sc=0;for(const w of p.words){if(n.includes(U_norm(w)))sc+=w.length;}if(sc>score){score=sc;best=p;}}return best;}
+function U_price(p,qty,area){if(!p||p.custom)return null;let amount=area||qty;if(!amount)return null;if(p.tiers){let t=p.tiers.find(x=>amount>=x[0]&&amount<=x[1])||p.tiers[p.tiers.length-1];return {unit:t[2],total:Math.round(t[2]*amount),amount};}if(p.qtyPrices){let keys=Object.keys(p.qtyPrices).map(Number).sort((a,b)=>a-b), chosen=keys[0];for(const k of keys){if(amount>=k)chosen=k;}return {unit:Math.round(p.qtyPrices[chosen]/chosen),total:p.qtyPrices[chosen],amount:chosen};}return null;}
+function U_niche(s){for(const n of ALFA_UNI.niches){if(U_has(s,n.words))return n;}return null;}
+function U_budgetPlan(budget,niche){let base=niche?`Для направления «${niche.name}» рекомендую: ${niche.set.join(", ")}.`:"Для бизнеса можно собрать комплект из вывески, визиток, наклеек, флаеров, сувенирки и брендирования.";
+if(budget<15000)return base+"\n\nПри таком бюджете лучше начать с самого нужного: визитки, наклейки, флаеры или небольшая партия сувенирки.";
+if(budget<50000)return base+"\n\nПри бюджете 15–50 тыс ₽ можно собрать стартовый комплект: полиграфия + наклейки + часть сувенирки/одежды + небольшой баннер или вывеска.";
+if(budget<100000)return base+"\n\nПри бюджете 50–100 тыс ₽ уже можно делать заметное оформление: вывеска/баннер, полиграфия, упаковка, форма персонала и сувенирка.";
+return base+"\n\nПри бюджете 100 тыс ₽+ можно делать полноценное брендирование: наружная реклама, упаковка, одежда, сувенирка, полиграфия и оформление точки.";}
+function U_tech(s){for(const t of ALFA_UNI.tech){if(U_has(s,t.words))return t.text;}return null;}
+function U_orderAdd(p,qty,calc,raw){if(!window.ALFA_STATE)return;ALFA_STATE.items=ALFA_STATE.items||[];ALFA_STATE.items.push({name:p.key,qty:qty||calc?.amount||"",unit:p.unit,total:calc?calc.total:null,raw:raw||""});if(typeof updateAIOrderCard==="function")updateAIOrderCard();}
+function U_summary(){if(typeof buildOrderSummary==="function")return buildOrderSummary();return "Заявка будет сформирована менеджером после уточнения деталей.";}
+function aiAnswer(q){
+  const s=U_norm(q), qty=U_qty(q), area=U_area(q), budget=U_budget(q), p=U_product(q), niche=U_niche(q), tech=U_tech(q);
+  if(U_has(q,["очистить","сбросить","заново"])){if(window.ALFA_STATE){ALFA_STATE.items=[];ALFA_STATE.budget=null;ALFA_STATE.business="";if(typeof updateAIOrderCard==="function")updateAIOrderCard();}return "Очистил заявку. Можно собрать заказ заново.";}
+  if(U_has(q,["собери заявку","итог","готовая заявка","отправить заявку"]))return U_summary();
+  if(U_has(q,["адрес","где","карта","маршрут"]))return "Адрес Альфы: Нальчик, Тарчокова 29. Внизу сайта есть Яндекс.Карта и кнопка маршрута.";
+  if(U_has(q,["телефон","номер","позвонить","ватсап","whatsapp","телеграм","telegram","менеджер"]))return "Связь с менеджером: +7 967 425-79-79. На сайте есть кнопки звонка, WhatsApp и Telegram.";
+  if(U_has(q,["как заказать","оформить","оставить заказ"]))return "Как заказать: напишите товар, количество, размер, срок и есть ли макет. Я соберу заявку, а вы отправите её менеджеру.";
+  if(U_has(q,["нет макета","нужен макет","макета нет"]))return "Если макета нет — это нормально. Можно прислать идею, текст, логотип или пример. Дизайн и подготовка файла могут считаться отдельно.";
+  if(U_has(q,["срочно","сегодня","завтра","дедлайн"]))return "Срочные заказы возможны, но зависят от товара, тиража, макета и загрузки производства. Лучше сразу написать менеджеру и указать дедлайн.";
+  if(U_has(q,["дорого","дешевле","скидка","дороговато"]))return "Можно удешевить заказ: уменьшить тираж, выбрать другой материал, упростить макет, убрать доп. обработку или подобрать альтернативную технологию. Напишите бюджет — предложу вариант.";
+  if(U_has(q,["png","jpg","jpeg","pdf","cdr","ai","svg","формат файла","разрешение"]))return "Для печати лучше PDF, AI, CDR, SVG или качественный PNG/JPG. Для крупного формата важно разрешение. Файл желательно отправить менеджеру на проверку.";
+  if(U_has(q,["ассортимент","что есть","услуги","каталог","что делаете"]))return "Альфа делает: визитки, флаеры, буклеты, баннеры, вывески, УФ-печать, ДТФ на одежде, футболки, кепки, кружки, ручки, наклейки, бирки, ленты, бейджи, календари, блокноты, шоколад с логотипом и дизайн макетов.";
+  if(budget){if(window.ALFA_STATE)ALFA_STATE.budget=budget;return U_budgetPlan(budget,niche);}
+  if(niche)return `Для направления «${niche.name}» рекомендую: ${niche.set.join(", ")}.\n\nЕсли напишете бюджет, я соберу комплект под сумму. Например: «бюджет 30000».`;
+  if(tech)return tech;
+  if(p){
+    let calc=U_price(p,qty,area);
+    let ans=p.desc+"\n\n"+p.key+": "+(p.custom?p.answer:(p.answer||"Цена зависит от тиража и параметров."));
+    if(area)ans+=`\n\nЯ понял размер/площадь: ${area} м².`;
+    if(calc){ans+=`\n\nОриентировочный расчёт: ${calc.unit} ₽ × ${calc.amount} ${area?"м²":p.unit} = ${calc.total.toLocaleString("ru-RU")} ₽.`;U_orderAdd(p,qty||area,calc,q);}
+    else if(qty){ans+=`\n\nКоличество ${qty} ${p.unit} сохранил как ориентир. Точную цену лучше подтвердить у менеджера.`;U_orderAdd(p,qty,null,q);}
+    if(p.add&&p.add.length)ans+=`\n\nЧасто вместе заказывают: ${p.add.join(", ")}.`;
+    ans+="\n\nФинальную стоимость подтверждает менеджер.";
+    return ans;
+  }
+  if(area)return `Я понял площадь: ${area} м². Для расчёта напишите материал: баннер, самоклейка, УФ-печать или постер.`;
+  if(U_has(q,["привет","здравствуйте","добрый"]))return "Здравствуйте! Я ALFA AI PRO MAX — консультант по полиграфии, рекламе и брендингу. Напишите товар, тираж, бюджет или сферу бизнеса.";
+  return "В рамках полиграфии я могу помочь с ценами, материалами, макетами, сроками, тиражами, бюджетом, выбором продукции и заявкой. Сформулируйте задачу так: «150 кружек», «баннер 3×2», «открываю кофейню», «бюджет 30000», «нужны визитки и наклейки».";
+}
+
 </script>
 </body>
 </html>
