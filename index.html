@@ -1,1033 +1,358 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Альфа — рекламное агентство в Нальчике</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АЛЬФА — полиграфия и рекламное производство в Нальчике</title>
+<meta name="description" content="АЛЬФА в Нальчике: полиграфия, наружная реклама, сувенирная продукция, одежда с логотипом, УФ-печать и дизайн.">
+<style>
+:root{
+  --red:#e30613;--red2:#ff3440;--dark:#070707;--bg:#0d0d0f;--white:#fff;
+  --muted:#bdbdbd;--card:rgba(255,255,255,.078);--line:rgba(255,255,255,.13);
+  --shadow:0 30px 90px rgba(0,0,0,.42);--radius:32px
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#070707;color:#fff;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-4;background:
+radial-gradient(circle at 12% 7%,rgba(227,6,19,.34),transparent 33%),
+radial-gradient(circle at 88% 18%,rgba(227,6,19,.18),transparent 30%),
+radial-gradient(circle at 50% 100%,rgba(255,255,255,.07),transparent 40%),#070707}
+body:after{content:"";position:fixed;inset:0;z-index:-3;pointer-events:none;background:
+linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;opacity:.42;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font-family:inherit}
+.container{width:min(1180px,calc(100% - 32px));margin:auto}
+.cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:-2;background:radial-gradient(circle,rgba(227,6,19,.18),transparent 64%);transform:translate(-50%,-50%);left:50%;top:50%;transition:.08s linear}
+header{position:sticky;top:0;z-index:50;background:rgba(7,7,7,.75);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:86px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;min-width:max-content}
+.brand img{width:64px;height:64px;object-fit:contain;border-radius:18px;box-shadow:0 0 34px rgba(227,6,19,.34);animation:logoPulse 4s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+.brand strong{display:block;font-size:24px;letter-spacing:1.2px;line-height:1}.brand span{display:block;margin-top:5px;color:var(--muted);font-size:13px}
+.menu{display:flex;gap:24px;color:#ddd;font-size:15px}.menu a{position:relative}.menu a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--red);transition:.3s}.menu a:hover:after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 23px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font-weight:900;cursor:pointer;transition:.3s;font-size:15px;white-space:nowrap}
+.btn:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.24)}.btn-red{background:linear-gradient(135deg,var(--red),#940008);box-shadow:0 18px 54px rgba(227,6,19,.38)}
+.hero{min-height:calc(100vh - 86px);display:grid;align-items:center;padding:76px 0 92px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(227,6,19,.14);border:1px solid rgba(227,6,19,.35);color:#ffc8ca;margin-bottom:24px;animation:fadeUp .75s both}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 22px var(--red)}
+h1{font-size:clamp(42px,7vw,88px);line-height:.94;letter-spacing:-3px;margin-bottom:24px;animation:fadeUp .85s .08s both}
+h1 span{color:var(--red2);text-shadow:0 0 44px rgba(227,6,19,.52)}
+.hero-text{font-size:21px;line-height:1.56;color:#d8d8d8;max-width:670px;margin-bottom:32px;animation:fadeUp .85s .16s both}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;animation:fadeUp .85s .24s both}
+.hero-points{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px;animation:fadeUp .85s .32s both}
+.point{padding:18px;border-radius:22px;background:var(--card);border:1px solid var(--line);backdrop-filter:blur(12px)}.point b{display:block;font-size:27px}.point span{display:block;margin-top:6px;color:var(--muted);font-size:13px;line-height:1.35}
+.hero-card{position:relative;min-height:560px;border-radius:44px;background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.025)),rgba(18,18,18,.78);border:1px solid rgba(255,255,255,.13);box-shadow:var(--shadow);overflow:hidden;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.hero-card:before{content:"";position:absolute;width:310px;height:310px;right:-100px;top:-90px;border-radius:50%;background:var(--red);filter:blur(90px);opacity:.5;animation:blob 7s infinite alternate ease-in-out}
+.hero-card:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 10%,rgba(255,255,255,.12) 38%,transparent 58%);transform:translateX(-120%);animation:shine 5.5s infinite}
+@keyframes blob{from{transform:translate(0,0) scale(1)}to{transform:translate(-70px,90px) scale(1.2)}}@keyframes shine{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.big-logo{position:absolute;inset:55px;display:grid;place-items:center;z-index:3}.big-logo img{width:min(330px,82%);object-fit:contain;border-radius:34px;filter:drop-shadow(0 28px 52px rgba(227,6,19,.34))}
+.mini{position:absolute;z-index:5;padding:18px 20px;border-radius:24px;background:rgba(0,0,0,.5);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.15);box-shadow:0 20px 60px rgba(0,0,0,.28)}.mini strong{display:block;font-size:27px}.mini span{display:block;color:#c9c9c9;font-size:13px;margin-top:5px}.s1{left:28px;bottom:34px}.s2{right:28px;bottom:58px}.s3{right:50px;top:42px}
+section{padding:88px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:38px}.section-head h2{font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-2px}.section-head h2 span{color:var(--red2)}.section-head p{max-width:520px;color:var(--muted);line-height:1.6}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.about-card{padding:32px;border-radius:36px;background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035));border:1px solid var(--line);min-height:280px;position:relative;overflow:hidden}.about-card.red{background:radial-gradient(circle at 90% 100%,rgba(227,6,19,.45),transparent 40%),linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035))}.about-card h3{font-size:34px;line-height:1.05;margin-bottom:14px}.about-card p{color:#d2d2d2;line-height:1.65;font-size:17px}
+.advantages{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.adv{padding:26px;border-radius:30px;background:var(--card);border:1px solid var(--line);transition:.35s}.adv:hover{transform:translateY(-10px);background:rgba(227,6,19,.13);border-color:rgba(227,6,19,.6)}.adv i{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:rgba(227,6,19,.16);font-style:normal;font-size:25px;color:var(--red2);margin-bottom:22px}.adv h3{font-size:22px;margin-bottom:10px}.adv p{color:#c8c8c8;line-height:1.52}
+.showcase{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px}.work{min-height:290px;border-radius:34px;padding:30px;background:linear-gradient(145deg,rgba(227,6,19,.25),rgba(255,255,255,.05)),#171717;border:1px solid var(--line);position:relative;overflow:hidden;transition:.35s}.work.large{min-height:596px}.work:hover{transform:scale(1.025)}.work:after{content:"";position:absolute;width:250px;height:250px;right:-82px;bottom:-86px;background:var(--red);border-radius:50%;filter:blur(78px);opacity:.42}.work h3,.work p{position:relative;z-index:2}.work h3{font-size:31px;margin-bottom:10px}.work p{color:#dedede;line-height:1.5}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.step{padding:24px;border-radius:28px;background:var(--card);border:1px solid var(--line);position:relative}.step b{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:14px;background:rgba(227,6,19,.18);color:var(--red2);margin-bottom:18px}.step h3{font-size:19px;margin-bottom:8px}.step p{color:#c9c9c9;line-height:1.45;font-size:14px}
+.calc-wrap{display:grid;grid-template-columns:.82fr 1.18fr;gap:22px;align-items:start}.calc-side{padding:30px;border-radius:36px;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));border:1px solid var(--line);position:sticky;top:106px}.calc-side h3{font-size:34px;line-height:1.05;margin-bottom:14px}.calc-side p{color:#d1d1d1;line-height:1.58;margin-bottom:20px}.notice{padding:18px;border-radius:22px;background:rgba(227,6,19,.13);border:1px solid rgba(227,6,19,.35);color:#ffd1d3;line-height:1.5}
+.calc-box{padding:28px;border-radius:36px;background:#f7f7f7;color:#111;box-shadow:var(--shadow)}.form-steps{display:grid;gap:16px}.field label{display:block;font-weight:900;margin-bottom:8px}.field small{display:block;color:#666;margin-top:7px;line-height:1.35}select,input,textarea{width:100%;padding:16px 17px;border-radius:18px;border:1px solid #ddd;background:white;color:#111;font-size:16px;outline:none}textarea{min-height:115px;resize:vertical}select:focus,input:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(227,6,19,.1)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.check{display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:18px;background:#fff;border:1px solid #ddd;cursor:pointer}.check input{width:auto;margin-top:2px}
+.result{margin-top:18px;padding:22px;border-radius:26px;background:#111;color:#fff;display:grid;gap:10px;position:relative;overflow:hidden}.result:after{content:"";position:absolute;right:-80px;bottom:-80px;width:190px;height:190px;background:var(--red);border-radius:50%;filter:blur(70px);opacity:.45}.result *{position:relative;z-index:2}.price{font-size:42px;font-weight:900;line-height:1}.price span{color:var(--red2)}.result-row{display:flex;justify-content:space-between;gap:12px;color:#ddd;border-top:1px solid rgba(255,255,255,.12);padding-top:10px}.calc-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.custom{padding:36px;border-radius:38px;background:radial-gradient(circle at 85% 70%,rgba(227,6,19,.42),transparent 38%),linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.035));border:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center}.custom h2{font-size:clamp(32px,5vw,56px);line-height:1;letter-spacing:-2px;margin-bottom:12px}.custom h2 span{color:var(--red2)}.custom p{color:#d0d0d0;line-height:1.6;max-width:660px}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.review{padding:26px;border-radius:30px;background:var(--card);border:1px solid var(--line)}.stars{color:#ffcc4d;font-size:22px;margin-bottom:14px}.review p{color:#d4d4d4;line-height:1.55;margin-bottom:16px}.review b{display:block;color:#fff}
+.contacts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.contact{padding:28px;border-radius:30px;background:var(--card);border:1px solid var(--line);color:#fff;text-align:left}.contact span{display:block;color:var(--red2);font-weight:900;margin-bottom:8px}.contact strong{font-size:22px;line-height:1.35}
+.map-card{border-radius:36px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow)}.map-top{padding:28px;display:flex;justify-content:space-between;gap:18px;align-items:center}.map-top h2{font-size:clamp(30px,5vw,52px);letter-spacing:-2px;line-height:1}.map-top h2 span{color:var(--red2)}.map-top p{margin-top:10px;color:var(--muted)}.map-frame{width:100%;height:430px;border:0;display:block}
+footer{padding:34px 0;border-top:1px solid var(--line);color:#aaa}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.float-wrap{position:fixed;right:18px;bottom:18px;z-index:80;display:grid;gap:10px}.float{width:62px;height:62px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--red),#940008);color:#fff;font-size:25px;box-shadow:0 18px 50px rgba(227,6,19,.5);display:grid;place-items:center;cursor:pointer;animation:pulse 2.2s infinite}.float.call{background:#151515;border:1px solid var(--line);animation-delay:.35s}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(0,0,0,.72);backdrop-filter:blur(12px)}.modal.active{display:flex}.modal-box{width:min(460px,100%);padding:30px;border-radius:34px;background:radial-gradient(circle at top right,rgba(227,6,19,.36),transparent 38%),#121212;border:1px solid rgba(255,255,255,.13);box-shadow:0 30px 100px rgba(0,0,0,.6)}.modal-box h3{font-size:30px;margin-bottom:10px}.modal-box p{color:#cfcfcf;line-height:1.5;margin-bottom:20px}.modal-actions{display:grid;gap:12px}.modal-close{width:100%;margin-top:12px;background:rgba(255,255,255,.08)}
+.reveal{opacity:0;transform:translateY(42px);transition:.85s ease}.reveal.active{opacity:1;transform:translateY(0)}@keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:980px){.menu{display:none}.hero-grid,.about-grid,.calc-wrap,.custom{grid-template-columns:1fr}.calc-side{position:relative;top:auto}.advantages{grid-template-columns:repeat(2,1fr)}.showcase{grid-template-columns:1fr}.work.large{min-height:340px}.steps{grid-template-columns:1fr 1fr}.reviews,.contacts{grid-template-columns:1fr}.map-top{display:block}.map-top .btn{margin-top:18px}}
+@media(max-width:620px){.nav .btn{display:none}.hero{padding:50px 0}h1{letter-spacing:-1px}.hero-card{min-height:420px;border-radius:32px}.hero-points,.grid-2,.options,.advantages,.steps{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:14px}.calc-box{padding:18px;border-radius:28px}.price{font-size:34px}.map-frame{height:350px}.float{width:56px;height:56px}.custom{padding:26px}}
+
+.premium-dots{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.premium-dots span{position:absolute;width:6px;height:6px;border-radius:50%;background:rgba(227,6,19,.55);box-shadow:0 0 22px rgba(227,6,19,.9);animation:dotRise 12s linear infinite}
+.premium-dots span:nth-child(1){left:12%;bottom:-20px;animation-delay:0s}
+.premium-dots span:nth-child(2){left:31%;bottom:-20px;animation-delay:2.5s}
+.premium-dots span:nth-child(3){left:57%;bottom:-20px;animation-delay:5s}
+.premium-dots span:nth-child(4){left:76%;bottom:-20px;animation-delay:1.2s}
+.premium-dots span:nth-child(5){left:89%;bottom:-20px;animation-delay:6.8s}
+@keyframes dotRise{0%{transform:translateY(0) scale(.6);opacity:0}12%{opacity:.8}85%{opacity:.55}100%{transform:translateY(-110vh) scale(1.25);opacity:0}}
+
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1}
+.hero:before{width:180px;height:180px;left:7%;top:17%;background:radial-gradient(circle,rgba(227,6,19,.25),transparent 68%);animation:orbMove 8s ease-in-out infinite alternate}
+.hero:after{width:130px;height:130px;right:9%;bottom:10%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);animation:orbMove2 9s ease-in-out infinite alternate}
+@keyframes orbMove{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(55px,80px,0) scale(1.25)}}
+@keyframes orbMove2{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-70px,-50px,0) scale(1.18)}}
+
+.big-logo img{animation:logoFloat 5.5s ease-in-out infinite}
+@keyframes logoFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-12px) rotate(-1.5deg)}}
+
+.adv,.work,.step,.review,.contact,.about-card,.calc-box,.custom,.map-card{will-change:transform,box-shadow}
+.adv:hover,.step:hover,.review:hover,.contact:hover{box-shadow:0 22px 70px rgba(227,6,19,.16)}
+.work:hover h3,.adv:hover h3,.contact:hover strong{text-shadow:0 0 24px rgba(227,6,19,.45)}
+
+.btn-red{position:relative;overflow:hidden}
+.btn-red:after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);animation:btnShine 4.8s infinite}
+@keyframes btnShine{0%,55%{left:-120%}100%{left:140%}}
+
+.section-head h2 span{animation:redGlow 3s ease-in-out infinite}
+@keyframes redGlow{0%,100%{text-shadow:0 0 0 rgba(227,6,19,0)}50%{text-shadow:0 0 28px rgba(227,6,19,.42)}}
+
+.mini{animation:miniBreath 4.5s ease-in-out infinite}
+.s2{animation-delay:.35s}
+.s3{animation-delay:.7s}
+@keyframes miniBreath{0%,100%{box-shadow:0 20px 60px rgba(0,0,0,.28)}50%{box-shadow:0 20px 65px rgba(227,6,19,.20)}}
 
-  <style>
-    :root {
-      --red: #e5252a;
-      --red-dark: #b81218;
-      --black: #1f1f1f;
-      --dark: #262626;
-      --gray: #777;
-      --light: #f6f6f6;
-      --white: #ffffff;
-      --radius: 28px;
-      --shadow: 0 25px 80px rgba(0, 0, 0, 0.18);
-    }
+.float{transition:.25s}
+.float:hover{transform:scale(1.12) rotate(-6deg)}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--black);
-      color: var(--white);
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      min-height: 100vh;
-      background:
-        radial-gradient(circle at top left, rgba(229,37,42,.22), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(229,37,42,.14), transparent 35%),
-        #1f1f1f;
-    }
-
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .top-line {
-      height: 4px;
-      background: linear-gradient(90deg, transparent, var(--red), transparent);
-      animation: glowLine 3s infinite alternate;
-    }
-
-    @keyframes glowLine {
-      from { opacity: .4; }
-      to { opacity: 1; box-shadow: 0 0 30px var(--red); }
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(18px);
-      background: rgba(31,31,31,.82);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .nav {
-      height: 86px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(229,37,42,.25);
-      animation: logoPulse 4s infinite ease-in-out;
-    }
-
-    @keyframes logoPulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    .brand-text strong {
-      display: block;
-      font-size: 24px;
-      letter-spacing: 1px;
-    }
-
-    .brand-text span {
-      color: #bbb;
-      font-size: 13px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 26px;
-      color: #ddd;
-      font-size: 15px;
-    }
-
-    .menu a {
-      position: relative;
-    }
-
-    .menu a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 0;
-      height: 2px;
-      background: var(--red);
-      transition: .3s;
-    }
-
-    .menu a:hover::after {
-      width: 100%;
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid rgba(255,255,255,.12);
-      transition: .3s;
-      cursor: pointer;
-    }
-
-    .btn-red {
-      background: linear-gradient(135deg, var(--red), var(--red-dark));
-      color: white;
-      box-shadow: 0 15px 40px rgba(229,37,42,.35);
-    }
-
-    .btn-red:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 25px 60px rgba(229,37,42,.5);
-    }
-
-    .btn-dark {
-      background: rgba(255,255,255,.08);
-    }
-
-    .btn-dark:hover {
-      background: rgba(255,255,255,.16);
-      transform: translateY(-4px);
-    }
-
-    .hero {
-      position: relative;
-      padding: 90px 0 80px;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(229,37,42,.14);
-      color: #ffb3b3;
-      border: 1px solid rgba(229,37,42,.28);
-      margin-bottom: 26px;
-      animation: fadeUp .8s ease both;
-    }
-
-    .badge-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--red);
-      box-shadow: 0 0 20px var(--red);
-    }
-
-    h1 {
-      font-size: clamp(44px, 7vw, 86px);
-      line-height: .95;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
-      animation: fadeUp .9s ease both .1s;
-    }
-
-    h1 span {
-      color: var(--red);
-      text-shadow: 0 0 35px rgba(229,37,42,.5);
-    }
-
-    .hero p {
-      font-size: 21px;
-      line-height: 1.55;
-      color: #d4d4d4;
-      max-width: 650px;
-      margin-bottom: 34px;
-      animation: fadeUp .9s ease both .2s;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      animation: fadeUp .9s ease both .3s;
-    }
-
-    .hero-card {
-      position: relative;
-      min-height: 500px;
-      border-radius: 40px;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03)),
-        #292929;
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      animation: floatCard 5s ease-in-out infinite;
-    }
-
-    @keyframes floatCard {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-16px) rotate(1deg); }
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: var(--red);
-      filter: blur(80px);
-      opacity: .45;
-      right: -90px;
-      top: -80px;
-      animation: blobMove 7s infinite alternate;
-    }
-
-    @keyframes blobMove {
-      from { transform: translate(0,0) scale(1); }
-      to { transform: translate(-80px,100px) scale(1.25); }
-    }
-
-    .big-logo {
-      position: absolute;
-      inset: 55px;
-      display: grid;
-      place-items: center;
-      z-index: 2;
-    }
-
-    .big-logo img {
-      width: min(300px, 80%);
-      border-radius: 30px;
-      filter: drop-shadow(0 30px 40px rgba(0,0,0,.55));
-    }
-
-    .mini-stat {
-      position: absolute;
-      z-index: 3;
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: rgba(20,20,20,.72);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,.14);
-    }
-
-    .mini-stat strong {
-      display: block;
-      color: white;
-      font-size: 28px;
-    }
-
-    .mini-stat span {
-      color: #bbb;
-      font-size: 13px;
-    }
-
-    .s1 { left: 28px; bottom: 34px; }
-    .s2 { right: 28px; bottom: 110px; }
-    .s3 { right: 55px; top: 40px; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(35px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    section {
-      padding: 86px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      align-items: end;
-      margin-bottom: 36px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1;
-      letter-spacing: -2px;
-    }
-
-    .section-head h2 span {
-      color: var(--red);
-    }
-
-    .section-head p {
-      color: #bdbdbd;
-      max-width: 440px;
-      line-height: 1.6;
-    }
-
-    .services {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .service-card {
-      position: relative;
-      min-height: 250px;
-      padding: 26px;
-      border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(255,255,255,.10), rgba(255,255,255,.035));
-      border: 1px solid rgba(255,255,255,.1);
-      overflow: hidden;
-      transition: .35s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-12px);
-      border-color: rgba(229,37,42,.65);
-      box-shadow: 0 25px 70px rgba(229,37,42,.16);
-    }
-
-    .service-card::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: var(--red);
-      border-radius: 50%;
-      filter: blur(55px);
-      opacity: 0;
-      right: -35px;
-      bottom: -35px;
-      transition: .35s;
-    }
-
-    .service-card:hover::after {
-      opacity: .65;
-    }
-
-    .icon {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      border-radius: 18px;
-      background: rgba(229,37,42,.18);
-      color: var(--red);
-      font-size: 25px;
-      margin-bottom: 26px;
-    }
-
-    .service-card h3 {
-      font-size: 23px;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      color: #c8c8c8;
-      line-height: 1.55;
-    }
-
-    .marquee {
-      padding: 22px 0;
-      overflow: hidden;
-      background: var(--red);
-      color: white;
-      font-weight: 900;
-      font-size: 28px;
-      white-space: nowrap;
-      transform: rotate(-1deg);
-      margin: 40px 0;
-    }
-
-    .marquee-track {
-      display: inline-block;
-      animation: marquee 18s linear infinite;
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    .portfolio {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr .8fr;
-      gap: 18px;
-    }
-
-    .work {
-      min-height: 280px;
-      border-radius: 30px;
-      padding: 28px;
-      background:
-        linear-gradient(145deg, rgba(229,37,42,.28), rgba(255,255,255,.04)),
-        #292929;
-      border: 1px solid rgba(255,255,255,.1);
-      position: relative;
-      overflow: hidden;
-      transition: .35s;
-    }
-
-    .work:hover {
-      transform: scale(1.03);
-    }
-
-    .work.large {
-      min-height: 580px;
-    }
-
-    .work h3 {
-      font-size: 30px;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .work p {
-      color: #ddd;
-      position: relative;
-      z-index: 2;
-    }
-
-    .work::before {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      background: var(--red);
-      border-radius: 50%;
-      filter: blur(70px);
-      opacity: .38;
-      right: -70px;
-      bottom: -70px;
-    }
-
-    .calculator {
-      display: grid;
-      grid-template-columns: .9fr 1.1fr;
-      gap: 24px;
-      background: #f7f7f7;
-      color: #222;
-      border-radius: 40px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-
-    .calc-info {
-      background: #222;
-      color: white;
-      border-radius: 30px;
-      padding: 34px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .calc-info::after {
-      content: "";
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: var(--red);
-      filter: blur(75px);
-      opacity: .45;
-      right: -80px;
-      bottom: -80px;
-    }
-
-    .calc-info h2 {
-      font-size: 42px;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .calc-info p {
-      color: #d5d5d5;
-      line-height: 1.6;
-      position: relative;
-      z-index: 2;
-    }
-
-    .form {
-      display: grid;
-      gap: 14px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 17px 18px;
-      border-radius: 18px;
-      border: 1px solid #ddd;
-      font-size: 16px;
-      outline: none;
-      transition: .25s;
-      background: white;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--red);
-      box-shadow: 0 0 0 4px rgba(229,37,42,.1);
-    }
-
-    textarea {
-      min-height: 105px;
-      resize: vertical;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 18px;
-    }
-
-    .contact-card {
-      padding: 28px;
-      border-radius: 28px;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.1);
-      transition: .3s;
-    }
-
-    .contact-card:hover {
-      transform: translateY(-8px);
-      background: rgba(229,37,42,.15);
-    }
-
-    .contact-card span {
-      color: var(--red);
-      font-weight: 800;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .contact-card strong {
-      font-size: 23px;
-      line-height: 1.3;
-    }
-
-    footer {
-      padding: 34px 0;
-      border-top: 1px solid rgba(255,255,255,.08);
-      color: #aaa;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(45px);
-      transition: 1s;
-    }
-
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .floating-buttons {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      display: grid;
-      gap: 10px;
-      z-index: 60;
-    }
-
-    .float-btn {
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--red);
-      color: white;
-      font-size: 24px;
-      box-shadow: 0 15px 35px rgba(229,37,42,.45);
-      animation: bounce 2.4s infinite;
-    }
-
-    .float-btn:nth-child(2) {
-      animation-delay: .35s;
-      background: #222;
-      border: 1px solid rgba(255,255,255,.15);
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-9px); }
-    }
-
-    @media (max-width: 980px) {
-      .menu {
-        display: none;
-      }
-
-      .hero-grid,
-      .calculator {
-        grid-template-columns: 1fr;
-      }
-
-      .services {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .portfolio {
-        grid-template-columns: 1fr;
-      }
-
-      .work.large {
-        min-height: 320px;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .nav-actions {
-        display: none;
-      }
-
-      .brand img {
-        width: 54px;
-        height: 54px;
-      }
-
-      .hero {
-        padding-top: 55px;
-      }
-
-      h1 {
-        letter-spacing: -1px;
-      }
-
-      .hero-card {
-        min-height: 390px;
-      }
-
-      .services {
-        grid-template-columns: 1fr;
-      }
-
-      .section-head {
-        display: block;
-      }
-
-      .section-head p {
-        margin-top: 16px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .calculator {
-        padding: 18px;
-        border-radius: 28px;
-      }
-    }
-  </style>
+</style>
 </head>
-
 <body>
-  <div class="top-line"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="premium-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
 
-  <div class="page">
-    <header>
-      <div class="container nav">
-        <a href="#" class="brand">
-          <img alt="Альфа логотип" src="data:image/jpeg;base64,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" />
-          <div class="brand-text">
-            <strong>АЛЬФА</strong>
-            <span>рекламное агентство</span>
-          </div>
-        </a>
-
-        <nav class="menu">
-          <a href="#services">Услуги</a>
-          <a href="#portfolio">Работы</a>
-          <a href="#calc">Заказ</a>
-          <a href="#contacts">Контакты</a>
-        </nav>
-
-        <div class="nav-actions">
-          <a class="btn btn-dark" href="tel:+79287072007">Позвонить</a>
-          <a class="btn btn-red" href="#calc">Рассчитать</a>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <div class="badge">
-              <span class="badge-dot"></span>
-              Реклама • Печать • Дизайн • Сувениры
-            </div>
-
-            <h1>Печать, которая <span>продаёт</span></h1>
-
-            <p>
-              Рекламное агентство «Альфа» в Нальчике. Создаём вывески,
-              баннеры, полиграфию, брендированную одежду и сувенирную
-              продукцию для бизнеса, который хочет выглядеть сильнее.
-            </p>
-
-            <div class="hero-buttons">
-              <a class="btn btn-red" href="#calc">Оставить заявку</a>
-              <a class="btn btn-dark" href="https://wa.me/79287072007" target="_blank">Написать в WhatsApp</a>
-            </div>
-          </div>
-
-          <div class="hero-card">
-            <div class="big-logo">
-              <img alt="Альфа" src="data:image/jpeg;base64,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" />
-            </div>
-
-            <div class="mini-stat s1">
-              <strong>10 000+</strong>
-              <span>выполненных заказов</span>
-            </div>
-
-            <div class="mini-stat s2">
-              <strong>с 2014</strong>
-              <span>работаем для бизнеса</span>
-            </div>
-
-            <div class="mini-stat s3">
-              <strong>24/7</strong>
-              <span>заявки онлайн</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="marquee">
-        <div class="marquee-track">
-          БАННЕРЫ • ВЫВЕСКИ • ВИЗИТКИ • НАКЛЕЙКИ • СУВЕНИРЫ • ФУТБОЛКИ • ДИЗАЙН • ПЕЧАТЬ • БАННЕРЫ • ВЫВЕСКИ • ВИЗИТКИ • НАКЛЕЙКИ • СУВЕНИРЫ • ФУТБОЛКИ • ДИЗАЙН • ПЕЧАТЬ •
-        </div>
-      </div>
-
-      <section id="services">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2>Что мы <span>делаем</span></h2>
-            <p>
-              От идеи и макета до готового изделия. Быстро, аккуратно и с визуалом,
-              который заметят.
-            </p>
-          </div>
-
-          <div class="services">
-            <div class="service-card reveal">
-              <div class="icon">✦</div>
-              <h3>Наружная реклама</h3>
-              <p>Вывески, баннеры, таблички, оформление фасадов и витрин.</p>
-            </div>
-
-            <div class="service-card reveal">
-              <div class="icon">▣</div>
-              <h3>Полиграфия</h3>
-              <p>Визитки, листовки, буклеты, меню, сертификаты и фирменные материалы.</p>
-            </div>
-
-            <div class="service-card reveal">
-              <div class="icon">●</div>
-              <h3>Сувенирка</h3>
-              <p>Кружки, ручки, пакеты, ежедневники и подарки с вашим брендом.</p>
-            </div>
-
-            <div class="service-card reveal">
-              <div class="icon">✎</div>
-              <h3>Дизайн</h3>
-              <p>Логотипы, макеты, фирменный стиль и подготовка файлов к печати.</p>
-            </div>
-
-            <div class="service-card reveal">
-              <div class="icon">▰</div>
-              <h3>Одежда</h3>
-              <p>Печать на футболках, худи, спецодежде и корпоративной форме.</p>
-            </div>
-
-            <div class="service-card reveal">
-              <div class="icon">⬢</div>
-              <h3>Наклейки</h3>
-              <p>Стикеры, этикетки, брендирование упаковки, авто и витрин.</p>
-            </div>
-
-            <div class="service-card reveal">
-              <div class="icon">★</div>
-              <h3>Срочные заказы</h3>
-              <p>Когда нужно быстро — поможем подобрать оптимальный формат и срок.</p>
-            </div>
-
-            <div class="service-card reveal">
-              <div class="icon">✓</div>
-              <h3>Под ключ</h3>
-              <p>Консультация, дизайн, производство и помощь с установкой.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="portfolio">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2>Работы, которые <span>замечают</span></h2>
-            <p>
-              Здесь можно позже поставить реальные фото ваших работ. Сейчас блок
-              уже выглядит как профессиональное портфолио.
-            </p>
-          </div>
-
-          <div class="portfolio">
-            <div class="work large reveal">
-              <h3>Вывески и фасады</h3>
-              <p>Сильная наружная реклама для магазинов, кафе, салонов и офисов.</p>
-            </div>
-
-            <div class="work reveal">
-              <h3>Баннеры</h3>
-              <p>Яркие баннеры для акций, мероприятий и оформления точек продаж.</p>
-            </div>
-
-            <div class="work reveal">
-              <h3>Брендирование</h3>
-              <p>Одежда, сувениры, упаковка и корпоративный стиль.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="calc">
-        <div class="container">
-          <div class="calculator reveal">
-            <div class="calc-info">
-              <h2>Рассчитаем заказ</h2>
-              <p>
-                Заполните форму — после нажатия откроется WhatsApp с готовым
-                сообщением. Вам останется только отправить его.
-              </p>
-            </div>
-
-            <form class="form" id="orderForm">
-              <div class="form-row">
-                <input id="name" type="text" placeholder="Ваше имя" required />
-                <input id="phone" type="tel" placeholder="Телефон" required />
-              </div>
-
-              <div class="form-row">
-                <select id="service" required>
-                  <option value="">Выберите услугу</option>
-                  <option>Вывеска</option>
-                  <option>Баннер</option>
-                  <option>Визитки</option>
-                  <option>Листовки</option>
-                  <option>Наклейки</option>
-                  <option>Печать на одежде</option>
-                  <option>Сувенирная продукция</option>
-                  <option>Дизайн</option>
-                  <option>Другое</option>
-                </select>
-
-                <input id="quantity" type="text" placeholder="Количество / размер" />
-              </div>
-
-              <textarea id="comment" placeholder="Кратко опишите задачу"></textarea>
-
-              <button class="btn btn-red" type="submit">Отправить в WhatsApp</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <section id="contacts">
-        <div class="container">
-          <div class="section-head reveal">
-            <h2>Связаться с <span>нами</span></h2>
-            <p>Напишите или приезжайте — подскажем по материалам, срокам и цене.</p>
-          </div>
-
-          <div class="contact-grid">
-            <a class="contact-card reveal" href="tel:+79287072007">
-              <span>Телефон</span>
-              <strong>+7 928 707-20-07</strong>
-            </a>
-
-            <a class="contact-card reveal" href="https://wa.me/79287072007" target="_blank">
-              <span>WhatsApp</span>
-              <strong>Написать в мессенджер</strong>
-            </a>
-
-            <div class="contact-card reveal">
-              <span>Адрес</span>
-              <strong>г. Нальчик, ул. Идарова, 139</strong>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="container footer-inner">
-        <div>© 2026 АЛЬФА — рекламное агентство</div>
-        <div>Нальчик • Печать • Дизайн • Реклама</div>
-      </div>
-    </footer>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <img src="data:image/jpeg;base64,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" alt="АЛЬФА">
+      <div><strong>АЛЬФА</strong><span>рекламное агентство</span></div>
+    </a>
+    <nav class="menu">
+      <a href="#about">О компании</a><a href="#works">Работы</a><a href="#calculator">Калькулятор</a><a href="#contacts">Контакты</a>
+    </nav>
+    <button class="btn btn-red" onclick="openManager()">Связаться</button>
   </div>
+</header>
 
-  <div class="floating-buttons">
-    <a class="float-btn" href="https://wa.me/79287072007" target="_blank">☏</a>
-    <a class="float-btn" href="tel:+79287072007">☎</a>
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge"><span class="dot"></span> Нальчик • полиграфия • реклама • сувенирка</div>
+      <h1>Печать и реклама, которые <span>замечают</span></h1>
+      <p class="hero-text">«Альфа» — рекламное производство полного цикла: от идеи и макета до готовой продукции. Футболки, кружки, визитки, наклейки, баннеры, УФ-печать и брендирование бизнеса.</p>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="#calculator">Рассчитать стоимость</a>
+        <a class="btn" href="tel:+79674257979">Позвонить менеджеру</a>
+      </div>
+      <div class="hero-points">
+        <div class="point"><b data-count="100000">0+</b><span>выполненных заказов</span></div>
+        <div class="point"><b>с 2014</b><span>работаем для бизнеса</span></div>
+        <div class="point"><b>24/7</b><span>заявки онлайн</span></div>
+      </div>
+    </div>
+    <div class="hero-card" id="heroCard">
+      <div class="big-logo"><img src="data:image/jpeg;base64,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" alt="АЛЬФА"></div>
+      <div class="mini s1"><strong>Быстро</strong><span>расчёт и запуск</span></div>
+      <div class="mini s2"><strong>Тарчокова 29</strong><span>Нальчик</span></div>
+      <div class="mini s3"><strong>Premium</strong><span>печать и дизайн</span></div>
+    </div>
   </div>
+</section>
 
-  <script>
-    const reveals = document.querySelectorAll('.reveal');
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal"><h2>Кто такие <span>Альфа</span></h2><p>Коротко, понятно и без лишних слов: мы помогаем бизнесу выглядеть заметнее.</p></div>
+    <div class="about-grid">
+      <div class="about-card red reveal"><h3>Не просто печатаем — помогаем продавать</h3><p>Клиент приходит за визиткой, вывеской или футболкой. Но на самом деле ему нужен результат: чтобы бренд запомнили, акцию заметили, а товар выглядел дороже.</p></div>
+      <div class="about-card reveal"><h3>Большинство задач — индивидуальные</h3><p>Размеры, материалы, цвета, макеты, сроки и тиражи часто отличаются. Поэтому калькулятор даёт ориентир, а финальный расчёт менеджер подтверждает после уточнения деталей.</p></div>
+    </div>
+  </div>
+</section>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('active');
-          }, index * 80);
-        }
-      });
-    }, {
-      threshold: 0.15
-    });
+<section>
+  <div class="container">
+    <div class="section-head reveal"><h2>Почему выбирают <span>нас</span></h2><p>Главное — не перегружать клиента, а быстро дать понять: здесь надёжно, понятно и профессионально.</p></div>
+    <div class="advantages">
+      <div class="adv reveal"><i>⚡</i><h3>Быстрые сроки</h3><p>Подберём формат и тираж под вашу задачу и дедлайн.</p></div>
+      <div class="adv reveal"><i>🎨</i><h3>Дизайн под ключ</h3><p>Поможем с макетом, идеей и подготовкой файла к печати.</p></div>
+      <div class="adv reveal"><i>🏭</i><h3>Производственный подход</h3><p>Смотрим не только на красоту, но и на технологию изготовления.</p></div>
+      <div class="adv reveal"><i>💬</i><h3>Быстрая связь</h3><p>Менеджер доступен через звонок, WhatsApp и Telegram.</p></div>
+    </div>
+  </div>
+</section>
 
-    reveals.forEach((el) => observer.observe(el));
+<section id="works">
+  <div class="container">
+    <div class="section-head reveal"><h2>Работы, которые <span>продают</span></h2><p>Сюда позже можно поставить реальные фото работ. Сейчас блок уже держит дорогой визуальный стиль.</p></div>
+    <div class="showcase">
+      <div class="work large reveal"><h3>Вывески и фасады</h3><p>Для магазинов, кафе, салонов, офисов и локального бизнеса.</p></div>
+      <div class="work reveal"><h3>Сувенирка</h3><p>Кружки, ручки, шоколад, значки и подарки с логотипом.</p></div>
+      <div class="work reveal"><h3>Одежда и ДТФ</h3><p>Футболки, кепки, худи и корпоративная форма.</p></div>
+    </div>
+  </div>
+</section>
 
-    document.getElementById('orderForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+<section>
+  <div class="container">
+    <div class="section-head reveal"><h2>Как мы <span>работаем</span></h2><p>Понятный путь от заявки до готового заказа.</p></div>
+    <div class="steps">
+      <div class="step reveal"><b>1</b><h3>Заявка</h3><p>Вы выбираете товар или пишете задачу.</p></div>
+      <div class="step reveal"><b>2</b><h3>Расчёт</h3><p>Менеджер уточняет детали и цену.</p></div>
+      <div class="step reveal"><b>3</b><h3>Макет</h3><p>Готовим или проверяем дизайн.</p></div>
+      <div class="step reveal"><b>4</b><h3>Производство</h3><p>Печатаем и собираем заказ.</p></div>
+      <div class="step reveal"><b>5</b><h3>Готово</h3><p>Вы получаете продукцию.</p></div>
+    </div>
+  </div>
+</section>
 
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const service = document.getElementById('service').value.trim();
-      const quantity = document.getElementById('quantity').value.trim();
-      const comment = document.getElementById('comment').value.trim();
+<section id="calculator">
+  <div class="container">
+    <div class="section-head reveal"><h2>Калькулятор <span>стоимости</span></h2><p>Выберите товар, параметры и количество. Цена ориентировочная — индивидуальные заказы подтверждаются менеджером.</p></div>
+    <div class="calc-wrap">
+      <aside class="calc-side reveal"><h3>Соберите заказ сами</h3><p>Калькулятор помогает быстро понять примерный бюджет. В комментарии можно написать любые пожелания: размер, цвет, материал, макет, срочность.</p><div class="notice">⚠️ Макет, срочность, сложная резка, белая УФ-печать, монтаж, нестандартные материалы и размеры могут считаться отдельно.</div></aside>
+      <div class="calc-box reveal">
+        <form class="form-steps" id="calcForm">
+          <div class="field"><label>1. Категория</label><select id="category"></select></div>
+          <div class="field"><label>2. Товар / тип товара</label><select id="product"></select><small id="productNote"></small></div>
+          <div class="grid-2"><div class="field"><label>3. Параметр</label><select id="variant"></select></div><div class="field"><label>4. Количество</label><input id="qty" type="number" min="1" value="1"><small>Штуки, метры, листы или м².</small></div></div>
+          <div class="grid-2"><div class="field"><label>Имя</label><input id="clientName" placeholder="Ваше имя"></div><div class="field"><label>Телефон</label><input id="clientPhone" placeholder="+7 ..."></div></div>
+          <div class="field"><label>Комментарий / свои слова</label><textarea id="comment" placeholder="Например: нужен логотип на груди, белые футболки, макет есть / макета нет, срок до пятницы..."></textarea></div>
+          <div class="options">
+            <label class="check"><input type="checkbox" id="needDesign"> <span>Нужен макет / дизайн</span></label>
+            <label class="check"><input type="checkbox" id="urgent"> <span>Срочный заказ</span></label>
+            <label class="check"><input type="checkbox" id="individual"> <span>Индивидуальный / нестандартный заказ</span></label>
+            <label class="check"><input type="checkbox" id="whiteUV"> <span>Белая УФ-печать / доп. опции</span></label>
+          </div>
+          <div class="result">
+            <div>Примерная стоимость</div><div class="price"><span id="total">0</span> ₽</div>
+            <div class="result-row"><span>Цена за единицу</span><b id="unitPrice">0 ₽</b></div>
+            <div class="result-row"><span>Расчёт</span><b id="calcDetails">—</b></div>
+            <div class="result-row"><span>Важно</span><b>Итог подтверждает менеджер</b></div>
+          </div>
+          <div class="calc-actions"><button type="button" class="btn btn-red" onclick="sendOrder()">Отправить менеджеру</button><button type="button" class="btn" onclick="openManager()">Просто связаться</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-      const message =
-        'Здравствуйте! Хочу рассчитать заказ:%0A%0A' +
-        'Имя: ' + encodeURIComponent(name) + '%0A' +
-        'Телефон: ' + encodeURIComponent(phone) + '%0A' +
-        'Услуга: ' + encodeURIComponent(service) + '%0A' +
-        'Количество / размер: ' + encodeURIComponent(quantity || 'не указано') + '%0A' +
-        'Комментарий: ' + encodeURIComponent(comment || 'нет комментария');
+<section>
+  <div class="container">
+    <div class="custom reveal"><div><h2>Не нашли нужный <span>товар?</span></h2><p>Опишите задачу менеджеру. Мы считаем индивидуальные заказы: нестандартные размеры, материалы, брендирование, срочные тиражи и сложные макеты.</p></div><button class="btn btn-red" onclick="openManager('Здравствуйте! У меня индивидуальный заказ, хочу обсудить детали.')">Обсудить проект</button></div>
+  </div>
+</section>
 
-      window.open('https://wa.me/79287072007?text=' + message, '_blank');
-    });
+<section>
+  <div class="container">
+    <div class="section-head reveal"><h2>Отзывы <span>клиентов</span></h2><p>Позже можно заменить на реальные отзывы, но блок уже создаёт доверие.</p></div>
+    <div class="reviews">
+      <div class="review reveal"><div class="stars">★★★★★</div><p>Быстро помогли с макетом и сделали продукцию аккуратно. Очень удобно, что можно обсудить всё в WhatsApp.</p><b>Локальный бизнес</b></div>
+      <div class="review reveal"><div class="stars">★★★★★</div><p>Заказывали сувенирку и печать. Понравилось, что сразу объяснили по материалам и срокам.</p><b>Корпоративный клиент</b></div>
+      <div class="review reveal"><div class="stars">★★★★★</div><p>Нужен был нестандартный заказ. Посчитали индивидуально и быстро довели до результата.</p><b>Предприниматель</b></div>
+    </div>
+  </div>
+</section>
 
-    document.addEventListener('mousemove', (e) => {
-      const card = document.querySelector('.hero-card');
-      if (!card || window.innerWidth < 900) return;
+<section id="contacts">
+  <div class="container">
+    <div class="section-head reveal"><h2>Контакты <span>Альфа</span></h2><p>Нажмите на менеджера — откроется выбор WhatsApp или Telegram. Кнопка звонка всегда справа снизу.</p></div>
+    <div class="contacts">
+      <button class="contact reveal" onclick="openManager()"><span>Менеджер</span><strong>+7 967 425-79-79</strong></button>
+      <div class="contact reveal"><span>Адрес</span><strong>Нальчик, Тарчокова 29</strong></div>
+      <div class="contact reveal"><span>Направления</span><strong>Печать • Дизайн • Реклама</strong></div>
+    </div>
+  </div>
+</section>
 
-      const x = (window.innerWidth / 2 - e.clientX) / 45;
-      const y = (window.innerHeight / 2 - e.clientY) / 45;
+<section id="map">
+  <div class="container">
+    <div class="map-card reveal">
+      <div class="map-top"><div><h2>Где мы <span>находимся</span></h2><p>Нальчик, Тарчокова 29. Можно открыть маршрут в Яндекс.Картах.</p></div><a class="btn btn-red" target="_blank" href="https://yandex.ru/maps/?text=%D0%9D%D0%B0%D0%BB%D1%8C%D1%87%D0%B8%D0%BA%2C%20%D0%A2%D0%B0%D1%80%D1%87%D0%BE%D0%BA%D0%BE%D0%B2%D0%B0%2029">Открыть карту</a></div>
+      <iframe class="map-frame" src="https://yandex.ru/map-widget/v1/?text=%D0%9D%D0%B0%D0%BB%D1%8C%D1%87%D0%B8%D0%BA%2C%20%D0%A2%D0%B0%D1%80%D1%87%D0%BE%D0%BA%D0%BE%D0%B2%D0%B0%2029&z=16" allowfullscreen="true"></iframe>
+    </div>
+  </div>
+</section>
+</main>
 
-      card.style.transform = `rotateY(${x}deg) rotateX(${-y}deg) translateY(-8px)`;
-    });
+<footer><div class="container footer-inner"><div>© 2026 АЛЬФА — рекламное агентство</div><div>Нальчик, Тарчокова 29</div></div></footer>
 
-    document.addEventListener('mouseleave', () => {
-      const card = document.querySelector('.hero-card');
-      if (card) card.style.transform = '';
-    });
-  </script>
+<div class="float-wrap"><a class="float call" href="tel:+79674257979">☎</a><button class="float" onclick="openManager()">✉</button></div>
+
+<div class="modal" id="managerModal"><div class="modal-box"><h3>Связаться с менеджером</h3><p>Выберите удобный способ. WhatsApp открывается по номеру. Telegram по номеру может открыться через приложение Telegram.</p><div class="modal-actions"><a class="btn btn-red" id="waLink" target="_blank" rel="noopener">Открыть WhatsApp</a><a class="btn" id="tgLink" target="_blank" rel="noopener">Открыть Telegram</a></div><button class="btn modal-close" onclick="closeManager()">Закрыть</button></div></div>
+
+<script>
+const managerPhone="79674257979";
+const DATA=[
+{category:"Одежда и ДТФ",products:[
+{name:"Нанесение принта на футболки (ДТФ)",unit:"шт",note:"Цена зависит от размера принта и тиража.",variants:[{name:"A4",tiers:[[1,5,540],[6,10,480],[11,20,460],[21,50,420],[51,100,410]]},{name:"A6",tiers:[[1,5,300],[6,10,240],[11,20,240],[21,50,230],[51,100,220]]}]},
+{name:"Нанесение принта на наши футболки",unit:"шт",note:"Цвета: белый, черный, синий, красный.",variants:[{name:"Футболка с принтом",tiers:[[1,5,1800],[6,10,1450],[11,20,1400],[21,50,1350],[51,100,1150]]}]},
+{name:"Кепки ДТФ наши",unit:"шт",variants:[{name:"Кепка с принтом",tiers:[[1,10,700],[11,50,600],[51,999999,550]]}]}
+]},
+{category:"Сувенирная продукция",products:[
+{name:"Ручки с принтом",unit:"шт",variants:[{name:"Стандарт",tiers:[[50,99,70],[100,149,65],[150,199,60],[200,249,55],[250,999999,50]]}]},
+{name:"Ручки с принтом TOR GOLD",unit:"шт",variants:[{name:"TOR GOLD",tiers:[[1,10,200],[11,49,160],[50,99,150],[100,999999,100]]}]},
+{name:"Кружки с принтом",unit:"шт",variants:[{name:"Кружка",tiers:[[1,10,600],[11,19,500],[20,49,450],[50,99,420],[100,149,360],[150,199,330],[200,999999,300]]}]},
+{name:"Значки",unit:"шт",variants:[{name:"Значок",tiers:[[1,10,150],[11,49,100],[50,99,75],[100,199,70],[200,999999,60]]}]},
+{name:"Шоколад с логотипом",unit:"шт",note:"Макет от 500₽.",variants:[{name:"Молочный шоколад",tiers:[[100,499,25],[500,999,22],[1000,999999,21]]}]}
+]},
+{category:"Бирки, ленты, наклейки",products:[
+{name:"Силиконовые бирки 20×70 мм",unit:"шт",note:"Прозрачный/матовый. Нанесение: золото/серебро/белый.",variants:[{name:"20×70 мм",tiers:[[30,49,35],[50,79,24],[80,99,22],[100,299,19],[300,499,15],[500,999999,12]]}]},
+{name:"Наклейки круглые 5 см",unit:"шт",note:"Цвет: черный/прозрачный. Нанесение: золото/серебро/белый.",variants:[{name:"5 см",tiers:[[30,49,20],[50,79,17],[80,99,15],[100,299,13],[300,499,11],[500,999999,9]]}]},
+{name:"Сатиновые бирки 20×70 мм без резки",unit:"шт",note:"Пробная печать 200₽. Макет отдельно.",variants:[{name:"20×70 мм",tiers:[[50,99,18],[100,299,10],[300,499,7.5],[500,999,6],[1000,999999,5]]}]},
+{name:"Сатиновая упаковочная лента",unit:"м",variants:[{name:"Лента",tiers:[[10,49,95],[50,99,65],[100,199,55],[200,999999,35]]}]},
+{name:"Стикерпаки 20×15",unit:"шт",note:"30 шт = 1 м².",variants:[{name:"20×15",tiers:[[30,119,100],[120,199,70],[200,999999,65]]}]}
+]},
+{category:"УФ / интерьерная / экстерьерная печать",products:[
+{name:"Интерьерная печать УФ",unit:"м²",note:"УФ печать с белым: +250₽/м².",variants:[{name:"Самоклейка",tiers:[[1,999999,800]]},{name:"Баннер",tiers:[[1,999999,750]]},{name:"Постер",tiers:[[1,999999,1500]]}]},
+{name:"Самоклейка УФ с резкой",unit:"м²",variants:[{name:"Самоклейка УФ с резкой",tiers:[[1,1,1500],[2,2,1200],[3,3,1100],[4,5,1000],[6,999999,950]]}]},
+{name:"Экстерьерная печать",unit:"м²",note:"Люверсы 15₽/шт считаются отдельно.",variants:[{name:"Самоклейка",tiers:[[1,999999,550]]},{name:"Баннер",tiers:[[1,999999,550]]},{name:"Постер",tiers:[[1,999999,550]]}]}
+]},
+{category:"Визитки и цифровая печать",products:[
+{name:"Визитки",unit:"шт",variants:[{name:"4+4",qtyPrices:{"100":1100,"300":2400,"500":3000,"1000":4000}},{name:"4+0",qtyPrices:{"100":1000,"300":1800,"500":2500,"1000":3000}}]},
+{name:"Визитки с фольгированием",unit:"шт",variants:[{name:"1+0",qtyPrices:{"100":2000,"300":4500,"500":6000,"1000":10000}},{name:"1+1",qtyPrices:{"100":2500,"300":5100,"500":7000,"1000":12000}}]},
+{name:"Визитки с ламинацией",unit:"шт",variants:[{name:"Тонкая 40 мк",qtyPrices:{"100":1800,"300":4500,"500":6000,"1000":8500}},{name:"Плотная 120 мк",qtyPrices:{"100":3000,"300":8400,"500":12000,"1000":23000}}]},
+{name:"Визитки с шоколадками",unit:"шт",variants:[{name:"Шоколадка",qtyPrices:{"50":2750,"100":5000}}]}
+]},
+{category:"Календари, бейджи, блокноты",products:[
+{name:"Календари квартальные",unit:"шт",variants:[{name:"Календарь",tiers:[[10,49,700],[50,99,650],[100,499,590],[500,999999,540]]}]},
+{name:"Бейдж А4 с ламинацией и лентой",unit:"шт",variants:[{name:"120 мк",tiers:[[1,10,270],[11,19,250],[20,49,200],[50,99,150],[100,999999,130]]}]},
+{name:"Бейдж на магните",unit:"шт",variants:[{name:"Гравировка/УФ",tiers:[[1,2,700],[3,4,650],[5,9,600],[10,19,550],[20,999999,500]]}]},
+{name:"Блокноты на пружине",unit:"шт",variants:[{name:"А5",qtyPrices:{"4":600,"12":1680,"20":2600,"50":6000,"100":11000}},{name:"А6",qtyPrices:{"4":400,"12":1080,"20":1600,"50":3500,"100":6500}}]}
+]},
+{category:"Флаеры, буклеты, листовая печать",products:[
+{name:"Флаеры и буклеты — цифровая печать",unit:"тираж",variants:[{name:"Евро буклеты А4 4+4 / 100 шт",fixed:5500},{name:"Флаеры А6 4+0 / 100 шт",fixed:1400},{name:"Флаеры А6 4+4 / 100 шт",fixed:1600},{name:"Флаеры А5 4+0 / 100 шт",fixed:1800},{name:"Флаеры А5 4+4 / 100 шт",fixed:2700},{name:"Флаеры евро 4+0 / 100 шт",fixed:1500},{name:"Флаеры евро 4+4 / 100 шт",fixed:1900}]},
+{name:"Цифровая печать на меловке",unit:"лист",note:"Ламинация и закругление углов отдельно.",variants:[{name:"4+0",tiers:[[1,5,200],[6,10,150],[11,20,130],[21,30,110],[31,50,100],[51,100,80],[101,999999,60]]},{name:"4+4",tiers:[[1,5,250],[6,10,200],[11,20,170],[21,30,150],[31,50,130],[51,100,110],[101,999999,80]]}]},
+{name:"Цифровая печать на 80 г",unit:"лист",variants:[{name:"4+0",tiers:[[1,10,100],[20,29,80],[30,49,70],[50,99,60],[100,999999,50]]},{name:"4+4",tiers:[[1,10,150],[20,29,85],[30,49,75],[50,99,65],[100,999999,55]]}]}
+]}
+];
+const categoryEl=document.getElementById("category"),productEl=document.getElementById("product"),variantEl=document.getElementById("variant"),qtyEl=document.getElementById("qty"),noteEl=document.getElementById("productNote"),totalEl=document.getElementById("total"),unitEl=document.getElementById("unitPrice"),detailsEl=document.getElementById("calcDetails");
+function money(n){return Math.round(n).toLocaleString("ru-RU")}
+function fillCategories(){categoryEl.innerHTML=DATA.map((c,i)=>`<option value="${i}">${c.category}</option>`).join("");fillProducts()}
+function fillProducts(){const cat=DATA[categoryEl.value];productEl.innerHTML=cat.products.map((p,i)=>`<option value="${i}">${p.name}</option>`).join("");fillVariants()}
+function fillVariants(){const p=currentProduct();variantEl.innerHTML=p.variants.map((v,i)=>`<option value="${i}">${v.name}</option>`).join("");noteEl.textContent=p.note||"Для индивидуальных параметров укажите детали в комментарии.";calculate()}
+function currentProduct(){return DATA[categoryEl.value].products[productEl.value]}
+function currentVariant(){return currentProduct().variants[variantEl.value]}
+function tierPrice(tiers,qty){for(const [min,max,price] of tiers){if(qty>=min&&qty<=max)return price}if(qty<tiers[0][0])return tiers[0][2];return tiers[tiers.length-1][2]}
+function closestQtyPrice(qtyPrices,qty){const keys=Object.keys(qtyPrices).map(Number).sort((a,b)=>a-b);let chosen=keys[0];for(const k of keys){if(qty>=k)chosen=k}return{chosen,total:qtyPrices[chosen]}}
+function calculate(){const p=currentProduct(),v=currentVariant();let qty=Number(qtyEl.value||1);if(qty<1)qty=1;let total=0,unit=0,details="";if(v.fixed){total=v.fixed*qty;unit=v.fixed;details=`${money(v.fixed)} ₽ × ${qty} ${p.unit}`}else if(v.qtyPrices){const r=closestQtyPrice(v.qtyPrices,qty);total=r.total;unit=total/r.chosen;details=`ближайший тираж: ${r.chosen} ${p.unit}`}else{unit=tierPrice(v.tiers,qty);total=unit*qty;details=`${money(unit)} ₽ × ${qty} ${p.unit}`}if(document.getElementById("whiteUV").checked&&p.name.toLowerCase().includes("уф")){total+=250*qty;details+=", белый УФ +250 ₽/м²"}totalEl.textContent=money(total);unitEl.textContent=money(unit)+" ₽";detailsEl.textContent=details;return{category:DATA[categoryEl.value].category,product:p.name,variant:v.name,qty,unit,total,details}}
+categoryEl.addEventListener("change",fillProducts);productEl.addEventListener("change",fillVariants);variantEl.addEventListener("change",calculate);qtyEl.addEventListener("input",calculate);["needDesign","urgent","individual","whiteUV"].forEach(id=>document.getElementById(id).addEventListener("change",calculate));fillCategories();
+function openManager(message){const text=message||"Здравствуйте! Хочу рассчитать заказ.";document.getElementById("waLink").href="https://wa.me/"+managerPhone+"?text="+encodeURIComponent(text);document.getElementById("tgLink").href="tg://resolve?phone="+managerPhone;document.getElementById("managerModal").classList.add("active")}
+function closeManager(){document.getElementById("managerModal").classList.remove("active")}
+document.getElementById("managerModal").addEventListener("click",function(e){if(e.target===this)closeManager()});
+function sendOrder(){const r=calculate(),name=document.getElementById("clientName").value.trim()||"не указано",phone=document.getElementById("clientPhone").value.trim()||"не указан",comment=document.getElementById("comment").value.trim()||"нет комментария";const flags=[];if(document.getElementById("needDesign").checked)flags.push("нужен макет/дизайн");if(document.getElementById("urgent").checked)flags.push("срочно");if(document.getElementById("individual").checked)flags.push("индивидуальный/нестандартный заказ");if(document.getElementById("whiteUV").checked)flags.push("белая УФ-печать / доп. опции");const message=`Здравствуйте! Хочу рассчитать заказ.
+
+Имя: ${name}
+Телефон: ${phone}
+
+Категория: ${r.category}
+Товар: ${r.product}
+Параметр: ${r.variant}
+Количество: ${r.qty}
+Примерная стоимость: ${money(r.total)} ₽
+Расчёт: ${r.details}
+
+Дополнительно: ${flags.length?flags.join(", "):"не указано"}
+Комментарий: ${comment}
+
+Понимаю, что итоговая стоимость может зависеть от индивидуальных параметров.`;openManager(message)}
+const reveals=document.querySelectorAll(".reveal");const observer=new IntersectionObserver((entries)=>{entries.forEach((entry,index)=>{if(entry.isIntersecting)setTimeout(()=>entry.target.classList.add("active"),index*70)})},{threshold:.14});reveals.forEach(el=>observer.observe(el));
+const counters=document.querySelectorAll("[data-count]");const co=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;const el=entry.target,target=Number(el.dataset.count),start=performance.now(),duration=1300;function tick(now){const p=Math.min((now-start)/duration,1);el.textContent=Math.floor(target*p).toLocaleString("ru-RU")+"+";if(p<1)requestAnimationFrame(tick)}requestAnimationFrame(tick);co.unobserve(el)})},{threshold:.6});counters.forEach(el=>co.observe(el));
+const glow=document.getElementById("cursorGlow");document.addEventListener("mousemove",e=>{glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px"});
+const heroCard=document.getElementById("heroCard");document.addEventListener("mousemove",e=>{if(!heroCard||innerWidth<900)return;const x=(innerWidth/2-e.clientX)/48,y=(innerHeight/2-e.clientY)/48;heroCard.style.transform=`rotateY(${x}deg) rotateX(${-y}deg) translateY(-8px)`});document.addEventListener("mouseleave",()=>{if(heroCard)heroCard.style.transform=""});
+</script>
 </body>
 </html>
