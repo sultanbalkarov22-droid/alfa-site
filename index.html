@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>АЛЬФА — рекламное агентство</title>
+  <meta name="description" content="АЛЬФА в Нальчике: полиграфия, брендирование, сувенирная продукция, наклейки, визитки, бирки, одежда, кружки и дизайн.">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#">
+      <img src="assets/logo.jpg" alt="АЛЬФА" />
+      <div><strong>АЛЬФА</strong><span>рекламное агентство</span></div>
+    </a>
+    <nav class="menu">
+      <a href="#about">О компании</a>
+      <a href="#works">Услуги</a>
+      <a href="#smart">Подбор</a>
+      <a href="#calc">Калькулятор</a>
+      <a href="#find">Как нас найти</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions"><a class="btn call-btn" href="tel:+79674257979">Позвонить</a><button class="btn btn-red" onclick="openManager()">Связаться</button></div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">Нальчик • полиграфия • брендинг</div>
+      <h1>Полиграфия и брендинг, которые <span>запоминают</span></h1>
+      <p class="hero-text">«Альфа» — рекламное производство полного цикла: от идеи и макета до готовой продукции.</p>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="#calc">Рассчитать стоимость</a>
+        <a class="btn" href="tel:+79674257979">Позвонить</a>
+      </div>
+      <div class="hero-points">
+        <div><b>100 000+</b><span>выполненных заказов</span></div>
+        <div><b>с 2014</b><span>работаем для бизнеса</span></div>
+        <div><b>ALFA AI</b><span>помощник по полиграфии</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <img src="assets/logo.jpg" alt="АЛЬФА" />
+      <p>Визитки • наклейки • бирки • одежда • кружки • сувениры</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head"><h2>Кто такие <span>Альфа</span></h2><p>Мы помогаем бизнесу выглядеть профессионально.</p></div>
+    <div class="cards two">
+      <div class="card"><h3>Производство полного цикла</h3><p>Помогаем выбрать материал, подготовить макет и сделать продукцию аккуратно.</p></div>
+      <div class="card"><h3>Адрес</h3><p>г. Нальчик, ул. Тарчокова 29. Ниже есть фото-маршрут «Как нас найти».</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="works">
+  <div class="container">
+    <div class="section-head"><h2>Что мы <span>делаем</span></h2><p>Основные направления рекламного агентства.</p></div>
+    <div class="services">
+      <div>Визитки</div><div>Наклейки</div><div>Бирки</div><div>Футболки</div><div>Кружки</div><div>Сувенирка</div><div>Флаеры</div><div>Упаковка</div>
+    </div>
+  </div>
+</section>
+
+<section id="smart">
+  <div class="container">
+    <div class="section-head"><h2>Не знаете, <span>что заказать?</span></h2><p>Выберите задачу — сайт предложит комплект.</p></div>
+    <div class="smart">
+      <div class="smart-options">
+        <button onclick="smartPick('start',this)">🚀 Запустить бренд</button>
+        <button onclick="smartPick('pack',this)">📦 Улучшить упаковку</button>
+        <button onclick="smartPick('gift',this)">🎁 Подарки клиентам</button>
+        <button onclick="smartPick('staff',this)">👕 Форма персонала</button>
+        <button onclick="smartPick('sale',this)">📣 Акция / реклама</button>
+        <button onclick="smartPick('premium',this)">💎 Сделать дороже</button>
+      </div>
+      <div class="smart-result">
+        <h3>Рекомендация ALFA</h3>
+        <p id="smartAnswer">Выберите задачу слева — здесь появится рекомендация.</p>
+        <button class="btn btn-red" onclick="sendSmartToAI()">Спросить ALFA AI</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stats">
+  <div class="container">
+    <div class="section-head"><h2>Альфа в <span>цифрах</span></h2><p>Опыт, стабильность и доверие.</p></div>
+    <div class="stats">
+      <div><b>100 000+</b><span>выполненных заказов</span></div>
+      <div><b>12+</b><span>лет опыта</span></div>
+      <div><b>48 000+</b><span>изделий в месяц</span></div>
+      <div><b>72%</b><span>клиентов возвращаются</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="calc">
+  <div class="container">
+    <div class="section-head"><h2>Калькулятор <span>заказа</span></h2><p>Предварительный расчёт стоимости.</p></div>
+    <div class="calc">
+      <select id="product" onchange="calcPrice()">
+        <option value="cards">Визитки</option><option value="stickers">Наклейки</option><option value="shirts">Футболки</option><option value="mugs">Кружки</option><option value="tags">Бирки</option><option value="flyers">Флаеры</option>
+      </select>
+      <input id="qty" type="number" value="100" oninput="calcPrice()" />
+      <select id="speed" onchange="calcPrice()"><option value="1">Обычный срок</option><option value="1.35">Срочно</option></select>
+      <select id="design" onchange="calcPrice()"><option value="0">Макет готов</option><option value="1500">Нужен дизайн</option></select>
+      <div class="price">от <span id="price">0 ₽</span></div>
+      <button class="btn btn-red" onclick="openManager('Здравствуйте! Хочу рассчитать заказ.')">Отправить менеджеру</button>
+    </div>
+  </div>
+</section>
+
+<section id="find">
+  <div class="container">
+    <div class="section-head"><h2>Как нас <span>найти</span></h2><p>Фотографии маршрута до входа.</p></div>
+    <div class="find-grid">
+      <div>
+        <img id="mainRoute" class="main-route" src="assets/route-1.png" alt="Как нас найти">
+        <div class="thumbs"><button onclick="setRoute('assets/route-1.png')"><img src="assets/route-1.png" alt="Фото маршрута"></button>
+<button onclick="setRoute('assets/route-2.png')"><img src="assets/route-2.png" alt="Фото маршрута"></button>
+<button onclick="setRoute('assets/route-3.png')"><img src="assets/route-3.png" alt="Фото маршрута"></button>
+<button onclick="setRoute('assets/route-4.png')"><img src="assets/route-4.png" alt="Фото маршрута"></button>
+<button onclick="setRoute('assets/route-5.png')"><img src="assets/route-5.png" alt="Фото маршрута"></button></div>
+      </div>
+      <div class="find-info">
+        <h3>Нальчик, Тарчокова 29</h3>
+        <p>Ориентируйтесь по фотографиям маршрута. Если не можете найти вход — позвоните менеджеру.</p>
+        <a class="btn btn-red" target="_blank" href="https://yandex.ru/maps/?text=Нальчик, Тарчокова 29">Открыть маршрут</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacts">
+  <div class="container">
+    <div class="section-head"><h2>Контакты</h2><p>Свяжитесь с менеджером удобным способом.</p></div>
+    <div class="contacts">
+      <a href="tel:+79674257979">+7 967 425-79-79</a>
+      <a target="_blank" href="https://wa.me/79674257979">WhatsApp</a>
+      <span>Нальчик, Тарчокова 29</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="container">© АЛЬФА — рекламное агентство</div></footer>
+
+<button class="ai-float" onclick="toggleAI()">🤖 ALFA AI</button>
+<div class="ai-chat" id="aiChat">
+  <div class="ai-head"><b>ALFA AI</b><button onclick="toggleAI()">×</button></div>
+  <div id="aiBody" class="ai-body"><div class="bot">Здравствуйте! Я помогу с полиграфией, материалами, сроками и подбором заказа.</div></div>
+  <form onsubmit="sendAI(event)" class="ai-form"><input id="aiInput" placeholder="Напишите вопрос..."><button>➤</button></form>
+</div>
+
+<div class="modal" id="managerModal">
+  <div class="modal-box">
+    <h3>Связаться с менеджером</h3>
+    <p id="managerText">Выберите удобный способ связи.</p>
+    <a class="btn btn-red" href="tel:+79674257979">Позвонить</a>
+    <a class="btn" target="_blank" href="https://wa.me/79674257979">WhatsApp</a>
+    <button class="btn" onclick="openManager()">Закрыть</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
