@@ -1,0 +1,28 @@
+name: Static page quality checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate static site and SEO files
+        run: |
+          python3 - <<'PYTEST'
+          from pathlib import Path
+          import re, xml.etree.ElementTree as ET
+          index=Path('index.html').read_text(encoding='utf-8')
+          assert '<html lang="ru">' in index
+          assert '<h1>АЛЬФА ПРИНТ</h1>' in index
+          assert 'Content-Security-Policy' in index
+          assert 'application/ld+json' in index
+          assert 'Полиграфия в Нальчике' in index
+          assert 'https://wa.me/79674257979' in index
+          assert all('noopener noreferrer' in a for a in re.findall(r'<a[^>]*target="_blank"[^>]*>',index))
+          assert 'sitemap.xml' in Path('robots.txt').read_text(encoding='utf-8')
+          ET.parse('sitemap.xml')
+          print('Structure, contacts, SEO, sitemap: passed')
+          PYTEST
