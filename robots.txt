@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sultanbalkarov22-droid.github.io/alfa-site/sitemap.xml
