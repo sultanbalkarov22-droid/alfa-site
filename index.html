@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;sha256-l+dqV2hS2Q22qX7bi1ICikb9xMRswTBZHVuTA+J7A+Y=&#x27; &#x27;sha256-x2vKkhjPULCMEWBIdzJIAHVBx7T1uZnqWWIrHmCVL0Q=&#x27; &#x27;sha256-424mFucCTrr+RXtRwkoz4G/1ZoDWBTGBGSMkr9qSgk8=&#x27;; style-src &#x27;unsafe-inline&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;; font-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;; frame-src https://yandex.ru https://yandex.com; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src &#x27;none&#x27;; script-src &#x27;self&#x27; &#x27;sha256-l+dqV2hS2Q22qX7bi1ICikb9xMRswTBZHVuTA+J7A+Y=&#x27; &#x27;sha256-x2vKkhjPULCMEWBIdzJIAHVBx7T1uZnqWWIrHmCVL0Q=&#x27; &#x27;sha256-424mFucCTrr+RXtRwkoz4G/1ZoDWBTGBGSMkr9qSgk8=&#x27;; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; img-src &#x27;self&#x27; data:; connect-src &#x27;none&#x27;; font-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;; frame-src https://yandex.ru https://yandex.com; upgrade-insecure-requests">
   <meta name="theme-color" content="#f6f5f2">
   <meta name="description" content="Полиграфия в Нальчике — АЛЬФА ПРИНТ. Визитки, буклеты, баннеры, УФ-печать, гравировка, лазерная резка. Тарчокова, 29. Телефон +7 967 425-79-79.">
   <meta property="og:title" content="АЛЬФА ПРИНТ — контакты">
@@ -230,6 +230,7 @@
 @media(max-width:720px){.site-quicknav{margin-top:14px}.site-quicknav a{flex:1;white-space:nowrap;padding:0 10px}.photo-preview-head{align-items:flex-start;display:block}.photo-preview-head a{display:inline-block;margin-top:14px}.photo-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.photo-preview{border-radius:20px;padding:18px 14px}.map-open-direct{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.site-quicknav a,.photo-preview-grid a,.photo-preview-grid img{transition:none!important}}
 </style>
+  <link rel="stylesheet" href="assets/ui-upgrade.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к контактам</a>
@@ -281,8 +282,8 @@
       </div>
       <div class="visit">
         <span class="visit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-        <div class="visit-info"><p class="visit-title">Ждём вас в Нальчике</p><p class="visit-address">ул. Тарчокова, 29</p><p class="visit-hours">Пн–Пт: 09:00–18:00 · Перерыв: 13:00–14:00<br>Сб–Вс: выходной</p></div>
-        <a href="https://yandex.ru/maps/?rtext=~43.474545%2C43.575011&rtt=auto" target="_blank" rel="noopener noreferrer" aria-label="Построить маршрут в Яндекс Картах">Карта ↗</a>
+        <div class="visit-info"><p class="visit-title">Ждём вас в Нальчике</p><p class="visit-address">ул. Тарчокова, 29</p></div>
+        <a href="#location">К карте ↓</a>
       </div>
     </section>
 
@@ -291,19 +292,6 @@
       <a href="#portfolio">Наши работы <span>35 фото</span></a>
       <a href="#location">Карта и маршрут <span>↗</span></a>
     </nav>
-
-    <section class="photo-preview" aria-labelledby="previewTitle">
-      <div class="photo-preview-head">
-        <div><span class="photo-eyebrow">ИЗ НАШЕГО ПОРТФОЛИО</span><h2 id="previewTitle">Посмотрите наши работы</h2><p>Реальные заказы — от визиток до рекламных стендов и наград.</p></div>
-        <a href="#portfolio">Смотреть все 35 работ <span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="photo-preview-grid">
-        <a href="#portfolio" aria-label="Посмотреть визитки"><img src="assets/work-30.jpg" alt="Визитки SEBA MEBEL" loading="eager"><span>Визитки</span></a>
-        <a href="#portfolio" aria-label="Посмотреть баннеры"><img src="assets/work-32.jpg" alt="Ролл-ап MissMira" loading="eager"><span>Баннеры</span></a>
-        <a href="#portfolio" aria-label="Посмотреть награды"><img src="assets/work-13.jpg" alt="Кубок Квартал" loading="eager"><span>Награды</span></a>
-        <a href="#portfolio" aria-label="Посмотреть фирменные ежедневники"><img src="assets/work-34.jpg" alt="Корпоративные ежедневники и ручки" loading="eager"><span>Сувениры</span></a>
-      </div>
-    </section>
 
     <section class="portfolio-section" id="portfolio" aria-labelledby="portfolioTitle">
       <div class="portfolio-heading">
@@ -326,209 +314,6 @@
       </div>
       <div class="portfolio-grid" id="portfolioGrid">
         
-      <button class="work-card" type="button" data-category="cat-7"
-        data-title="Подарочный набор с ежедневником и ручкой"
-        data-description="Набор с фирменной символикой и аксессуарами."
-        data-image="assets/work-01.jpg" aria-label="Посмотреть работу: Подарочный набор с ежедневником и ручкой">
-        <span class="work-photo"><img src="assets/work-01.jpg" alt="Подарочный набор с ежедневником и ручкой" width="450" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Подарочный набор с ежедневником и ручкой</strong><small>Корпоративные подарки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-4"
-        data-title="QR-таблички и стойки для объектов"
-        data-description="Информационные таблички с QR-кодами."
-        data-image="assets/work-02.jpg" aria-label="Посмотреть работу: QR-таблички и стойки для объектов">
-        <span class="work-photo"><img src="assets/work-02.jpg" alt="QR-таблички и стойки для объектов" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>QR-таблички и стойки для объектов</strong><small>Таблички и бейджи</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-1"
-        data-title="Карточка косметолога"
-        data-description="Печатная карточка с контактами и мини-вложением."
-        data-image="assets/work-03.jpg" aria-label="Посмотреть работу: Карточка косметолога">
-        <span class="work-photo"><img src="assets/work-03.jpg" alt="Карточка косметолога" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Карточка косметолога</strong><small>Визитки и карточки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-1"
-        data-title="Комплект карточек и упаковки"
-        data-description="Фирменные карточки для косметолога."
-        data-image="assets/work-04.jpg" aria-label="Посмотреть работу: Комплект карточек и упаковки">
-        <span class="work-photo"><img src="assets/work-04.jpg" alt="Комплект карточек и упаковки" width="600" height="792" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Комплект карточек и упаковки</strong><small>Визитки и карточки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-5"
-        data-title="Изделие из дерева с лазерной гравировкой"
-        data-description="Деревянный сувенир с гравировкой и размерами."
-        data-image="assets/work-05.jpg" aria-label="Посмотреть работу: Изделие из дерева с лазерной гравировкой">
-        <span class="work-photo"><img src="assets/work-05.jpg" alt="Изделие из дерева с лазерной гравировкой" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Изделие из дерева с лазерной гравировкой</strong><small>Гравировка и лазерная резка</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-4"
-        data-title="Настольная табличка «Резерв»"
-        data-description="Настольная табличка для заведения."
-        data-image="assets/work-06.jpg" aria-label="Посмотреть работу: Настольная табличка «Резерв»">
-        <span class="work-photo"><img src="assets/work-06.jpg" alt="Настольная табличка «Резерв»" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Настольная табличка «Резерв»</strong><small>Таблички и бейджи</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-3"
-        data-title="Ролл-ап для конференции"
-        data-description="Информационный мобильный стенд."
-        data-image="assets/work-07.jpg" aria-label="Посмотреть работу: Ролл-ап для конференции">
-        <span class="work-photo"><img src="assets/work-07.jpg" alt="Ролл-ап для конференции" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Ролл-ап для конференции</strong><small>Баннеры и широкоформатная печать</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-4"
-        data-title="Металлические именные бейджи"
-        data-description="Бейджи с гравировкой для сотрудников."
-        data-image="assets/work-08.jpg" aria-label="Посмотреть работу: Металлические именные бейджи">
-        <span class="work-photo"><img src="assets/work-08.jpg" alt="Металлические именные бейджи" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Металлические именные бейджи</strong><small>Таблички и бейджи</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-5"
-        data-title="Декоративная настенная табличка"
-        data-description="Фигурное изделие с лазерной резкой."
-        data-image="assets/work-09.jpg" aria-label="Посмотреть работу: Декоративная настенная табличка">
-        <span class="work-photo"><img src="assets/work-09.jpg" alt="Декоративная настенная табличка" width="600" height="337" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Декоративная настенная табличка</strong><small>Гравировка и лазерная резка</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-6"
-        data-title="Сувенирная награда из акрила и дерева"
-        data-description="Комбинированная награда с декоративной вставкой."
-        data-image="assets/work-10.jpg" aria-label="Посмотреть работу: Сувенирная награда из акрила и дерева">
-        <span class="work-photo"><img src="assets/work-10.jpg" alt="Сувенирная награда из акрила и дерева" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Сувенирная награда из акрила и дерева</strong><small>Награды и кубки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-7"
-        data-title="Ежедневник с персональной гравировкой"
-        data-description="Именной ежедневник и фирменная ручка."
-        data-image="assets/work-11.jpg" aria-label="Посмотреть работу: Ежедневник с персональной гравировкой">
-        <span class="work-photo"><img src="assets/work-11.jpg" alt="Ежедневник с персональной гравировкой" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Ежедневник с персональной гравировкой</strong><small>Корпоративные подарки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-6"
-        data-title="Акриловая награда"
-        data-description="Настольная награда из цветного акрила."
-        data-image="assets/work-12.jpg" aria-label="Посмотреть работу: Акриловая награда">
-        <span class="work-photo"><img src="assets/work-12.jpg" alt="Акриловая награда" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Акриловая награда</strong><small>Награды и кубки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-6"
-        data-title="Кубок жилого комплекса «Квартал»"
-        data-description="Фигурная награда с печатью и акриловыми элементами."
-        data-image="assets/work-13.jpg" aria-label="Посмотреть работу: Кубок жилого комплекса «Квартал»">
-        <span class="work-photo"><img src="assets/work-13.jpg" alt="Кубок жилого комплекса «Квартал»" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Кубок жилого комплекса «Квартал»</strong><small>Награды и кубки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-6"
-        data-title="Комплект кубков и медалей"
-        data-description="Серия спортивных наград для турнира."
-        data-image="assets/work-14.jpg" aria-label="Посмотреть работу: Комплект кубков и медалей">
-        <span class="work-photo"><img src="assets/work-14.jpg" alt="Комплект кубков и медалей" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Комплект кубков и медалей</strong><small>Награды и кубки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-6"
-        data-title="Кубок по теннису"
-        data-description="Многослойная награда с полноцветной вставкой."
-        data-image="assets/work-15.jpg" aria-label="Посмотреть работу: Кубок по теннису">
-        <span class="work-photo"><img src="assets/work-15.jpg" alt="Кубок по теннису" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Кубок по теннису</strong><small>Награды и кубки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-6"
-        data-title="Комплект спортивных наград"
-        data-description="Кубки и медали для теннисного турнира."
-        data-image="assets/work-16.jpg" aria-label="Посмотреть работу: Комплект спортивных наград">
-        <span class="work-photo"><img src="assets/work-16.jpg" alt="Комплект спортивных наград" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Комплект спортивных наград</strong><small>Награды и кубки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-6"
-        data-title="Медали для теннисного турнира"
-        data-description="Комплект медалей с цветной печатью."
-        data-image="assets/work-17.jpg" aria-label="Посмотреть работу: Медали для теннисного турнира">
-        <span class="work-photo"><img src="assets/work-17.jpg" alt="Медали для теннисного турнира" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Медали для теннисного турнира</strong><small>Награды и кубки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-9"
-        data-title="Футболка с полноцветным принтом JUDO"
-        data-description="Нанесение изображения на чёрный текстиль."
-        data-image="assets/work-18.jpg" aria-label="Посмотреть работу: Футболка с полноцветным принтом JUDO">
-        <span class="work-photo"><img src="assets/work-18.jpg" alt="Футболка с полноцветным принтом JUDO" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Футболка с полноцветным принтом JUDO</strong><small>Текстиль и брендирование</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-9"
-        data-title="Футболка с полноцветным принтом JUDO"
-        data-description="Нанесение изображения на белый текстиль."
-        data-image="assets/work-19.jpg" aria-label="Посмотреть работу: Футболка с полноцветным принтом JUDO">
-        <span class="work-photo"><img src="assets/work-19.jpg" alt="Футболка с полноцветным принтом JUDO" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Футболка с полноцветным принтом JUDO</strong><small>Текстиль и брендирование</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-8"
-        data-title="Спортивные вымпелы"
-        data-description="Тканевые вымпелы с печатным оформлением."
-        data-image="assets/work-20.jpg" aria-label="Посмотреть работу: Спортивные вымпелы">
-        <span class="work-photo"><img src="assets/work-20.jpg" alt="Спортивные вымпелы" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Спортивные вымпелы</strong><small>Вымпелы и сувенирная продукция</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-7"
-        data-title="Ручки с логотипом компании"
-        data-description="Брендированные металлические ручки."
-        data-image="assets/work-21.jpg" aria-label="Посмотреть работу: Ручки с логотипом компании">
-        <span class="work-photo"><img src="assets/work-21.jpg" alt="Ручки с логотипом компании" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Ручки с логотипом компании</strong><small>Корпоративные подарки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-8"
-        data-title="Вымпел с гербом и вышивкой"
-        data-description="Памятный вымпел с эмблемой."
-        data-image="assets/work-22.jpg" aria-label="Посмотреть работу: Вымпел с гербом и вышивкой">
-        <span class="work-photo"><img src="assets/work-22.jpg" alt="Вымпел с гербом и вышивкой" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Вымпел с гербом и вышивкой</strong><small>Вымпелы и сувенирная продукция</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-5"
-        data-title="Деревянный органайзер с гравировкой"
-        data-description="Настольный органайзер с надписью."
-        data-image="assets/work-23.jpg" aria-label="Посмотреть работу: Деревянный органайзер с гравировкой">
-        <span class="work-photo"><img src="assets/work-23.jpg" alt="Деревянный органайзер с гравировкой" width="450" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Деревянный органайзер с гравировкой</strong><small>Гравировка и лазерная резка</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-2"
-        data-title="Буклет для жилого комплекса"
-        data-description="Многостраничная рекламная полиграфия."
-        data-image="assets/work-24.jpg" aria-label="Посмотреть работу: Буклет для жилого комплекса">
-        <span class="work-photo"><img src="assets/work-24.jpg" alt="Буклет для жилого комплекса" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Буклет для жилого комплекса</strong><small>Буклеты, меню и сертификаты</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-2"
-        data-title="Подарочный сертификат"
-        data-description="Печатный сертификат с фирменным оформлением."
-        data-image="assets/work-25.jpg" aria-label="Посмотреть работу: Подарочный сертификат">
-        <span class="work-photo"><img src="assets/work-25.jpg" alt="Подарочный сертификат" width="450" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Подарочный сертификат</strong><small>Буклеты, меню и сертификаты</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-2"
-        data-title="Меню ресторана"
-        data-description="Меню с разделами и иллюстрациями."
-        data-image="assets/work-26.jpg" aria-label="Посмотреть работу: Меню ресторана">
-        <span class="work-photo"><img src="assets/work-26.jpg" alt="Меню ресторана" width="450" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Меню ресторана</strong><small>Буклеты, меню и сертификаты</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-2"
-        data-title="Презентационные папки PANORAMA"
-        data-description="Фирменные папки и печатные материалы."
-        data-image="assets/work-27.jpg" aria-label="Посмотреть работу: Презентационные папки PANORAMA">
-        <span class="work-photo"><img src="assets/work-27.jpg" alt="Презентационные папки PANORAMA" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Презентационные папки PANORAMA</strong><small>Буклеты, меню и сертификаты</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-1"
-        data-title="Пригласительные и карточки"
-        data-description="Серия карточек с декоративной графикой."
-        data-image="assets/work-28.jpg" aria-label="Посмотреть работу: Пригласительные и карточки">
-        <span class="work-photo"><img src="assets/work-28.jpg" alt="Пригласительные и карточки" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Пригласительные и карточки</strong><small>Визитки и карточки</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-7"
-        data-title="Блокнот с фирменной ручкой"
-        data-description="Настольный блокнот с печатной обложкой."
-        data-image="assets/work-29.jpg" aria-label="Посмотреть работу: Блокнот с фирменной ручкой">
-        <span class="work-photo"><img src="assets/work-29.jpg" alt="Блокнот с фирменной ручкой" width="600" height="679" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Блокнот с фирменной ручкой</strong><small>Корпоративные подарки</small></span>
-      </button>
       <button class="work-card" type="button" data-category="cat-1"
         data-title="Визитка SEBA MEBEL"
         data-description="Фирменная визитная карточка."
@@ -536,40 +321,243 @@
         <span class="work-photo"><img src="assets/work-30.jpg" alt="Визитка SEBA MEBEL" width="451" height="800" loading="lazy" decoding="async"></span>
         <span class="work-meta"><strong>Визитка SEBA MEBEL</strong><small>Визитки и карточки</small></span>
       </button>
-      <button class="work-card" type="button" data-category="cat-2"
-        data-title="Печатные материалы для конференции"
-        data-description="Комплект информационных печатных материалов."
-        data-image="assets/work-31.jpg" aria-label="Посмотреть работу: Печатные материалы для конференции">
-        <span class="work-photo"><img src="assets/work-31.jpg" alt="Печатные материалы для конференции" width="451" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Печатные материалы для конференции</strong><small>Буклеты, меню и сертификаты</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-3"
-        data-title="Ролл-ап MissMira"
-        data-description="Вертикальный рекламный стенд."
-        data-image="assets/work-32.jpg" aria-label="Посмотреть работу: Ролл-ап MissMira">
-        <span class="work-photo"><img src="assets/work-32.jpg" alt="Ролл-ап MissMira" width="450" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Ролл-ап MissMira</strong><small>Баннеры и широкоформатная печать</small></span>
-      </button>
-      <button class="work-card" type="button" data-category="cat-3"
+<button class="work-card" type="button" data-category="cat-3"
         data-title="Ролл-ап BALA HARA"
         data-description="Вертикальный рекламный стенд для комплекса."
         data-image="assets/work-33.jpg" aria-label="Посмотреть работу: Ролл-ап BALA HARA">
         <span class="work-photo"><img src="assets/work-33.jpg" alt="Ролл-ап BALA HARA" width="450" height="800" loading="lazy" decoding="async"></span>
         <span class="work-meta"><strong>Ролл-ап BALA HARA</strong><small>Баннеры и широкоформатная печать</small></span>
       </button>
-      <button class="work-card" type="button" data-category="cat-7"
+<button class="work-card" type="button" data-category="cat-6"
+        data-title="Кубок жилого комплекса «Квартал»"
+        data-description="Фигурная награда с печатью и акриловыми элементами."
+        data-image="assets/work-13.jpg" aria-label="Посмотреть работу: Кубок жилого комплекса «Квартал»">
+        <span class="work-photo"><img src="assets/work-13.jpg" alt="Кубок жилого комплекса «Квартал»" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Кубок жилого комплекса «Квартал»</strong><small>Награды и кубки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-3"
+        data-title="Ролл-ап для конференции"
+        data-description="Информационный мобильный стенд."
+        data-image="assets/work-07.jpg" aria-label="Посмотреть работу: Ролл-ап для конференции">
+        <span class="work-photo"><img src="assets/work-07.jpg" alt="Ролл-ап для конференции" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Ролл-ап для конференции</strong><small>Баннеры и широкоформатная печать</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-9"
+        data-title="Фартуки с фирменным логотипом"
+        data-description="Брендирование рабочей одежды."
+        data-image="assets/work-35.jpg" aria-label="Посмотреть работу: Фартуки с фирменным логотипом">
+        <span class="work-photo"><img src="assets/work-35.jpg" alt="Фартуки с фирменным логотипом" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Фартуки с фирменным логотипом</strong><small>Текстиль и брендирование</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-2"
+        data-title="Буклет для жилого комплекса"
+        data-description="Многостраничная рекламная полиграфия."
+        data-image="assets/work-24.jpg" aria-label="Посмотреть работу: Буклет для жилого комплекса">
+        <span class="work-photo"><img src="assets/work-24.jpg" alt="Буклет для жилого комплекса" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Буклет для жилого комплекса</strong><small>Буклеты, меню и сертификаты</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-6"
+        data-title="Медали для теннисного турнира"
+        data-description="Комплект медалей с цветной печатью."
+        data-image="assets/work-17.jpg" aria-label="Посмотреть работу: Медали для теннисного турнира">
+        <span class="work-photo"><img src="assets/work-17.jpg" alt="Медали для теннисного турнира" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Медали для теннисного турнира</strong><small>Награды и кубки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-2"
+        data-title="Печатные материалы для конференции"
+        data-description="Комплект информационных печатных материалов."
+        data-image="assets/work-31.jpg" aria-label="Посмотреть работу: Печатные материалы для конференции">
+        <span class="work-photo"><img src="assets/work-31.jpg" alt="Печатные материалы для конференции" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Печатные материалы для конференции</strong><small>Буклеты, меню и сертификаты</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-1"
+        data-title="Комплект карточек и упаковки"
+        data-description="Фирменные карточки для косметолога."
+        data-image="assets/work-04.jpg" aria-label="Посмотреть работу: Комплект карточек и упаковки">
+        <span class="work-photo"><img src="assets/work-04.jpg" alt="Комплект карточек и упаковки" width="600" height="792" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Комплект карточек и упаковки</strong><small>Визитки и карточки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-1"
+        data-title="Пригласительные и карточки"
+        data-description="Серия карточек с декоративной графикой."
+        data-image="assets/work-28.jpg" aria-label="Посмотреть работу: Пригласительные и карточки">
+        <span class="work-photo"><img src="assets/work-28.jpg" alt="Пригласительные и карточки" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Пригласительные и карточки</strong><small>Визитки и карточки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-6"
+        data-title="Комплект кубков и медалей"
+        data-description="Серия спортивных наград для турнира."
+        data-image="assets/work-14.jpg" aria-label="Посмотреть работу: Комплект кубков и медалей">
+        <span class="work-photo"><img src="assets/work-14.jpg" alt="Комплект кубков и медалей" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Комплект кубков и медалей</strong><small>Награды и кубки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-3"
+        data-title="Ролл-ап MissMira"
+        data-description="Вертикальный рекламный стенд."
+        data-image="assets/work-32.jpg" aria-label="Посмотреть работу: Ролл-ап MissMira">
+        <span class="work-photo"><img src="assets/work-32.jpg" alt="Ролл-ап MissMira" width="450" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Ролл-ап MissMira</strong><small>Баннеры и широкоформатная печать</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-7"
+        data-title="Блокнот с фирменной ручкой"
+        data-description="Настольный блокнот с печатной обложкой."
+        data-image="assets/work-29.jpg" aria-label="Посмотреть работу: Блокнот с фирменной ручкой">
+        <span class="work-photo"><img src="assets/work-29.jpg" alt="Блокнот с фирменной ручкой" width="600" height="679" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Блокнот с фирменной ручкой</strong><small>Корпоративные подарки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-4"
+        data-title="Металлические именные бейджи"
+        data-description="Бейджи с гравировкой для сотрудников."
+        data-image="assets/work-08.jpg" aria-label="Посмотреть работу: Металлические именные бейджи">
+        <span class="work-photo"><img src="assets/work-08.jpg" alt="Металлические именные бейджи" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Металлические именные бейджи</strong><small>Таблички и бейджи</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-7"
+        data-title="Подарочный набор с ежедневником и ручкой"
+        data-description="Набор с фирменной символикой и аксессуарами."
+        data-image="assets/work-01.jpg" aria-label="Посмотреть работу: Подарочный набор с ежедневником и ручкой">
+        <span class="work-photo"><img src="assets/work-01.jpg" alt="Подарочный набор с ежедневником и ручкой" width="450" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Подарочный набор с ежедневником и ручкой</strong><small>Корпоративные подарки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-8"
+        data-title="Спортивные вымпелы"
+        data-description="Тканевые вымпелы с печатным оформлением."
+        data-image="assets/work-20.jpg" aria-label="Посмотреть работу: Спортивные вымпелы">
+        <span class="work-photo"><img src="assets/work-20.jpg" alt="Спортивные вымпелы" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Спортивные вымпелы</strong><small>Вымпелы и сувенирная продукция</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-9"
+        data-title="Футболка с полноцветным принтом JUDO"
+        data-description="Нанесение изображения на чёрный текстиль."
+        data-image="assets/work-18.jpg" aria-label="Посмотреть работу: Футболка с полноцветным принтом JUDO">
+        <span class="work-photo"><img src="assets/work-18.jpg" alt="Футболка с полноцветным принтом JUDO" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Футболка с полноцветным принтом JUDO</strong><small>Текстиль и брендирование</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-5"
+        data-title="Изделие из дерева с лазерной гравировкой"
+        data-description="Деревянный сувенир с гравировкой и размерами."
+        data-image="assets/work-05.jpg" aria-label="Посмотреть работу: Изделие из дерева с лазерной гравировкой">
+        <span class="work-photo"><img src="assets/work-05.jpg" alt="Изделие из дерева с лазерной гравировкой" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Изделие из дерева с лазерной гравировкой</strong><small>Гравировка и лазерная резка</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-2"
+        data-title="Меню ресторана"
+        data-description="Меню с разделами и иллюстрациями."
+        data-image="assets/work-26.jpg" aria-label="Посмотреть работу: Меню ресторана">
+        <span class="work-photo"><img src="assets/work-26.jpg" alt="Меню ресторана" width="450" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Меню ресторана</strong><small>Буклеты, меню и сертификаты</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-4"
+        data-title="Настольная табличка «Резерв»"
+        data-description="Настольная табличка для заведения."
+        data-image="assets/work-06.jpg" aria-label="Посмотреть работу: Настольная табличка «Резерв»">
+        <span class="work-photo"><img src="assets/work-06.jpg" alt="Настольная табличка «Резерв»" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Настольная табличка «Резерв»</strong><small>Таблички и бейджи</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-6"
+        data-title="Сувенирная награда из акрила и дерева"
+        data-description="Комбинированная награда с декоративной вставкой."
+        data-image="assets/work-10.jpg" aria-label="Посмотреть работу: Сувенирная награда из акрила и дерева">
+        <span class="work-photo"><img src="assets/work-10.jpg" alt="Сувенирная награда из акрила и дерева" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Сувенирная награда из акрила и дерева</strong><small>Награды и кубки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-7"
+        data-title="Ручки с логотипом компании"
+        data-description="Брендированные металлические ручки."
+        data-image="assets/work-21.jpg" aria-label="Посмотреть работу: Ручки с логотипом компании">
+        <span class="work-photo"><img src="assets/work-21.jpg" alt="Ручки с логотипом компании" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Ручки с логотипом компании</strong><small>Корпоративные подарки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-7"
         data-title="Корпоративные ежедневники и ручки"
         data-description="Комплект брендированных ежедневников и ручек."
         data-image="assets/work-34.jpg" aria-label="Посмотреть работу: Корпоративные ежедневники и ручки">
         <span class="work-photo"><img src="assets/work-34.jpg" alt="Корпоративные ежедневники и ручки" width="450" height="800" loading="lazy" decoding="async"></span>
         <span class="work-meta"><strong>Корпоративные ежедневники и ручки</strong><small>Корпоративные подарки</small></span>
       </button>
-      <button class="work-card" type="button" data-category="cat-9"
-        data-title="Фартуки с фирменным логотипом"
-        data-description="Брендирование рабочей одежды."
-        data-image="assets/work-35.jpg" aria-label="Посмотреть работу: Фартуки с фирменным логотипом">
-        <span class="work-photo"><img src="assets/work-35.jpg" alt="Фартуки с фирменным логотипом" width="600" height="800" loading="lazy" decoding="async"></span>
-        <span class="work-meta"><strong>Фартуки с фирменным логотипом</strong><small>Текстиль и брендирование</small></span>
+<button class="work-card" type="button" data-category="cat-4"
+        data-title="QR-таблички и стойки для объектов"
+        data-description="Информационные таблички с QR-кодами."
+        data-image="assets/work-02.jpg" aria-label="Посмотреть работу: QR-таблички и стойки для объектов">
+        <span class="work-photo"><img src="assets/work-02.jpg" alt="QR-таблички и стойки для объектов" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>QR-таблички и стойки для объектов</strong><small>Таблички и бейджи</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-7"
+        data-title="Ежедневник с персональной гравировкой"
+        data-description="Именной ежедневник и фирменная ручка."
+        data-image="assets/work-11.jpg" aria-label="Посмотреть работу: Ежедневник с персональной гравировкой">
+        <span class="work-photo"><img src="assets/work-11.jpg" alt="Ежедневник с персональной гравировкой" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Ежедневник с персональной гравировкой</strong><small>Корпоративные подарки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-6"
+        data-title="Акриловая награда"
+        data-description="Настольная награда из цветного акрила."
+        data-image="assets/work-12.jpg" aria-label="Посмотреть работу: Акриловая награда">
+        <span class="work-photo"><img src="assets/work-12.jpg" alt="Акриловая награда" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Акриловая награда</strong><small>Награды и кубки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-5"
+        data-title="Декоративная настенная табличка"
+        data-description="Фигурное изделие с лазерной резкой."
+        data-image="assets/work-09.jpg" aria-label="Посмотреть работу: Декоративная настенная табличка">
+        <span class="work-photo"><img src="assets/work-09.jpg" alt="Декоративная настенная табличка" width="600" height="337" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Декоративная настенная табличка</strong><small>Гравировка и лазерная резка</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-6"
+        data-title="Кубок по теннису"
+        data-description="Многослойная награда с полноцветной вставкой."
+        data-image="assets/work-15.jpg" aria-label="Посмотреть работу: Кубок по теннису">
+        <span class="work-photo"><img src="assets/work-15.jpg" alt="Кубок по теннису" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Кубок по теннису</strong><small>Награды и кубки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-6"
+        data-title="Комплект спортивных наград"
+        data-description="Кубки и медали для теннисного турнира."
+        data-image="assets/work-16.jpg" aria-label="Посмотреть работу: Комплект спортивных наград">
+        <span class="work-photo"><img src="assets/work-16.jpg" alt="Комплект спортивных наград" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Комплект спортивных наград</strong><small>Награды и кубки</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-9"
+        data-title="Футболка с полноцветным принтом JUDO"
+        data-description="Нанесение изображения на белый текстиль."
+        data-image="assets/work-19.jpg" aria-label="Посмотреть работу: Футболка с полноцветным принтом JUDO">
+        <span class="work-photo"><img src="assets/work-19.jpg" alt="Футболка с полноцветным принтом JUDO" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Футболка с полноцветным принтом JUDO</strong><small>Текстиль и брендирование</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-8"
+        data-title="Вымпел с гербом и вышивкой"
+        data-description="Памятный вымпел с эмблемой."
+        data-image="assets/work-22.jpg" aria-label="Посмотреть работу: Вымпел с гербом и вышивкой">
+        <span class="work-photo"><img src="assets/work-22.jpg" alt="Вымпел с гербом и вышивкой" width="451" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Вымпел с гербом и вышивкой</strong><small>Вымпелы и сувенирная продукция</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-5"
+        data-title="Деревянный органайзер с гравировкой"
+        data-description="Настольный органайзер с надписью."
+        data-image="assets/work-23.jpg" aria-label="Посмотреть работу: Деревянный органайзер с гравировкой">
+        <span class="work-photo"><img src="assets/work-23.jpg" alt="Деревянный органайзер с гравировкой" width="450" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Деревянный органайзер с гравировкой</strong><small>Гравировка и лазерная резка</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-2"
+        data-title="Подарочный сертификат"
+        data-description="Печатный сертификат с фирменным оформлением."
+        data-image="assets/work-25.jpg" aria-label="Посмотреть работу: Подарочный сертификат">
+        <span class="work-photo"><img src="assets/work-25.jpg" alt="Подарочный сертификат" width="450" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Подарочный сертификат</strong><small>Буклеты, меню и сертификаты</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-2"
+        data-title="Презентационные папки PANORAMA"
+        data-description="Фирменные папки и печатные материалы."
+        data-image="assets/work-27.jpg" aria-label="Посмотреть работу: Презентационные папки PANORAMA">
+        <span class="work-photo"><img src="assets/work-27.jpg" alt="Презентационные папки PANORAMA" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Презентационные папки PANORAMA</strong><small>Буклеты, меню и сертификаты</small></span>
+      </button>
+<button class="work-card" type="button" data-category="cat-1"
+        data-title="Карточка косметолога"
+        data-description="Печатная карточка с контактами и мини-вложением."
+        data-image="assets/work-03.jpg" aria-label="Посмотреть работу: Карточка косметолога">
+        <span class="work-photo"><img src="assets/work-03.jpg" alt="Карточка косметолога" width="600" height="800" loading="lazy" decoding="async"></span>
+        <span class="work-meta"><strong>Карточка косметолога</strong><small>Визитки и карточки</small></span>
       </button>
       </div>
       <p class="portfolio-empty" id="portfolioEmpty" hidden>По вашему запросу ничего не найдено. Попробуйте другую категорию или слово.</p>
@@ -776,5 +764,12 @@
 })();
 </script>
 
+<nav class="mobile-dock" aria-label="Быстрая навигация">
+  <a class="dock-link is-current" data-section="top" href="#main" aria-current="location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg><span>Главная</span></a>
+  <a class="dock-link" data-section="portfolio" href="#portfolio"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.2"/><rect x="13" y="3" width="8" height="8" rx="1.2"/><rect x="3" y="13" width="8" height="8" rx="1.2"/><rect x="13" y="13" width="8" height="8" rx="1.2"/></svg><span>Работы</span></a>
+  <a class="dock-link" data-section="location" href="#location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Маршрут</span></a>
+  <a class="dock-link" data-section="contact" href="https://wa.me/79674257979" target="_blank" rel="noopener noreferrer" aria-label="Написать ALFA PRINT в WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-12.5 7.5L3 20l1-4.5A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8.2 8.5c.8 3 2.7 4.8 5.7 5.8l1.5-1.6 2 1"/></svg><span>Написать</span></a>
+</nav>
+<script src="assets/ui-upgrade.js" defer></script>
 </body>
 </html>
