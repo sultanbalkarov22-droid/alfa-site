@@ -209,6 +209,27 @@
 @media(prefers-reduced-motion:reduce){.location-route,.location-secondary{transition:none!important}}
 </style>
 
+<style>
+.site-quicknav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px auto 0}
+.site-quicknav a{display:flex;gap:8px;align-items:center;justify-content:center;min-height:45px;padding:0 16px;border:1px solid #e6d9d7;border-radius:99px;background:#fff;color:#252422;text-decoration:none;font-size:12px;font-weight:800;transition:transform .22s,box-shadow .22s}
+.site-quicknav a:hover{transform:translateY(-2px);box-shadow:0 7px 17px #00000010}
+.site-quicknav span{font-size:10px;color:#cb2831}
+.photo-preview{margin:20px auto 0;padding:clamp(19px,3vw,34px);border-radius:24px;border:1px solid #e7e4de;background:#fff;box-shadow:0 12px 40px #00000007}
+.photo-preview-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:22px}
+.photo-eyebrow{font-size:10px;letter-spacing:.12em;font-weight:800;color:#cf222c}
+.photo-preview-head h2{font-size:clamp(22px,3vw,33px);margin:8px 0 6px;letter-spacing:-.04em;color:#252422}
+.photo-preview-head p{font-size:13px;line-height:1.45;color:#77706a;margin:0;max-width:520px}
+.photo-preview-head a{font-size:12px;font-weight:750;color:#cf222c;text-decoration:none;white-space:nowrap}
+.photo-preview-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.photo-preview-grid a{position:relative;display:block;overflow:hidden;border-radius:14px;background:#f3f1ed;border:1px solid #e7e4df;aspect-ratio:4/5;text-decoration:none;transition:transform .22s,box-shadow .22s}
+.photo-preview-grid a:hover{transform:translateY(-4px);box-shadow:0 12px 25px #0002}
+.photo-preview-grid img{width:100%;height:100%;display:block;object-fit:contain;transition:transform .35s}
+.photo-preview-grid a:hover img{transform:scale(1.035)}
+.photo-preview-grid a span{position:absolute;left:8px;bottom:8px;padding:7px 10px;background:#fff;border-radius:8px;font-size:11px;font-weight:850;color:#262320;box-shadow:0 2px 10px #0002}
+.map-open-direct{position:absolute;z-index:2;right:10px;top:10px;border-radius:10px;background:#fff;color:#c11e29;padding:11px 13px;font-size:11px;font-weight:800;text-decoration:none;box-shadow:0 2px 15px #0003}
+@media(max-width:720px){.site-quicknav{margin-top:14px}.site-quicknav a{flex:1;white-space:nowrap;padding:0 10px}.photo-preview-head{align-items:flex-start;display:block}.photo-preview-head a{display:inline-block;margin-top:14px}.photo-preview-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.photo-preview{border-radius:20px;padding:18px 14px}.map-open-direct{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.site-quicknav a,.photo-preview-grid a,.photo-preview-grid img{transition:none!important}}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к контактам</a>
@@ -262,6 +283,25 @@
         <span class="visit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
         <div class="visit-info"><p class="visit-title">Ждём вас в Нальчике</p><p class="visit-address">ул. Тарчокова, 29</p><p class="visit-hours">Пн–Пт: 09:00–18:00 · Перерыв: 13:00–14:00<br>Сб–Вс: выходной</p></div>
         <a href="https://yandex.ru/maps/?rtext=~43.474545%2C43.575011&rtt=auto" target="_blank" rel="noopener noreferrer" aria-label="Построить маршрут в Яндекс Картах">Карта ↗</a>
+      </div>
+    </section>
+
+
+    <nav class="site-quicknav" aria-label="Быстрый переход по странице">
+      <a href="#portfolio">Наши работы <span>35 фото</span></a>
+      <a href="#location">Карта и маршрут <span>↗</span></a>
+    </nav>
+
+    <section class="photo-preview" aria-labelledby="previewTitle">
+      <div class="photo-preview-head">
+        <div><span class="photo-eyebrow">ИЗ НАШЕГО ПОРТФОЛИО</span><h2 id="previewTitle">Посмотрите наши работы</h2><p>Реальные заказы — от визиток до рекламных стендов и наград.</p></div>
+        <a href="#portfolio">Смотреть все 35 работ <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="photo-preview-grid">
+        <a href="#portfolio" aria-label="Посмотреть визитки"><img src="assets/work-30.jpg" alt="Визитки SEBA MEBEL" loading="eager"><span>Визитки</span></a>
+        <a href="#portfolio" aria-label="Посмотреть баннеры"><img src="assets/work-32.jpg" alt="Ролл-ап MissMira" loading="eager"><span>Баннеры</span></a>
+        <a href="#portfolio" aria-label="Посмотреть награды"><img src="assets/work-13.jpg" alt="Кубок Квартал" loading="eager"><span>Награды</span></a>
+        <a href="#portfolio" aria-label="Посмотреть фирменные ежедневники"><img src="assets/work-34.jpg" alt="Корпоративные ежедневники и ручки" loading="eager"><span>Сувениры</span></a>
       </div>
     </section>
 
@@ -562,8 +602,8 @@
           </div>
         </div>
         <div class="location-map">
-          <iframe src="https://yandex.ru/map-widget/v1/?ll=43.575011%2C43.474545&z=17&pt=43.575011%2C43.474545%2Cpm2rdm&l=map" title="Яндекс Карты — АЛЬФА ПРИНТ, Нальчик, улица Тарчокова, 29" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          <span class="location-map-caption">Нальчик · ул. Тарчокова, 29</span>
+          <iframe src="https://yandex.ru/map-widget/v1/?z=16&amp;ol=biz&amp;oid=147173314874" title="Яндекс Карты — АЛЬФА ПРИНТ, Нальчик, улица Тарчокова, 29" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <span class="location-map-caption">Нальчик · ул. Тарчокова, 29</span><a class="map-open-direct" href="https://yandex.ru/maps/org/147173314874/" target="_blank" rel="noopener noreferrer">Открыть Яндекс Карты ↗</a>
         </div>
       </div>
     </section>
