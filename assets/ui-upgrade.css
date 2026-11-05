@@ -13,7 +13,7 @@
 .portfolio-grid .work-meta strong{font-size:12px;line-height:1.38;color:#252423}
 .portfolio-grid .work-meta small{font-size:10px;color:#867f78}
 .portfolio-section{overflow:visible!important}
-.portfolio-filters{padding-bottom:9px;scrollbar-color:#dbcfc9 transparent}
+.portfolio-filters{width:100%;max-width:100%;padding-bottom:9px;scrollbar-color:#dbcfc9 transparent}
 .portfolio-search{background:#fff}
 .lightbox-image-wrap{background:#fdfcfb!important;border:1px solid #eeeae5}
 .lightbox-image{object-fit:contain!important;max-height:75vh}
@@ -21,9 +21,8 @@
 .location-map{background:#f4f1ed}
 .location-route:active,.location-secondary:active,.site-quicknav a:active,.dock-link:active{transform:scale(.96)}
 @media(prefers-reduced-motion:no-preference){
- .fx-ready .portfolio-grid .work-card:not(.work-in-view):not([hidden]){opacity:0;transform:translateY(15px)!important}
- .fx-ready .portfolio-grid .work-card.work-in-view:not([hidden]){opacity:1;transform:translateY(0)!important;transition:opacity .42s ease,transform .42s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,border-color .3s ease}
- .fx-ready .portfolio-grid .work-card.work-in-view:hover{transform:translateY(-4px)!important}
+ .fx-ready .portfolio-grid .work-card.work-in-view:not([hidden]){animation:work-soft-rise .46s ease both!important}
+ @keyframes work-soft-rise{from{opacity:.7;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 }
 .mobile-dock{display:none}
 @media(min-width:1440px){.portfolio-grid{columns:4!important;column-gap:20px!important}}
